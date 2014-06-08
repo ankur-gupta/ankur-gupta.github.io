@@ -1,4 +1,4 @@
 ankur-gupta.github.io
 =====================
 
-perfectlyrandom.org
+http://ankur-gupta.github.io
