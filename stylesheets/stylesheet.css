@@ -369,3 +369,50 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {}
+
+
+/* Link site title without changing color */
+header h1 a {
+  font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif; font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 48px;
+  color: #303030;
+  line-height: 1.2;
+}
+
+header h1 a:hover {
+  font-family: 'Chivo', 'Helvetica Neue', Helvetica, Arial, serif; font-weight: 900;
+  letter-spacing: -1px;
+  font-size: 48px;
+  color: #303030;
+  line-height: 1.2;
+}
+
+
+/* Blog post title */
+.post-header h1 {
+  font-size: 36px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  font-weight: bold;
+  color: #535353;
+}
+
+.posts {
+  list-style-type: square;
+}
+
+.posts li {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.posts .post-link {
+  font-size: 1.25em;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.authorline {
+  color: #535353;
+}

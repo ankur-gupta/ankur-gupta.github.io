@@ -1,0 +1,5 @@
+name: Perfectly Random
+subname: "random stuff about mathematics, logic and software"
+markdown: redcarpet
+pygments: true
+permalink: pretty
