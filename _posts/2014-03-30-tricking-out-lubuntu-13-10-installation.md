@@ -25,6 +25,6 @@ in the middle of a `dist-upgrade`, you may get an incorrect result.
 Here is a list of things I did.
 
 1. [Aero snap using keyboard]({% post_url 2014-03-30-aero-snap-using-keyboard %})
-2. [Increase mouse pointer speed]
+2. [Increase mouse pointer speed]({% post_url 2014-03-30-increase-mouse-pointer-speed%})
 
 
