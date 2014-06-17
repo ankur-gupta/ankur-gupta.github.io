@@ -24,8 +24,8 @@ future when I upgrade/re-install computers).
 
 Here are the steps I took.
 
-1. Add Keyboard Layout Handler to the LXPanel. Right click to access the 
-Keyboard Layout Handler Settings. Change the keyboard type to the correct Apple keyboard.
+1. Add Keyboard Layout Handler to the *LXPanel*. Right click to access the
+*Keyboard Layout Handler Settings*. Change the keyboard type to the correct Apple keyboard.
 I chose `applealu_ansi` because I have the *wired, aluminium Apple keyboard of the US variety*
 (as opposed to the European version). This will ensure that the keystrokes will at
 least be recognized. But, they won't all do as you want them to. You now need to edit
@@ -82,13 +82,14 @@ to
       </action>
     </keybind>
 ```
+
 by replacing `A (Alt)` to `W (Command)`.
 
 There are plenty more things you can do. You can download my `lubuntu-rc.xml`
 file and look through it yourself. On general principle, you should make a copy of
 your `lubuntu-rc.xml` file before you edit it or overwrite it.
 
-3. Now, we come to the text editors. Remember when I said this is a slow and painful process.
+3.  Now, we come to the text editors. Remember when I said this is a slow and painful process.
 That's because you will need to edit the keyboard shortcuts for every application
 separately. I use [Sublime Text 3](http://www.sublimetext.com). You can download
 this `Default (Linux).sublime-keymap` file that has the shortcuts I use. You can add the
@@ -100,6 +101,7 @@ more shortcuts later on. Take a look at default shortcuts under
 
 You may not like all the shortcuts that I have in the file. But it's always worth it to look
 over the file to familiarize yourself with your text editor shortcuts.
+
 
 4. You should feel your sublime working quite smoothly after the above changes.
 But now comes the big problem. There will always be some applications which do not
@@ -139,9 +141,17 @@ whichever one you like. Phrases might feel a tad simpler. I describe both method
 
 ####Scripts
 Click on *New > Script*. Give the script a name such as *copy*. In the big text box, replace
-[python toolbar="false"]# Enter script code[/python]
+
+```python
+# Enter script code
+```
+
 by
-[python toolbar="false"]keyboard.send_keys("<ctrl>+c")[/python]
+
+```python
+keyboard.send_keys("<ctrl>+c")
+```
+
 Then, set the *Hotkey* as `Super+c`. Save the script by clicking on *Save*. Saving the script will create a file `copy.txt` in the folder location you chose. Repeat this method for many other shortcuts. You can take a look or download my autokey folder here. <br/>
 
 ####Phrases
