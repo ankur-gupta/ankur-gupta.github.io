@@ -3,3 +3,5 @@ subname: "random stuff about mathematics, logic and software"
 markdown: redcarpet
 highlighter: pygments
 permalink: /:year/:month/:day/:title/
+redcarpet:
+  extensions: ["tables"]
