@@ -3,7 +3,6 @@ layout: post
 title: Hello World!
 author: Ankur Gupta
 date: 2014-03-30 02:25
-comments: true
 categories: [C, clojure, Octave/MATLAB, programming language, shell, Tech]
 ---
 

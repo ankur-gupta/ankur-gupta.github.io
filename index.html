@@ -6,7 +6,7 @@ title: Perfectly Random
 <dl class="posts">
   {% for post in site.posts %}
     <dt><a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-    <p class="authorline">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}</p>
+    <p class="authorline">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %} • <a href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a></p>
     </dt>
     <dd>{{ post.excerpt }}</dd><br/>
   {% endfor %}

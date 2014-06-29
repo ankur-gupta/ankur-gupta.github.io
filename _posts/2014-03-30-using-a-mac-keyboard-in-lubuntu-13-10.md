@@ -3,7 +3,6 @@ layout: post
 title: Using a Mac keyboard in Lubuntu 13.10
 date: 2014-03-30 04:51
 author: Ankur Gupta
-comments: true
 categories: [change shortcuts, keyboard, Lubuntu, lubuntu, mac, openbox, Tech]
 ---
 
