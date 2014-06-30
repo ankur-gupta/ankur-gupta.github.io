@@ -1,6 +1,6 @@
 ---
 layout: post
-Title: Getting around with Liquid, Markdown, javascript and HTML 
+title: Getting around with Liquid/Markdown/Javascript/HTML 
 ---
 
 To productively work with Github Pages, one has to know their way around Liquid, 
