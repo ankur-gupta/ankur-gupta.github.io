@@ -3,7 +3,7 @@ layout: post
 Title: Adding Disqus to your jekyll powered Github Pages
 ---
 
-I transferred my blog from a [Wordpress](old.perfectlyrandom.org) theme to Jeyll/Github Pages 
+I transferred my blog from a [Wordpress](http://old.perfectlyrandom.org) theme to Jeyll/Github Pages 
 because I liked the idea of writing up a post in [Markdown](http://daringfireball.net/projects/markdown/) 
 in my [favorite text editor](http://www.sublimetext.com/3) and then using [git](http://git-scm.com/) 
 to push the changes to [Github](https://github.com/). Add to that the speed and simplicity 
