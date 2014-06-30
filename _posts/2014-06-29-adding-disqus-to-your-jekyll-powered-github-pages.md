@@ -116,7 +116,7 @@ This is the snippet from [`index.html`](https://github.com/ankur-gupta/ankur-gup
 and, this is the snippet from [`_includes/title-with-author.html`](https://github.com/ankur-gupta/ankur-gupta.github.io/blob/master/_includes/title-with-author.html):
 
 ```html
-{% raw%}
+{% raw %}
 <a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{page.url}}"></a>
 {% endraw %}
 ```
