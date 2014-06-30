@@ -56,7 +56,7 @@ HTML, CSS and Javascript.
 Github Pages/Jekyll uses both HTML (`.html`) and Markdown(`.md`) pages. In both kind of pages, 
 Liquid gets a first pass at things. This means that if you have a Liquid tag, then it will be 
 interpreted first. Then, if it is a `.md` page, the Markdown will be converted to HTML 
-(including any javascript conversion).
+(including any javascript conversion) after Liquid tags are handled.
 
 If you're wondering why this is important, then consider the following situation. You want to 
 add a Liquid snippet to your blog, which should not run 
@@ -84,7 +84,10 @@ might want to look at the [source code of this page](https://github.com/ankur-gu
 
 
 Also note that, using an HTML comment `<!-- Liquid tag -->` will not serve as a substitute 
-for the Liquid quoting/escaping. The Liquid tag enclosed between by the HTML comment 
+for the Liquid quoting/escaping. As a result, you can't *simply* comment out a 
+Liquid tag using HTML comment construct. 
+
+The Liquid tag enclosed between by the HTML comment 
 construct will not prevent the Liquid engine from evaluating it's Liquid tag. 
 If the Liquid tag evaluation succeeds, the result will be enclosed by the HTML comment 
 construct. If everything else works out as well, then the overall result will an 
