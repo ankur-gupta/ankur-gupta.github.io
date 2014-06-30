@@ -3,9 +3,9 @@ layout: post
 title: Aero snap using keyboard
 author: Ankur Gupta
 date: 2014-03-30 03:32
-comments: true
 categories: [aero snap, Lubuntu, lubuntu, openbox, Tech]
 ---
+
 If you're using Lubuntu 13.10, then chances are that you can snap a window to
 any of the screen edges (top, bottom, right or left) by pressing
 `Windows+ArrowKey`. Or, if you're on a Mac, then `Command+ArrowKey`.
