@@ -12,6 +12,7 @@ animated: false
 markdown: redcarpet
 highlighter: pygments
 permalink: /:year/:month/:day/:title/
+animated: true
 paginate: 6
 sass:
   compressed: true
