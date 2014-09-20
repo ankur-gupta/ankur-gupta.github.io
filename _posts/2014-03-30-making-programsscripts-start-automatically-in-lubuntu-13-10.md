@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Making programs/scripts start automatically in Lubuntu 13.10
+title: Setting up autostart in Lubuntu
+summary: Making programs and scripts start automatically in Lubuntu 13.10
 date: 2014-03-30 09:01
 author: Ankur Gupta
-
+update_date: 2014-09-19
 categories: [autostart, Lubuntu, lubuntu 13.10, startup, Tech]
 ---
 
