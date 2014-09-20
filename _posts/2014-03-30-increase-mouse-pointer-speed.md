@@ -3,6 +3,8 @@ layout: post
 title: Increase mouse pointer speed
 date: 2014-03-30 04:31
 author: Ankur Gupta
+update_date: 2014-09-19
+summary: Nobody likes a slow mouse. Learn how you can make it fast.
 categories: [Lubuntu, lubuntu, mouse pointer speed, openbox, Tech]
 ---
 

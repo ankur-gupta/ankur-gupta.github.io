@@ -1,16 +1,28 @@
 ---
-layout: page
-title: Perfectly Random
+layout: default
 ---
 
-<dl class="posts">
-  {% for post in site.posts %}
-    <dt><a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-    <p class="authorline">{{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %} • <a href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a></p>
-    </dt>
-    <dd>{{ post.excerpt }}</dd><br/>
-  {% endfor %}
-</dl>
+<div class="home">
 
+  <div class="posts">
+    {% for post in paginator.posts %}
+      <div class="post {% if site.animated %}animated fade-in-down{% endif %}">
+        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} • 
+          <a class="post-meta" href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
+        </p>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
+          <h3 class="h2 post-title">{{ post.title }}</h3>
+          {% if post.summary %}
+            <p class="post-summary">{{ post.summary }}</p>
+          {% else %}
+            <p class="post-summary">{{ post.excerpt | truncatewords:20 }}</p>
+          {% endif %}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 
+  {% include pagination.html %}
 
+  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+</div>

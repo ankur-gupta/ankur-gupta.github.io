@@ -1,2 +1,28 @@
-<em>Built using
-<a href="https://github.com/ankur-gupta/jekyll-tactile-theme">jekyll-tactile-theme</a></em>
+<footer class="footer">
+  <div class="p2 wrap">
+    <div class="measure mt1 center">
+      <small>
+        Built using <a href="http://pixyll.com">Pixyll</a>.
+        <br/>
+        <a href="https://github.com/ankur-gupta/ankur-gupta.github.io"><img src="/images/GitHub-Mark-64px.png" alt="GitHub" style="height:1rem;width:1rem"></img></a>
+        &nbsp;
+        <a href="{{ "/feed.xml" | prepend: site.baseurl }}"><img src="/images/feed-icon-28x28.png" alt="RSS" style="height:1rem;width:1rem"></img></a>
+        &nbsp;
+        <a href="http://www.linkedin.com/in/ankurguptawisc"><img src="/images/InBug-60px-R.png" alt="LinkedIn" style="height:1rem;width:1rem;margin-bottom"></img></a>
+      </small>
+    </div>
+  </div>
+</footer>
+
+{% if site.google_analytics %}
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '{{ site.google_analytics }}', 'auto');
+ga('send', 'pageview');
+
+</script>
+{% endif %}

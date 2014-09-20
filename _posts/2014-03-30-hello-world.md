@@ -3,6 +3,7 @@ layout: post
 title: Hello World!
 author: Ankur Gupta
 date: 2014-03-30 02:25
+update_date: 2014-09-19
 categories: [C, clojure, Octave/MATLAB, programming language, shell, Tech]
 ---
 
@@ -10,7 +11,10 @@ categories: [C, clojure, Octave/MATLAB, programming language, shell, Tech]
 This is my customary Hello World! post. To make it fun, here is "Hello World!" in
 every language I know.
 
-####*Clojure*
+
+
+
+#### Clojure
 (try it out yourself <a href="http://tryclj.com/" target="_blank">here</a>)
 
 ```clojure
@@ -18,37 +22,37 @@ every language I know.
 ```
 
 
-####*R*
+#### R
 {% highlight R %}
 print("Hello World!")
 {% endhighlight %}
 
 
-####*Python 3*
+#### Python 3
 ```python
 print("Hello World!")
 ```
 
 
-####*Perl*
+#### Perl
 ```perl
 print "Hello World!"
 ```
 
 
-####*Bash*
+#### Bash
 ```bash
 echo 'Hello World!'
 ```
 
-####*Octave/MATLAB*
+#### Octave/MATLAB
 {% highlight Octave %}
 disp('Hello World!')
 {% endhighlight %}
 
 
 
-####*C/C++*
+#### C/C++
 ```c
 #include<stdio.h>
 
@@ -59,13 +63,13 @@ void main()
 ```
 
 
-####*English*
+#### English
 ```
 Hello World!
 ```
 
 
-####*Hindi*
+#### Hindi
 ```
 विश्व नमस्कार!
 ```

@@ -1,7 +1,19 @@
-name: Perfectly Random
-subname: "random stuff about mathematics, logic and software"
+# Site settings
+title: Perfectly Random
+email: ankur@perfectlyrandom.org
+author: Ankur Gupta
+description: "random stuff about mathematics, logic and software"
+baseurl: ""
+url: "http://perfectlyrandom.org"
+google_analytics:
+animated: false
+
+# Build settings
 markdown: redcarpet
 highlighter: pygments
 permalink: /:year/:month/:day/:title/
+paginate: 6
+sass:
+  compressed: true
 redcarpet:
   extensions: ["tables"]

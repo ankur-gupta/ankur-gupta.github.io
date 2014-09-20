@@ -1,12 +1,11 @@
 ---
 layout: post
-title: Getting around with Liquid/Markdown/Javascript/HTML 
+title: Navigating Jekyll parsing
+update_date: 2014-09-19
 ---
 
 To productively work with Github Pages, one has to know their way around Liquid, 
-Markdown, javascript and HTML. 
-
-
+Markdown, Javascript and HTML. 
 
 
 #### Liquid
