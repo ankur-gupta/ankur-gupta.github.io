@@ -6,7 +6,7 @@ description: "random stuff about mathematics, logic and software"
 baseurl: ""
 url: "http://perfectlyrandom.org"
 google_analytics:
-animated: false
+animated: true
 
 # Build settings
 markdown: redcarpet
