@@ -93,3 +93,12 @@ pre {
 .highlight .k {
 	color: #000000;
 }
+
+tr, th, td, {
+  margin: 0;
+  padding: 2px;
+  border: 1px solid black;
+  vertical-align: baseline;
+}
+
+
