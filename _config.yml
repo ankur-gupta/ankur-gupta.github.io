@@ -16,4 +16,4 @@ paginate: 6
 sass:
   compressed: true
 redcarpet:
-  extensions: ["tables"]
+  extensions: ["tables", "footnotes"]
