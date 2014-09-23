@@ -3,6 +3,7 @@ layout:     post
 title:      Try out the fish shell
 date:       2014-09-21
 summary:    Fish is a new shell with tons of cool features.
+update_date: 2014-09-22
 categories: fish shell bash
 ---
 
@@ -90,7 +91,17 @@ I am sure there are many more features of fish which I have not yet discovered y
 
 ### Installing fish
 
-1. The post on [Hacker Codex](http://hackercodex.com/guide/install-fish-shell- mac-ubuntu/) is the best page I found for installing and setting up fish. 
+1. Make sure you get fish v2.1.0 or later. Fish v2.0.0 does not have the
+    latest `Tab`-completion tricks that I described. 
+    
+    For Mac OSX, the post on [Hacker Codex](http://hackercodex.com/guide/install-fish-shell-mac-ubuntu/) is the best page I found for installing and setting up fish. 
+
+    For Ubuntu, you can dowload the `.deb` [here](http://fishshell.com/) and then use the following command
+
+      ```bash
+      sudo dpkg -i <fish-deb-file>
+      ```
+ 
 2. The [fish official tutorial](http://fishshell.com/docs/current/tutorial.html) is a good reference for customizing fish to your taste. The documentation is [here](http://fishshell.com/docs/current/index.html). 
 3. You probably would want to install [Tacklebox](https://github.com/justinmayer/tacklebox) which automatically installs [Tackle](https://github.com/justinmayer/tackle).
 4. Install [fishmarks](https://github.com/techwizrd/fishmarks).
@@ -99,14 +110,29 @@ I am sure there are many more features of fish which I have not yet discovered y
 ### Some tips and tricks and snippets
 
 1.  Some plugins of fish may have dependencies that you may need to install.
-    For example, if you find your fish prompt complaining about something called `vcprompt`, you need to install it 
+    For example, if you find your fish prompt complaining about something called `vcprompt`, you need to install it. 
+
+    Funnily enough, it's easier to install `vcprompt` on Mac OSX then on ubuntu.
 
     ```bash
     # On Mac OSX
     brew install vcprompt
     ```
 
-    Same goes for `grc`. Simiarly, if you have a [mercurial](http://mercurial.selenic.com/) repository, you might need to install [`hg-prompt`](http://sjl.bitbucket.org/hg-prompt/installation/).  
+    On Ubuntu, you will need to manually install `vcprompt` by building it from source. [These](http://choorucode.com/2014/05/22/vcprompt/) commands worked for me
+
+    ```bash
+    # On ubuntu
+    hg clone https://bitbucket.org/gward/vcprompt
+    cd vcprompt
+    autoconf
+    ./configure
+    make
+    sudo make install
+    ```
+
+
+    Same goes for `grc`. Simiarly, if you have a [mercurial](http://mercurial.selenic.com/) repository, you might need to install [`hg-prompt`](http://sjl.bitbucket.org/hg-prompt/installation/). [These](http://sjl.bitbucket.org/hg-prompt/installation/) instructions worked for me on both Mac OSX and on Ubuntu.
 
 2. Set the `urdh` theme by adding this to your `~/config/fish/config.fish` file
 
