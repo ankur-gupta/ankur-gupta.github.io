@@ -8,7 +8,7 @@ I love the fact that my terminal can stay on top of other windows, especially my
 
 ![Terminal on top of text editor](/assets/terminal-on-top-of-text-editor.png)
 
-Once upon a time, I managed to do this in MacOS Mavericks with an app called [Afloat](http://afloat.en.softonic.com/mac). This made me happy but my happiness short-lived. 
+Once upon a time, I managed to do this in MacOS Mavericks with an app called [Afloat](http://afloat.en.softonic.com/mac). This made me happy but my happiness was short-lived. 
 
 On one of my Macs, I had to endure this problem: An annoying pop-up window with the words **"PlugSuit agent wants to make changes ... "** would pop up every hour and ask for my password. 
 
