@@ -39,7 +39,7 @@ EasySIMBL is an incredibly well-thought out piece of code for various reasons:
 
 Talk about being easy.
 
-I installed EasySIMBL and opened it. It turns out that Afloat was already listed as a plugin and is already enabled. I checked the "Use SIMBL" checkbox and quit SIMBL, just like the instructions said. 
+I installed EasySIMBL and opened it. It turns out that Afloat was already listed as a plugin and was already enabled. I checked the "Use SIMBL" checkbox and quit SIMBL, just like the instructions said. 
 
 ![EasySIMBL window](/assets/easysimbl-window.png)
 
