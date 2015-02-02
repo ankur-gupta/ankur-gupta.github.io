@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Always on top in MacOS Yosemite
-date: 2015-01-31
+update_date: 2015-01-31
 ---
 
 I love the fact that my terminal can stay on top of other windows, especially my text editor. See the beautiful screenshot below. 
@@ -10,7 +10,7 @@ I love the fact that my terminal can stay on top of other windows, especially my
 
 Once upon a time, I managed to do this in MacOS Mavericks with an app called [Afloat](http://afloat.en.softonic.com/mac). This made me happy but my happiness was short-lived. 
 
-On one of my Macs, I had to endure this problem: An annoying pop-up window with the words **"PlugSuit agent wants to make changes ... "** would pop up every hour and ask for my password. 
+On one of my Macs, I had to endure this [problem](http://infinite-labs.net/kb/plugsuit/ps-remove-on-10.6.html): An annoying pop-up window with the words **"PlugSuit agent wants to make changes ... "** would pop up every hour and ask for my password.
 
 If you think this is not that annoying, imagine that you're in the middle of a Google hangout meeting and you're sharing your screen; suddenly out of nowhere, this window appears and demands your password. Until you successfully enter your password, it keeps on reappearing. No matter, you do this and move on with your life. An hour passes. You are now in deep programming mode. You are hammering away at your keyboard, bending the esoteric rules of computing to your will. Suddenly, this window reappears and insists on your password as a ransom to let you keep on working for another hour. I endured this, just so I can keep one window on top of the others.
 
