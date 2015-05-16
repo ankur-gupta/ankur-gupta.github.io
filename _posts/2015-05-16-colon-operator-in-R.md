@@ -45,7 +45,7 @@ As long as both arguments to the `":"` function are `numeric` (or `integer`), we
 <br/>
 ### The Risk
 The use of colon operator is risky only if resulting behavior is unexpected. 
-The **common mistake** is to assume that `x:y` will **always return an increasing sequence** from `x` to `y`.
+A **common mistake** is to assume that `x:y` will **always return an increasing sequence** from `x` to `y`.
 
 For those switching from Octave/MATLAB to R, this is an especially common mistake. In Octave 3.8.2, `x:y` always returns an increasing 
 sequence from `x` to `y`. This means, when `x > y`, the returned sequence is an empty vector, as shown in this example
