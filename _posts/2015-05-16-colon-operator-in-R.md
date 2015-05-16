@@ -149,7 +149,7 @@ integer(0)
 ```
 
 In any programming language, absence of error is not sufficient to prove the correctness of code. This is especially important while coding in R.
-Given R's very forgiving nature, we need to be extra careful to ensure that correctness.
+Given R's very forgiving nature, we need to be extra careful to ensure correctness.
 
 Let's look at another example where use of the color operator produces unintended effects. The following function computes the sum over a vector. 
 
