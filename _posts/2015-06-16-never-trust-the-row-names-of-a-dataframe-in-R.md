@@ -342,4 +342,3 @@ From the above behavior of row names, we can see that row names should not reall
 1. To determine the number of rows, use `nrow()`.
 2. Do not use the row names as row index to access the dataframe.
 3. It's always safer to reset the row names by setting the `rownames()` to `NULL`.
-4. 
