@@ -91,7 +91,7 @@ Let's see if everything works. I press the same key combination again and ...
 ... this works too. Mission accomplished. Commence blog writing. 
 
 For one entire day, I have not experienced the extortionist demands for my password 
-from the "PlugSuit agent wants to make changes ... " window. I will update this post if 
+from the _"PlugSuit agent wants to make changes ... "_ window. I will update this post if 
 I run into that problem. 
 
 So, people, your prayers (and mine) have been answered. You can put one window on 
@@ -102,4 +102,13 @@ top of others. Here is how to do it:
 [here](http://www.macupdate.com/app/mac/22237/afloat). Install Afloat.
 3. Enable SIMBL and Afloat in the EasySIMBL window. Quit EasySIMBL.
 4. Enjoy.
+
+##### Update
+(June 18, 2015)
+
+As of today, the instructions above have worked very well for me. Afloat has been working nicely and silently. Here are some updates on issues people have faced and graciously reported:
+
+1. If you regularly see the pop-up window that says _Donate for Afloat_, try clicking on _Show Application_ button to go to the plugins folder and delete the file _Donate for Afloat.app_. If this doesn't work, try out the suggestions by Matt and Drew below in the comments.
+
+2. If you're willing to install SIMBL (though EasySIMBL could also potentially work) and then build the Afloat project in Xcode, try [this link](https://github.com/rinckd/afloat), as suggested by Paul Irish in the comments section. You can find an active community and issues [here](https://github.com/millenomi/afloat/issues). The benefit of building Afloat yourself is that the source code is maintained and has better compatibility with Yosemite. I have not tried out this approach myself because the downloaded binary file seems to work very nicely (jinx).
 
