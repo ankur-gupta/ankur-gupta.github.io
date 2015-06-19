@@ -2,6 +2,7 @@
 layout: post
 title: Never trust the row names of a dataframe in R
 date: 2015-06-16
+update_date: 2015-06-18
 categories: [R, dataframe, row names]
 ---
 
@@ -70,7 +71,57 @@ Now, if `cars` has 50 rows, `cars[-18, ]` contains 49 rows. But, by simply looki
 [1] 49
 ```
 
-Row names are **not** row numbers. We should always use `nrow()` to determine the number of rows in a dataframe. Row names can be misleading, especially for large dataframes. In fact, row names can be modified almost like column names. 
+Row names are **not** row numbers. We should always use `nrow()` to determine the number of rows in a dataframe. Row names can be misleading, especially for large dataframes.
+
+The numbers printed along side the columns of the dataframe are row names and not row numbers. What are row numbers and how do we distinguish row numbers from row names? The following helpful tip from [Ryan Garner](https://www.linkedin.com/in/ryanstevengarner) can help us answer this question. 
+
+#### Row names vs Row numbers
+
+Let's rearrange the rows of `cars` using `order()` function. 
+
+```
+> df <- cars[order(cars$dist), ]
+> df
+   speed dist
+1      4    2
+3      7    4
+2      4   10
+6      9   10
+12    12   14
+...
+47    24   92
+48    24   93
+49    24  120
+```
+
+The numbers `1, 3, 2, 6, 12 ..., 47, 47, 49` are row names. Row numbers (or row indices) are simply the consecutive sequence of integers from `1` to `nrow(df)`. Row numbers are **never** printed along side the dataframe. The second row (i.e. row number `2`) of `df` in this example may be obtained by 
+
+```
+> df[2, ] # Row number 2
+  speed dist
+3     7    4
+```
+
+As we can see, the second row (i.e. row number `2`) has row name `"3"`. We can obtain the same row of `df` by using the appropriate row name
+
+```
+> df["3", ]  # Row name "3"
+  speed dist
+3     7    4
+```
+
+However, the row name `"2"` is **not** the same as row number `2`.
+
+```
+> df["2", ]  # Row name "2"
+  speed dist
+2     4   10
+```
+
+In the construct, `df[x, ]`, we access either the row number or the row name depending upon the class of `x`. If `x` is `numeric` or `integer`, we access the row number `x`. If `x` is `character`, we access the row name `x`. It is easy to confuse row numbers for row names and vice versa. 
+
+This example naturally leads us to a question about uniqueness of row names. 
+Are row names necessarily unique? The answer is **yes**, as we will see in the next section. Row names, much like column names, can be modified as we can see in the next section. However, row names differ from column names in one aspect - row names are always unique (in contrast, two columns in a dataframe may have the exact same name). Uniqueness of row names ensures that `df["2", ]` will return a dataframe with exactly one row (even if the row name `"2"` does not exist but more on that in another post). 
 
 
 ### Behavior of Row Names
@@ -135,7 +186,7 @@ These examples demonstrate the behavior of row names.
     [1] "character"
     ```
 
-5. Row names may be reset by assigning NULL.
+5. Row names may be reset by assigning NULL. After this step, the row names are simply `character`-version of row numbers. 
 
     ```
     > df <- cars[-18, ]
@@ -224,7 +275,7 @@ These examples demonstrate the behavior of row names.
 
     In the above example, it appears that row names are all `NA`.
 
-    **Interesting!**
+    **Interesting.**
 
     So, row names cannot be assigned `NA` (as we saw in the examples earlier), but they seem to be stored as `NA`s.
 
@@ -294,7 +345,7 @@ These examples demonstrate the behavior of row names.
 
     In this case, the row names remain consistent no matter how we look at them.
 
-8. Creating a new dataframe by extraction does not automatically reset row names. Always remember to reset row names by assigning to NULL.
+8. Creating a new dataframe by extraction does not automatically reset row names. If you want the row names to match the row numbers, reset row names by assigning to `NULL`.
 
     ```
     > df <- cars[c(1, 18, 50), ]
@@ -337,8 +388,25 @@ These examples demonstrate the behavior of row names.
     ```
 
 ### Conclusion
-From the above behavior of row names, we can see that row names should not really be trusted. 
+From the above behavior of row names, we can see that row names should not really be trusted. Unfortunately, there are some R packages on CRAN that explicitly use the row names which often creates problems. 
+
+For example, let us say we need to write a function that accepts a dataframe as input and returns some purposefully selected rows as output. 
+
+```
+sample.rows <- function(df) {
+    # Select some rows from df
+    return(df[selected.rows, ])
+}
+```
+
+In order to write the function `sample.rows()`, we might use row names in such a way that we change the row names of `df`. The output of this function may then have different row names than the input `df`. The end-user of this function might actually expect that the row names would remain the unchanged. Thus, modifying row names is a usually not a good idea and so is writing code that depends too much on row names. 
+
+Here are a few tips that might help us avoid trouble.
 
 1. To determine the number of rows, use `nrow()`.
-2. Do not use the row names as row index to access the dataframe.
-3. It's always safer to reset the row names by setting the `rownames()` to `NULL`.
+2. Row name is the **not** same as row number (row number = row index). 
+3. Avoid the use of row names. Use row numbers instead.
+4. If row names must be used, always use `rownames()` instead of `attribute()`. At the very least, be consistent in the function used to extract row names.
+5. When writing functions, remember that the end-user (which might be you), may expect the row names to remain unchanged.
+5. Do not expect the row names to be in order. If you must use row names and you require row names to be in order, reset the row names by assigning `rownames()` to `NULL`.
+
