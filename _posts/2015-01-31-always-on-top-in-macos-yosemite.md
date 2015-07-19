@@ -1,8 +1,12 @@
 ---
 layout: post
 title: Always on top in MacOS Yosemite
-update_date: 2015-01-31
+date: 2015-01-31
+update_date: 2015-07-18
 ---
+
+_As the next installment in the never-ending cat-and-mouse game between Apple and the developers, [EasySIMBL stopped working](https://github.com/norio-nomura/EasySIMBL/issues/25) for many people after updating to version 10.10.4 (read comments). As suggested by others, Afloat can still be made to work using [SIMBL 0.9.9](http://www.culater.net/software/SIMBL/SIMBL.php). **See the instructions at the end.**_
+
 
 I love the fact that my terminal can stay on top of other windows, especially my text editor. 
 See the beautiful screenshot below. 
@@ -97,11 +101,16 @@ I run into that problem.
 So, people, your prayers (and mine) have been answered. You can put one window on 
 top of others. Here is how to do it:
 
+**Original instructions**   
+_(these probably won't work on OS 10.10.4; read July 18, 2015 update below)_
+
 1. Install [EasySIMBL](https://github.com/norio-nomura/EasySIMBL)
 2. Download Afloat [here](http://afloat.en.softonic.com/mac) or 
 [here](http://www.macupdate.com/app/mac/22237/afloat). Install Afloat.
 3. Enable SIMBL and Afloat in the EasySIMBL window. Quit EasySIMBL.
 4. Enjoy.
+
+<br/>
 
 ##### Update
 (June 18, 2015)
@@ -111,4 +120,40 @@ As of today, the instructions above have worked very well for me. Afloat has bee
 1. If you regularly see the pop-up window that says _Donate for Afloat_, try clicking on _Show Application_ button to go to the plugins folder and delete the file _Donate for Afloat.app_. If this doesn't work, try out the suggestions by Matt and Drew below in the comments.
 
 2. If you're willing to install SIMBL (though EasySIMBL could also potentially work) and then build the Afloat project in Xcode, try [this link](https://github.com/rinckd/afloat), as suggested by Paul Irish in the comments section. You can find an active community and issues [here](https://github.com/millenomi/afloat/issues). The benefit of building Afloat yourself is that the source code is maintained and has better compatibility with Yosemite. I have not tried out this approach myself because the downloaded binary file seems to work very nicely (jinx).
+
+<br/>
+
+##### Update
+(July 18, 2015)
+
+As of today, EasySIMBL stopped working on my Mac OS Yosemite 10.10.4. Surprisingly, I have another Mac, also Yosemite 10.10.4 with the same upgrades, on which EasySIMBL and Afloat are still working. EasySIMBL's problems with 10.10.4 have been documented [here](https://github.com/norio-nomura/EasySIMBL/issues/25) as pointed out by *cdz* in the comments. Fortunately, Afloat can still be made to work with SIMBL (instead of EasySIMBL) with very little effort (thanks to *cdz*!). Here are the instructions:
+
+**Copy Afloat and uninstall EasySIMBL**
+
+1. Open EasySIMBL. You can use `Command+Space` and type in `EasySIMBL` or open it from `~/Applications` or `/Applications`.
+2. Before we uninstall EasySIMBL, let's copy `Afloat.bundle` to somewhere else. You can click on `Show Plugins Folder` and copy the folder `Afloat.bundle` to somewhere you can get to later. This folder is all you need to get Afloat working.
+3. In EasySIMBL window, disable Afloat plugin and disable `Use SIMBL`.
+4. Remove the folder `EasySIMBL.app` from either `~/Applications` or `/Applications`. See [EasySIMBL github page](https://github.com/norio-nomura/EasySIMBL) to for reference.
+5. You may want to reboot (not strictly necessary but it helps with exorcism of ghosts).
+
+**Install SIMBL**
+
+1. Download [SIMBL 0.9.9](http://www.culater.net/software/SIMBL/SIMBL.php).
+2. Extract the downloaded archive and run the `.pkg` installer file. You may need to go to `System Preferences > Security & Privacy` to allow running the installer.
+3. Finish installation of SIMBL.
+
+**Enable Afloat as a SIMBL plugin**
+
+1. If you already have the `Afloat.bundle` folder, then simply copy/paste this folder into `/Library/Application Support/SIMBL/Plugins`.
+2. If you don't have `Afloat.bundle`, you have two choices:
+
+    a. Either build Afloat yourself as mentioned in the June 18, 2015 update above.
+
+    b. Follow the original instructions described in this page that use EasySIMBL. You may choose to simply install Afloat and search for the folder `Afloat.bundle`, instead. Once you obtain this folder, you can most likely uninstall Afloat. 
+3. Quit and restart windows that you want Afloat to work on. 
+
+
+
+
+
 
