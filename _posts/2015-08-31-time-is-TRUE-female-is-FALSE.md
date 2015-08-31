@@ -244,7 +244,7 @@ The solution is simple and obvious: use `TRUE` and `FALSE` instead of `T` and `F
 
     We won't have the same problem with `TRUE` and `FALSE` because these are reserved keywords or literals. R does not allow us to (re-)define a variable or a function named `TRUE` or `FALSE`.
 
-    Using `TRUE` and `FALSE` will make your code **tamper-proof** (for this particular kind of problem; you still need to remember lexical indexing). Another question is to ask is:
+    Using `TRUE` and `FALSE` will make our code **tamper-proof** (for this particular kind of problem; this doesn't solve the issues of lexical scoping in general).
 
 
 2. **Why don't we simply `rm()` the global variables `T` and `F` ?**
