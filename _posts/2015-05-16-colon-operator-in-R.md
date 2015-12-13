@@ -55,7 +55,7 @@ octave:1> 10:1
 ans = [](1x0)
 ```
 Most experienced Octave/MATLAB users tend to transfer their knowledge via a 
-_MATLAB to R conversion guides_ (such as [R for MATLAB users](http://mathesaurus.sourceforge.net/octave-r.html) and [MATLAB/R Reference](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf)). These guides often do not emphasize the subtle difference between the `:` constructs in these languages. 
+_MATLAB to R conversion guide_ (such as [R for MATLAB users](http://mathesaurus.sourceforge.net/octave-r.html) and [MATLAB/R Reference](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf)). These guides often do not emphasize the subtle difference between the `:` constructs in these languages. 
 
 
 Coming back to R, the colon operator is most often used in two situations.
@@ -151,7 +151,7 @@ integer(0)
 In any programming language, absence of error is not sufficient to prove the correctness of code. This is especially important while coding in R.
 Given R's very forgiving nature, we need to be extra careful to ensure correctness.
 
-Let's look at another example where use of the color operator produces unintended effects. The following function computes the sum over a vector. 
+Let's look at another example where use of the color operator produces unintended effects. The following function computes the sum over a vector.
 
 ```r
 mysum <- function(x) {
@@ -210,7 +210,7 @@ for(i in c()) {
 # Prints nothing
 ```
 
-A `for` loop over an empty `vector` is not executed. The problem is with the colon operator-based construct `1:length(c())`. 
+A `for` loop over an empty `vector` is not executed. So, the problem is not with the `for` loop, it is with the colon operator-based construct `1:length(c())`. 
 
 Yet another common source of bugs is the incorrect use of following constructs
 
@@ -382,10 +382,10 @@ So, how do we use the `:` operator? Instead of completely forbidding the use of 
 
 <br/>
 ### Summary
-As we discussed, a complete understanding of the `:` operator is essential, especially the fact that `1:0 = c(1, 0)`. The following one rule will help us avoid all mistakes.
+As we discussed, a complete understanding of the `:` operator is essential, especially the fact that `1:0 = c(1, 0)`. In addition, the following one rule will help us avoid all mistakes.
 
 <blockquote>
-  <p>
+<p>
   Use `:` only with hardcoded numbers, both in programming mode and interactive mode. For example, use of `1:10` in R scripts is okay.
   Use of `1:n` is dangerous and should be avoided.
 </p>
