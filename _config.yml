@@ -17,3 +17,4 @@ sass:
   compressed: true
 redcarpet:
   extensions: ["tables", "footnotes"]
+gems: ["jekyll-paginate"]
