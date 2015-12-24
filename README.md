@@ -16,5 +16,5 @@ The code for the layout and design of the website are based on the Jekyll theme 
 
 
 ### History
-- Moved away from [Pixyll theme](http://www.pixyll.com) on December 20, 2015.
+- Moved away from [Pixyll theme](http://www.pixyll.com) on December 24, 2015.
 - Moved away from [Jekyll version of the Tactile Theme](https://github.com/ankur-gupta/jekyll-tactile-theme) on September 19, 2014.

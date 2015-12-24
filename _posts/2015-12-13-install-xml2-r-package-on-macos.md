@@ -14,7 +14,7 @@ Installing [`xml2`](https://github.com/hadley/xml2) `R` package often fails due 
 The error occurs when `libxml2` is not found or a wrong version of `libxml2`.
 This is how the error looks.
 
-```
+```r
 > install.packages("xml2")
 ...
 * installing *source* package ‘xml2’ ...
@@ -41,14 +41,14 @@ Execution halted
 
 `xml2` package contains a bash script called `configure` which determines the location of `libxml2`. You can take a look at this [configure](https://github.com/hadley/xml2/blob/master/configure) on GitHub. This script first attempts to use `xml2-config` to determine the location. On my system, `xml2-config` is installed by `anaconda`.
 
-```
+```bash
 $ which xml2-config
 /Users/<username>/anaconda/bin/xml2-config
 ```
 
 On my system, `xml2-config` tool points to the `libxml2` installed by `anaconda`, which happens to be incompatible with `R` `xml2` package.
 
-```
+```bash
 $ xml2-config --libs
 -L/Users/<username>/anaconda/lib -lxml2 -lz -liconv -lm
 $ xml2-config --cflags
@@ -57,14 +57,14 @@ $ xml2-config --cflags
 
 If `xml2-config` is not available, then `configure` script checks for `libxml2` using the `pkg-config` tool.
 
-```
+```bash
 $ which pkg-config
 /usr/local/bin/pkg-config
 ```
 
 Again, in my case, this `pkg-config` tool points to the MacOS system `libxml2` headers and libraries. These may or may not be compatible with `R` `xml2` package. In my case, these happened to be compatible.
 
-```
+```bash
 $ pkg-config --cflags libxml-2.0
 -I/usr/include/libxml2
 $ pkg-config --libs libxml-2.0
@@ -89,7 +89,7 @@ For both solutions, we will need to download the [source code](https://cran.r-pr
 We will modify the `configure` script in the source code. The modification will cause `configure` script to use the `libxml2` location 
 provided by `pkg-config`. This can be done by commenting out the following relevant lines in the `configure` file
 
-```
+```bash
 # Use xml2-config if available
 if [ $(command -v xml2-config) ]; then
   PKGCONFIG_CFLAGS=$(xml2-config --cflags)
@@ -102,7 +102,7 @@ fi
 
 and replacing them by these lines
 
-```
+```bash
 if [ $(command -v pkg-config) ]; then
   PKGCONFIG_CFLAGS=$(pkg-config --cflags $PKG_CONFIG_NAME)
   PKGCONFIG_LIBS=$(pkg-config --libs $PKG_CONFIG_NAME)
@@ -113,7 +113,7 @@ I recommend reading the code and then made the changes if you understand them.
 
 Now that we have modified the source code of the package, we need to re-build a new `.tar.gz` file. 
 
-```
+```bash
 # Navigate to inside the xml2 folder
 ~/Downloads/xml2 $ R CMD build .
 # This will create a xmlx_x.x.x.tar.gz file in the current folder
@@ -121,7 +121,7 @@ Now that we have modified the source code of the package, we need to re-build a 
 
 and then install this package from from source
 
-```
+```r
 # Start R in the folder that contains the xmlx_x.x.x.tar.gz file
 > install.packages("xml2_0.1.2.tar.gz", repos=NULL, type="source")
 ```
@@ -133,7 +133,7 @@ If you do not want to modify the `configure` script and you know the correct loc
 a custom install of `xml2` package by using the following command 
 (as specified by the `configure` script)
 
-```
+```bash
 # Navigate to inside the xml2 folder
 R CMD INSTALL --configure-vars='INCLUDE_DIR=/usr/include LIB_DIR=/usr/lib' .
 ```
@@ -146,7 +146,7 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
 
     Sometimes, `/usr/include` does not exist on MacOS because Xcode did not install correctly, as mentioned in this [Stack Overflow post](http://stackoverflow.com/questions/27328049/missing-usr-include-after-yosemite-and-xcode-install). The solution is simple, just run this command and follow instructions.
 
-    ```
+    ```bash
     xcode-select --install
     ```
 
@@ -155,7 +155,7 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
 
     The `configure` script requires `libxml-2.0.pc` file at the location where `libxml2` is installed. You can look for all `libxml-2.0.pc` files on your system
 
-    ```
+    ```bash
     $ locate libxml-2.0.pc
     /Users/<username>/anaconda/lib/pkgconfig/libxml-2.0.pc
     /Users/<username>/anaconda/pkgs/libxml2-2.9.0-1/lib/pkgconfig/libxml-2.0.pc
@@ -168,7 +168,7 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     `pkg-config` looks at these `.pc` metadata files to retrieve information,
     as mentioned in the manual pages of `pkg-config`
 
-    ```
+    ```bash
     $ man pkg-config
     ...
     pkg-config retrieves information about packages from special metadata files. 
@@ -178,7 +178,7 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
 
     These `libxml-2.0.pc` files contain location of `libxml2` headers and libraries. This information is usually very helpful.
 
-    ```
+    ```bash
     $ more /usr/local/Library/ENV/pkgconfig/10.11/libxml-2.0.pc
     prefix=/usr
     exec_prefix=${prefix}

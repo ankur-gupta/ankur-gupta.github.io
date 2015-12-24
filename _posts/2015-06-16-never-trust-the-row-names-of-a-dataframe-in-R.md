@@ -11,7 +11,7 @@ logo: list-ol
 Dataframes in R have both column names and row names. Column names, which are used frequently, give the dataframes in R their characteristic distinction.
 Row names, on the other hand, are rarely used. Usually, row names appear to be the same as row numbers but this is not the case. This quick blog post demonstrates that row names are not the same as row numbers. This is something most experienced R users are well aware of.
 
-```
+```r
 > df <- cars[1:5, ]
 > df
   speed dist
@@ -30,7 +30,7 @@ Row names, on the other hand, are rarely used. Usually, row names appear to be t
 ### A Tricky Situation
 Let's say we are working with R in the interactive mode. We have a dataframe that we are inspecting. We want to know various things about the dataframe such as how many rows and columns it has. We can print the dataframe like this:
 
-```
+```r
 > cars
    speed dist
 1      4    2
@@ -46,14 +46,14 @@ We can see that `cars` has 2 columns named `speed` and `dist`. When we print the
 
 This happens to be correct, in this case, as we can check using `nrow()`. But this is not true in general.
 
-```
+```r
 > nrow(cars)
 [1] 50
 ```
 
 Now, let's look at another dataframe.
 
-```
+```r
 > cars[-18, ]
    speed dist
 1      4    2
@@ -67,7 +67,7 @@ Now, let's look at another dataframe.
 
 Now, if `cars` has 50 rows, `cars[-18, ]` contains 49 rows. But, by simply looking at the printed row names, we would see that the last row still has the row name "50" but `cars[-18, ]` has only 49 rows.
 
-```
+```r
 > nrow(cars[-18, ])
 [1] 49
 ```
@@ -80,7 +80,7 @@ The numbers printed along side the columns of the dataframe are row names and no
 
 Let's rearrange the rows of `cars` using `order()` function.
 
-```
+```r
 > df <- cars[order(cars$dist), ]
 > df
    speed dist
@@ -97,7 +97,7 @@ Let's rearrange the rows of `cars` using `order()` function.
 
 The numbers `1, 3, 2, 6, 12 ..., 47, 47, 49` are row names. Row numbers (or row indices) are simply the consecutive sequence of integers from `1` to `nrow(df)`. Row numbers are **never** printed along side the dataframe. The second row (i.e. row number `2`) of `df` in this example may be obtained by
 
-```
+```r
 > df[2, ] # Row number 2
   speed dist
 3     7    4
@@ -105,7 +105,7 @@ The numbers `1, 3, 2, 6, 12 ..., 47, 47, 49` are row names. Row numbers (or row 
 
 As we can see, the second row (i.e. row number `2`) has row name `"3"`. We can obtain the same row of `df` by using the appropriate row name
 
-```
+```r
 > df["3", ]  # Row name "3"
   speed dist
 3     7    4
@@ -113,7 +113,7 @@ As we can see, the second row (i.e. row number `2`) has row name `"3"`. We can o
 
 However, the row name `"2"` is **not** the same as row number `2`.
 
-```
+```r
 > df["2", ]  # Row name "2"
   speed dist
 2     4   10
@@ -127,7 +127,7 @@ In the construct, `df[x, ]`, we access either the row number or the row name dep
 
 There is yet another way to index the rows of a dataframe -- using logicals.
 
-```
+```r
 > df <- cars[1:5, ]
 > df[rep(TRUE, 5), ]
   speed dist
@@ -145,7 +145,7 @@ Each row of the dataframe is selected if there is a corresponding `TRUE` value f
 If the corresponding value is `FALSE`, then that row is not selected. This is logical indexing.
 It seems easy enough and very useful too, as shown below:
 
-```
+```r
 > df$speed == 4
 [1]  TRUE  TRUE FALSE FALSE FALSE
 > df[df$speed == 4, ]
@@ -157,7 +157,7 @@ Things become complicated when we start combining logical indexing with R's vect
 behavior. What would happen if the logical vector we use to index the rows of `df` is
 shorter than `5` ?
 
-```
+```r
 > df[TRUE, ]
   speed dist
 1     4    2
@@ -175,7 +175,7 @@ R resolves this problem by employing vector recycling rules. The logical vector 
 repeated 5 times such that each row has
 `df[TRUE, ]` produces the same result as `df[rep(TRUE, 5), ]`. Let's look at another example.
 
-```
+```r
 > df[c(TRUE, FALSE), ]
   speed dist
 1     4    2
@@ -196,7 +196,7 @@ logical indexing is used when the index is logical. Another distinction is that 
 
 R has missing values in every data type.
 
-```
+```r
 > class(NA)
 [1] "logical"
 > class(as.character(NA))
@@ -210,7 +210,7 @@ R has missing values in every data type.
 By default, `NA` is a logical. So, what happens when we row-index a dataframe using `NA` ?
 It depends on the type of `NA`.
 
-```
+```r
 > df[NA, ]
      speed dist
 NA      NA   NA
@@ -224,7 +224,7 @@ Since `NA` is logical by default, logical indexing (with vector recycling) is us
 
 However, if we use row number indexing or row name indexing:
 
-```
+```r
 > df[as.numeric(NA), ]
    speed dist
 NA    NA   NA
@@ -235,7 +235,7 @@ NA    NA   NA
 
 Again, using `as.numeric(NA)` to index a dataframe makes no sense. Are we trying to obtain a missing row of the dataframe? R resolves this by returning rows full of `NA`s. No vector recycling is done, which means that we get back one row back for each element in the index. 
 
-```
+```r
 > df[rep(as.character(NA), 3), ]
      speed dist
 NA      NA   NA
@@ -254,7 +254,7 @@ These examples demonstrate the behavior of row names.
 
 1. Row names may be assigned any unique character or numeric values.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > rownames(df)
     [1] "1" "2" "3" "4" "5"
@@ -272,7 +272,7 @@ These examples demonstrate the behavior of row names.
 
 2. Attempt to set non-unique row names fails. But this doesn't mean that the row names of a dataframe cannot be made non-unique (see the next section).
 
-    ```
+    ```r
     > rownames(df) <- rep(1, 5)
     Error in `row.names<-.data.frame`(`*tmp*`, value = value) :
       duplicate 'row.names' are not allowed
@@ -282,7 +282,7 @@ These examples demonstrate the behavior of row names.
 
 3. Row names cannot be **assigned** `NA`. More on `NA`s below.
 
-    ```
+    ```r
     > df <- cars[1, ]
     > df
       speed dist
@@ -295,7 +295,7 @@ These examples demonstrate the behavior of row names.
 
 4. Output of `rownames()` is character, even if we set numeric row names.
 
-    ```
+    ```r
     > rownames(df) <- runif(5)
     > df
                        speed dist
@@ -313,7 +313,7 @@ These examples demonstrate the behavior of row names.
 
 5. Row names may be reset by assigning NULL. After this step, the row names are simply `character`-version of row numbers.
 
-    ```
+    ```r
     > df <- cars[-18, ]
     > rownames(df) <- NULL
     > df
@@ -334,7 +334,7 @@ These examples demonstrate the behavior of row names.
 
 6. Row names may be set individually.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > df
       speed dist
@@ -363,7 +363,7 @@ These examples demonstrate the behavior of row names.
 
 7. Even though row names appear to be "reset" or belong to `character` class, row names are stored _as-assigned_. Let's see this using an example.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > str(df)
     'data.frame':   5 obs. of  2 variables:
@@ -387,7 +387,7 @@ These examples demonstrate the behavior of row names.
 
     There are two functions that can can help us answer this question: `dump()` and `attributes()`.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > dump("df", "")
     df <-
@@ -406,7 +406,7 @@ These examples demonstrate the behavior of row names.
 
     Another function that lets us look at the internals of an R object is `attributes()`.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > attributes(df)
     $names
@@ -430,7 +430,7 @@ These examples demonstrate the behavior of row names.
 
     Anyways, now, let's look at a dataframe with explicitly assigned row names.
 
-    ```
+    ```r
     > df <- cars[1:5, ]
     > df
       speed dist
@@ -472,7 +472,7 @@ These examples demonstrate the behavior of row names.
 
 8. Creating a new dataframe by extraction does not automatically reset row names. If you want the row names to match the row numbers, reset row names by assigning to `NULL`.
 
-    ```
+    ```r
     > df <- cars[c(1, 18, 50), ]
     > df
        speed dist
@@ -485,7 +485,7 @@ These examples demonstrate the behavior of row names.
 
 9. We can add two dataframes that have different row names without an error or a warning. The row names of the first operand of `+` are preserved.
 
-    ```
+    ```r
     > df <- cars[c(1, 18, 50), ]
     > df2 <- cars[c(2, 19, 35), ]
     > df
@@ -521,7 +521,7 @@ Turns out, we can can specify non-unique row names, just not using the
 Let's look at a rather common way to create dataframes - using matrices.
 This is a matrix with row names (yes, matrices can have row names too):
 
-```
+```r
 mat <-
 structure(c(1L, 2L, 4L, 5L, 7L, 8L), .Dim = 2:3, .Dimnames = list(
     c("row1", "row2"), NULL))
@@ -529,7 +529,7 @@ structure(c(1L, 2L, 4L, 5L, 7L, 8L), .Dim = 2:3, .Dimnames = list(
 
 As we can see the row names of `mat` are different:
 
-```
+```r
 > mat
      [,1] [,2] [,3]
 row1    1    4    7
@@ -538,7 +538,7 @@ row2    2    5    8
 
 We can `rbind` two matrices having the same row names:
 
-```
+```r
 > rbind(mat, mat)
      [,1] [,2] [,3]
 row1    1    4    7
@@ -549,7 +549,7 @@ row2    2    5    8
 
 Now, we'd like to convert the above matrix into a dataframe:
 
-```
+```r
 > df <- as.data.frame(rbind(mat, mat))
 > dim(df)
 [1] 4 3
@@ -558,7 +558,7 @@ Now, we'd like to convert the above matrix into a dataframe:
 Looks like we succeeded, right? `df` seems to have the correct dimensions.
 Let's try printing it:
 
-```
+```r
 > print(df)
 Error in data.frame(V1 = c("1", "2", "1", "2"), V2 = c("4", "5", "4",  :
   duplicate row.names: row1, row2
@@ -570,7 +570,7 @@ Why?
 
 Because the row names of `df` are non-unique:
 
-```
+```r
 > dump("df", "")
 df <-
 structure(list(V1 = c(1L, 2L, 1L, 2L), V2 = c(4L, 5L, 4L, 5L),
@@ -582,7 +582,7 @@ This example demonstrates yet another quirk of dataframe row names. This error c
 
 One simple solution is to just reset the row names:
 
-```
+```r
 > rownames(df) <- NULL
 > print(df)
   V1 V2 V3
@@ -594,7 +594,7 @@ One simple solution is to just reset the row names:
 
 Alternatively, we can specify row names while converting a matrix to a dataframe:
 
-```
+```r
 > df <- as.data.frame(rbind(mat, mat), row.names = 1:4)
 > df
   V1 V2 V3
@@ -606,7 +606,7 @@ Alternatively, we can specify row names while converting a matrix to a dataframe
 
 Note that many R users run into this issue in another way:
 
-```
+```r
 > as.data.frame(rbind(mat, mat))
 Error in data.frame(V1 = c("1", "2", "1", "2"), V2 = c("4", "5", "4",  :
   duplicate row.names: row1, row2
@@ -622,7 +622,7 @@ From the above behavior of row names, we can see that row names should not reall
 
 For example, let us say we need to write a function that accepts a dataframe as input and returns some purposefully selected rows as output.
 
-```
+```r
 sample.rows <- function(df) {
     # Select some rows from df
     return(df[selected.rows, ])
