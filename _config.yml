@@ -1,8 +1,7 @@
 # Site wide configuration
 title: Perfectly Random
 description: 'random stuff about mathematics, logic and software'
-# url: http://perfectlyrandom.org
-url: http://127.0.0.1:4000
+url: http://perfectlyrandom.org
 date_format: '%B %d, %Y'
 fort_awesome_icon: 'cog fa-spin'
 
