@@ -2,9 +2,10 @@
 layout: post
 title: Always on top in MacOS Yosemite
 date: 2015-01-31
-update_date: 2015-07-18
+update_date: 2015-12-24
 logo: object-group
 ---
+_**Update:** This works on El Capitan as well._
 
 _As the next installment in the never-ending cat-and-mouse game between Apple and the developers, [EasySIMBL stopped working](https://github.com/norio-nomura/EasySIMBL/issues/25) for many people after updating to version 10.10.4 (read comments). As suggested by others, Afloat can still be made to work using [SIMBL 0.9.9](http://www.culater.net/software/SIMBL/SIMBL.php). **See the instructions at the end.**_
 
@@ -153,7 +154,12 @@ As of today, EasySIMBL stopped working on my Mac OS Yosemite 10.10.4. Surprising
     b. Follow the original instructions described in this page that use EasySIMBL. You may choose to simply install Afloat and search for the folder `Afloat.bundle`, instead. Once you obtain this folder, you can most likely uninstall Afloat. 
 3. Quit and restart windows that you want Afloat to work on. 
 
+<br/>
 
+##### Update
+(December 24, 2015)
+
+Rocky Wu has created a [script](https://github.com/rwu823/afloat) to install Afloat quickly. If you're looking for a quick solution, you might want to give that a try. Many people have used it successfully.
 
 
 

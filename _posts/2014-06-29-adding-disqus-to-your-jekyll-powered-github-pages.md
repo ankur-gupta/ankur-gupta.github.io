@@ -1,12 +1,12 @@
 ---
 layout: post
 title: Adding Disqus to your Jekyll
-update_date: 2014-09-19
-summary: Adding Disqus comments to your Jekyll powered Github Pages website is tricky. Read this to avoid making some of the mistakes that I made.
+update_date: 2015-12-24
+summary: Adding Disqus comments to your Jekyll powered GitHub Pages website is tricky. Read this to avoid making some of the mistakes that I made.
 logo: comments-o
 ---
 
-I transferred my blog from a [Wordpress](http://old.perfectlyrandom.org) theme to Jeyll/Github Pages 
+I transferred my blog from a [Wordpress](http://old.perfectlyrandom.org) theme to Jekyll/GitHub Pages
 because I liked the idea of writing up a post in [Markdown](http://daringfireball.net/projects/markdown/) 
 in my [favorite text editor](http://www.sublimetext.com/3) and then using [git](http://git-scm.com/) 
 to push the changes to [Github](https://github.com/). Add to that the speed and simplicity 
@@ -128,7 +128,7 @@ The [`_includes/title-with-author.html`](https://github.com/ankur-gupta/ankur-gu
 other uses `page.url`. 
 
 These steps seem like they would work, and they do. But there is one more thing that may help you 
-keep you from *setting your hair on fire*. Even when you do everything right, it takes Disqus 
+keep you from **setting your hair on fire**. Even when you do everything right, it takes Disqus 
 some time to handle the javascript (I have no idea why!). I noticed that the same exact code 
 would initially not show the comment count at all. But later on, after about 5-10 minutes and 
 after closing and reopening the web page, the comment count will magically appear. Similarly, 
@@ -136,6 +136,6 @@ even after I wrote a comment to test things out, the web page would not show the
 updated count. I had to wait another few minutes to get the correct count. So, before you go 
 unnecessarily "correcting" your code, just wait and see if it works. 
 
-
+**Reminder:** Remember to change the `disqus_shortname` to your own forum shortname. If you keep on using my shortname, `perfectlyrandom`, as shown in the javascript above, I will get an email from Disqus about the comment. 
 
 
