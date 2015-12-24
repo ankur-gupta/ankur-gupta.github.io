@@ -2,6 +2,7 @@
 layout: post
 title: Color highlighting for diff in ST3 
 date: 2015-02-08
+logo: paint-brush
 ---
 
 I frequently need to perform a `diff` on two of my open views in Sublime Text 3. I use the [EasyDiff](https://github.com/facelessuser/EasyDiff) package for this purpose. This package works nicely and shows me the `diff` changes in a new ST3 tab. The only problem was that the changes showed up without color highlighting, even when I was using **Diff** syntax highlighting. 

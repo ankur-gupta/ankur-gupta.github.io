@@ -6,6 +6,7 @@ author: Ankur Gupta
 update_date: 2014-09-19
 summary: Nobody likes a slow mouse. Learn how you can make it fast.
 categories: [Lubuntu, lubuntu, mouse pointer speed, openbox, Tech]
+logo: mouse-pointer
 ---
 
 

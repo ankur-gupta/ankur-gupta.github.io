@@ -5,6 +5,7 @@ date:       2014-09-21
 summary:    Fish is a new shell with tons of cool features.
 update_date: 2014-09-22
 categories: fish shell bash
+logo: terminal
 ---
 
 [Fish](http://fishshell.com/) is a new shell which makes using the command line much easier. If you've already got a very heavily configured traditional shell (like _bash_) then you probably have replacements for many features of fish. With fish, you get these features out of the box (for the most part). 

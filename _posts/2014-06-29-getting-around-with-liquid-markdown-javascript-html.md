@@ -2,6 +2,7 @@
 layout: post
 title: Navigating Jekyll parsing
 update_date: 2014-09-19
+logo: street-view
 ---
 
 To productively work with Github Pages, one has to know their way around Liquid,

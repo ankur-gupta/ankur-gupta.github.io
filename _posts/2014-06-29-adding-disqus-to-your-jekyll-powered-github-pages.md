@@ -3,6 +3,7 @@ layout: post
 title: Adding Disqus to your Jekyll
 update_date: 2014-09-19
 summary: Adding Disqus comments to your Jekyll powered Github Pages website is tricky. Read this to avoid making some of the mistakes that I made.
+logo: comments-o
 ---
 
 I transferred my blog from a [Wordpress](http://old.perfectlyrandom.org) theme to Jeyll/Github Pages 

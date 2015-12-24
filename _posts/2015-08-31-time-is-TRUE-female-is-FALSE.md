@@ -3,6 +3,7 @@ layout: post
 title: Time is TRUE, Female is FALSE
 date: 2015-08-31
 categories: [R, logicals, true, false]
+logo: hand-lizard-o
 ---
 
 ### Introduction

@@ -3,6 +3,7 @@ layout: post
 title: The Colon "Operator" in R 
 date: 2015-05-16
 categories: [R, colon]
+logo: exchange
 ---
 
 ### Background

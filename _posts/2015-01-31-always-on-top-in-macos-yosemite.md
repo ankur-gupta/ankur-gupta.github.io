@@ -3,6 +3,7 @@ layout: post
 title: Always on top in MacOS Yosemite
 date: 2015-01-31
 update_date: 2015-07-18
+logo: object-group
 ---
 
 _As the next installment in the never-ending cat-and-mouse game between Apple and the developers, [EasySIMBL stopped working](https://github.com/norio-nomura/EasySIMBL/issues/25) for many people after updating to version 10.10.4 (read comments). As suggested by others, Afloat can still be made to work using [SIMBL 0.9.9](http://www.culater.net/software/SIMBL/SIMBL.php). **See the instructions at the end.**_

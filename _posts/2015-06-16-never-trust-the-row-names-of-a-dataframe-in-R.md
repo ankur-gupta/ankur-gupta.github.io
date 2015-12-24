@@ -4,6 +4,7 @@ title: Never trust the row names of a dataframe in R
 date: 2015-06-16
 update_date: 2015-08-15
 categories: [R, dataframe, row names]
+logo: list-ol
 ---
 
 ### Introduction

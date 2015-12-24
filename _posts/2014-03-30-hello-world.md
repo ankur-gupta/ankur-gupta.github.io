@@ -5,6 +5,7 @@ author: Ankur Gupta
 date: 2014-03-30 02:25
 update_date: 2014-09-19
 categories: [C, clojure, Octave/MATLAB, programming language, shell, Tech]
+logo: certificate
 ---
 
 
