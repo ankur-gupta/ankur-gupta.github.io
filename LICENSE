@@ -1,0 +1,11 @@
+All original content (including text and images) belongs to Ankur Gupta and is not
+licensed for reproduction. This original content includes these files and folders:
+
+* `_posts`
+* `_drafts`
+* `assets`
+
+The code for the layout and design of the website are based on the
+Jekyll theme Trio (https://github.com/ankur-gupta/trio) and are available
+for reuse under the MIT License as specified in
+https://github.com/ankur-gupta/trio/blob/master/LICENSE.

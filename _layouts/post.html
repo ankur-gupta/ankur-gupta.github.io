@@ -1,45 +1,117 @@
 ---
 layout: default
-comments: true
 ---
 
-{% assign minutes = content | number_of_words | divided_by: 180 %}
-{% if minutes == 0 %}
-{% assign minutes = 1 %}
-{% endif %}
+<br/>
 
-<div class="post-header mb2">
-  <h1 class="py2">{{ page.title }}</h1>
-  <span class="post-meta">{{ page.date | date: "%b %-d, %Y" }} • 
-  <a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{page.url}}"></a>
-  </span>
-  <br>
-  {% if page.update_date %}
-    <span class="post-meta">Updated: {{ page.update_date | date: "%b %-d, %Y" }}</span><br>
-  {% endif %}
-  <span class="post-meta small">{{ minutes }} minute read</span>
-
+<div class="post-title">
+    <div class="logo">
+        {% if page.logo %}
+            <i class="fa fa-{{ page.logo }} fa-fw"></i>
+        {% else %}
+            <i class="fa fa-question-circle fa-fw"></i>
+        {% endif %}
+    </div>
+    <div class="title">
+        <h2>{{ page.title }}</h2>
+        {% if page.date %}
+        <span>
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+                {{ page.date | date: site.date_format }}
+                {% if site.disqus_shortname %}
+                    &middot;
+                    <a href="{{ site.url }}{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>
+                    {% if page.update_date %}
+                        &middot;
+                        Updated {{ page.update_date | date: site.date_format }}
+                    {% endif %}
+                {% endif %}
+            </time>
+        </span>
+        {% endif %}
+    </div>
 </div>
 
-<article class="post-content">
-  {{ content }}
-</article>
+<div>
+    <br/>
+</div>
 
-{% if page.comments %}
+{{ content }}
+
+<div class="sharing">
+    <br/>
+    <br/>
+<!-- Make an animated slide out drawer later -->
+    <ul>
+        <li><i class="fa fa-share-square-o"></i></li>
+        {% if site.sharing.twitter %}
+        <li><a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Twitter">
+                <i class="fa fa-twitter-square"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.sharing.linkedin %}
+        <li><a href="http://www.linkedin.com/shareArticle?url={{ site.url }}{{ page.url }}&title={{ page.title }}" rel="nofollow" target="_blank" title="Share on LinkedIn">
+                <i class="fa fa-linkedin-square"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.sharing.facebook %}
+        <li><a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Facebook">
+                <i class="fa fa-facebook-square"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.sharing.google_plus %}
+        <li><a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" rel="nofollow" target="_blank" title="Share on Google+">
+                <i class="fa fa-google-plus-square"></i>
+        </a></li>
+        {% endif %}
+
+        {% if site.sharing.reddit %}
+        <li><a href="http://reddit.com/submit?url={{ site.url }}{{ page.url }}&title={{ page.title }}" rel="nofollow" target="_blank" title="Share on Reddit">
+                <i class="fa fa-reddit-square"></i>
+        </a></li>
+        {% endif %}
+    </ul>
+</div>
+
+<br/>
+<br/>
+{% if site.disqus_shortname %}
 <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'perfectlyrandom'; // required: replace example with your forum shortname
-        // var disqus_developer = 1; // Comment out when the site is live
-        var disqus_identifier = "{{ page.url }}";
+<!-- Add Disqus comments (not comment count) -->
+<script type="text/javascript">
+    var disqus_shortname  = '{{ site.disqus_shortname }}';
+    var disqus_identifier = '{{ page.url }}';
+    var disqus_title      = '{{ page.title }}';
+    var disqus_url        = '{{ site.url }}{{ page.url }}';
+    // var disqus_developer = 1; // Comment out when the site is live
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+
+<!-- Add Disqus comment count (not the comments) -->
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname  = '{{ site.disqus_shortname }}';
+  // var disqus_developer = 1; // Comment out when the site is live
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+
+<noscript>
+    Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 {% endif %}
+

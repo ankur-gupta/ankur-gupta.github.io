@@ -1,31 +1,139 @@
 <!DOCTYPE html>
 <html>
-{% include head.html %}
-<body class="{% if site.animated %}animated fade-in-down{% endif %}">
-  <div class="site-wrap">
-    {% include header.html %}
 
-    <div class="post p2 p-responsive wrap" role="main">
-      <div class="measure">
-        {{ content }}
-      </div>
+<!-- Header: begin -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {% if page.title %}
+            {{ page.title | strip_html }} &#8211;
+        {% endif %}
+        {{ site.title | strip_html }}
+    </title>
+
+    <!-- Meta information for search engines -->
+    <meta name="author" content="{{ owner.name }}">
+    <meta name="description" content="{% if page.summary %}{{ page.summary | xml_escape }}{% else %}{{ site.description | xml_escape }}{% endif %}">
+    {% if page.categories %}
+        <meta name="keywords" content="{{ page.categories | join: ', ' }}">
+    {% endif %}
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary" />
+    {% if site.owner.twitter %}
+        <meta name="twitter:creator" content="@{{ site.owner.twitter }}" />
+    {% endif %}
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="twitter:description" content="{% if page.summary %}{{ page.summary | strip_html }}{% elsif page.excerpt %}{{ page.excerpt  | strip_html }}{% else %}{{ site.description | strip_html }}{% endif %}" />
+    <meta name="twitter:url" content="{{ site.url }}{{ page.url }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:description" content="{% if page.summary %}{{ page.summary | strip_html }}{% elsif page.excerpt %}{{ page.excerpt  | strip_html }}{% else %}{{ site.description | strip_html }}{% endif %}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.title | strip_html | xml_escape }}">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ site.url }}/css/trio.css">
+
+    <!-- Social buttons -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Set the canonical URL for search engines -->
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ site.url }}/feed.xml" />
+</head>
+<!-- Header: end -->
+
+<body>
+<div class="wrapper-for-content-outside-of-footer">
+    <div class="site-title">
+        <a href="{{ site.url }}">{{ site.title }}</a>
     </div>
+    <div class = "container">
+        {{ content }}
+    </div>
+</div>
+
+
+<!-- Some empty space between the page counter and footer -->
+<div>
+    <br/><br/><br/><br/>
+</div>
+
+
+<!-- Footer: begin -->
+<footer class="stickyfooter" role="contentinfo">
+  <div class="footer-logo">
+    <a href="{{ site.url }}"><i class="fa fa-{{ site.fort_awesome_icon }}"></i></a>
   </div>
+    <ul>
+      <li><a href="{{ site.url }}/about/">About</a></li>
+      <li><a href="{{ site.url }}/contact/">Contact</a></li>
+      <li><a href="{{ site.url }}/search/">Search</a></li>
+    </ul>
 
-  {% include footer.html %}
+    <div class="footer-secondary-links">
+      <ul>
+        <li>Powered by <a href="http://jekyllrb.com/">Jekyll</a>
+        using the <a href="{{ site.url }}">Trio</a> theme
+        </li>
+      </ul>
 
-  <script type="text/javascript">
-      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-      var disqus_shortname = 'perfectlyrandom'; // required: replace example with your forum shortname
-      // var disqus_developer = 1; // Comment out when the site is live
+      <ul class="footer-social">
+        <li><a href="{{ site.url }}/feed.xml">
+                <i class="fa fa-rss-square"></i>
+        </a></li>
+        {% if site.owner.github %}
+            <li><a href="http://github.com/{{ site.owner.github }}">
+                <i class="fa fa-github-square"></i>
+            </a></li>
+        {% endif %}
 
-      /* * * DON'T EDIT BELOW THIS LINE * * */
-      (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());
-    </script>
+        {% if site.owner.twitter %}
+            <li><a href="http://twitter.com/{{ site.owner.twitter }}">
+                <i class="fa fa-twitter-square"></i>
+            </a></li>
+        {% endif %}
+
+        {% if site.owner.linkedin %}
+            <li><a href="http://linkedin.com/in/{{ site.owner.linkedin }}">
+                <i class="fa fa-linkedin-square"></i>
+            </a></li>
+        {% endif %}
+
+        {% if site.owner.google_plus %}
+            <li><a href="http://plus.google.com/+{{ site.owner.google_plus }}">
+                <i class="fa fa-google-plus-square"></i>
+            </a></li>
+        {% endif %}
+
+        {% if site.owner.facebook %}
+            <li><a href="http://facebook.com/{{ site.owner.facebook }}">
+                <i class="fa fa-facebook-square"></i>
+            </a></li>
+        {% endif %}
+
+        {% if site.owner.youtube %}
+            <li><a href="http://github.com/{{ site.owner.youtube }}">
+                <i class="fa fa-youtube-square"></i>
+            </a></li>
+        {% endif %}
+      </ul>
+    </div>
+    <!-- This removes the small sliver of whitespace at the end of the page -->
+    <br/>
+</footer>
+<!-- Footer: end -->
+
 </body>
 </html>

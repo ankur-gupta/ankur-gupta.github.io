@@ -1,0 +1,63 @@
+/* This is a partial SCSS file */
+
+form.contact, div.contact {
+  $button-color: lighten($theme-color, 15%);
+  $border-radius: 3px !default;
+  $border-width: 1px !default;
+  $border-color: #444 !default;
+
+  input, label, select {
+    display: block;
+  }
+
+  input[type="text"], textarea[type="text"] {
+    width: 100%;
+    vertical-align: middle;
+    margin-top: 0.25em;
+    margin-bottom: 0.5em;
+    padding: 0.75em;
+    font-weight: lighter;
+
+    border-style: solid;
+    border-color: $border-color;
+    border-width: $border-width;
+    border-radius: $border-radius;
+    transition: box-shadow .2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $theme-color;
+      box-shadow: 0 0 2px $button-color;
+    }
+  }
+
+  input[type="submit"], a.button {
+    outline: none;
+    color: white;
+    background-color: $button-color;
+    border-radius: $border-radius;
+    padding: 0.5em;
+    margin: 0.25em 0 0 0;
+    border: 1px solid transparent;
+    height: auto;
+    font-weight: lighter;
+
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out;
+    transition-property: box-shadow, background-color;
+
+    &:hover, &:focus, &:active {
+      background-color: $theme-color;
+      text-decoration: none;
+    }
+  }
+}
+
+div.contact, h2.contact, span.contact {
+  text-align: center;
+}
+
+div.contact {
+  padding: 2em;
+}
+

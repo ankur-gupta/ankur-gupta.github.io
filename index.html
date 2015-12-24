@@ -2,27 +2,78 @@
 layout: default
 ---
 
-<div class="home">
-
-  <div class="posts">
-    {% for post in paginator.posts %}
-      <div class="post {% if site.animated %}animated fade-in-down{% endif %}">
-        <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }} •
-          <a class="post-meta" href="{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{post.url}}"></a>
-        </p>
-        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-          <h3 class="h2 post-title">{{ post.title }}</h3>
-          {% if post.summary %}
-            <p class="post-summary">{{ post.summary }}</p>
-          {% else %}
-            <p class="post-summary">{{ post.excerpt | strip_html | truncatewords:20 }}</p>
-          {% endif %}
+{% for post in paginator.posts %}
+<div class="post-index">
+    <div class="post-image">
+        <a href="{{ site.url }}{{ post.url }}">
+            {% if post.logo %}
+              <i class="fa fa-{{ post.logo }} fa-fw"></i>
+            {% else %}
+              <i class="fa fa-question-circle fa-fw"></i>
+            {% endif %}
         </a>
-      </div>
-    {% endfor %}
-  </div>
-
-  {% include pagination.html %}
-
-  <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+    </div>
+    <div class="post-content">
+        <h2><a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a></h2>
+        <p>
+            {% if post.summary %}
+                <span class="excerpt">{{ post.summary }}</span>
+            {% else %}
+                <span class="excerpt">{{ post.excerpt | strip_html | truncatewords: 20}}</span>
+            {% endif %}
+        </p>
+        <p class="post-detail">
+            {{ post.date | date: site.date_format }}
+            {% if site.disqus_shortname %}
+              &middot;
+              <a href="{{ site.url }}{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+              {% if post.update_date %}
+                &middot;
+                Updated {{ post.update_date | date: site.date_format }}
+              {% endif %}
+            {% endif %}
+        </p>
+    </div>
 </div>
+{% endfor %}
+
+
+<!-- Pagination links -->
+<div class="pagination">
+  <ul>
+      <li class="page-prev">
+          {% if paginator.previous_page %}
+              <a href="{{ site.url }}{{ paginator.previous_page_path }}">Prev</a>
+          {% else %}
+              <span class="disabled">Prev</span>
+          {% endif %}
+      </li>
+      <li>
+          <span class="current">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+      </li>
+      <li class="page-next">
+          {% if paginator.next_page %}
+              <a href="{{ site.url }}{{ paginator.next_page_path }}">Next</a></li>
+          {% else %}
+              <span class="disabled">Next</span>
+          {% endif %}
+      </li>
+  </ul>
+</div>
+
+<!-- Add Disqus comment count (not the comments) -->
+{% if site.disqus_shortname %}
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname  = '{{ site.disqus_shortname }}';
+  // var disqus_developer = 1; // Comment out when the site is live
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+</script>
+{% endif %}

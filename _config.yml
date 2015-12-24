@@ -1,20 +1,58 @@
-# Site settings
+# Site wide configuration
 title: Perfectly Random
-email: ankur@perfectlyrandom.org
-author: Ankur Gupta
-description: "random stuff about mathematics, logic and software"
-baseurl: ""
-url: "http://perfectlyrandom.org"
-google_analytics:
-animated: false
+description: 'random stuff about mathematics, logic and software'
+# url: http://perfectlyrandom.org
+url: http://127.0.0.1:4000
+date_format: '%B %d, %Y'
+fort_awesome_icon: 'cog fa-spin'
 
-# Build settings
+# Owner configuration
+# name and email are required (change code to remove these)
+# (leave the rest blank to disable the corresponding sharing button)
+owner:
+    name: Ankur Gupta
+    email: ankur@perfectlyrandom.org
+    github: ankur-gupta
+    twitter: ankurIO
+    linkedin: ankurguptawisc
+    facebook:
+    google_plus:
+    youtube:
+
+# Post sharing icons
+sharing:
+    twitter: true
+    linkedin: true
+    facebook: true
+    google_plus: true
+    reddit: true
+
+# Disqus comments configuration (leave blank to disable comments)
+disqus_shortname: 'perfectlyrandom'
+
+# Jekyll configuration
+permalink: /:year/:month/:day/:title/
+paginate: 4
+
+# Markdown
 markdown: redcarpet
 highlighter: pygments
-permalink: /:year/:month/:day/:title/
-paginate: 6
-sass:
-  compressed: true
+
+# Enable when using redcarpet
 redcarpet:
-  extensions: ["tables", "footnotes"]
-gems: ["jekyll-paginate"]
+  extensions: ['smart', 'tables', 'with_toc_data', 'footnotes']
+
+# Enable when using kramdown (you will need to use ~~~ instead of ```)
+# kramdown:
+#   auto_ids: true
+#   footnote_nr: 1
+#   entity_output: as_char
+#   toc_levels: 1..6
+#   use_coderay: false
+
+# Gems
+gems: ['jekyll-paginate']
+
+# Exclude
+exclude: ['README.md']
+
