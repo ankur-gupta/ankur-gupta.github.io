@@ -3,6 +3,7 @@ layout: post
 title: Sublime Text-style multiple cursors in Jupyter Notebook
 date: 2016-03-19
 summary: Select multiple instances of the current selection using `Control+D` or `Command+D` in a Jupyter Notebook. 
+logo: i-cursor
 ---
 
 ### Jupyter Notebooks
