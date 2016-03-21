@@ -1,7 +1,8 @@
 ---
 layout: post
-title: Sublime Text-style multiple cursors in Jupyter Notebook
+title: Sublime Text-style multiple cursors in Jupyter Notebooks
 date: 2016-03-19
+update_date: 2016-03-21
 summary: Select multiple instances of the current selection using `Control+D` or `Command+D` in a Jupyter Notebook. 
 logo: i-cursor
 ---
@@ -12,24 +13,24 @@ logo: i-cursor
 
 ![Jupyter Notebook running Python](/assets/jupyter-screenshot.png)
 
-Learning the keyboard shortcuts improves the productivity while using Jupyter Notebooks. By default, you can see the keyboard shortcuts help dialog window by first pressing `Escape` to enter the `Command Mode` and then pressing `h`
+Learning the keyboard shortcuts tremendously improves productivity while using Jupyter Notebooks. By default, you can see the keyboard shortcuts help dialog window by first pressing `Escape` to enter the `Command Mode` and then pressing `h`.
 
 ![Jupyter Notebook Keyboard Shortcuts Help Dialog Window](/assets/jupyter-keyboard-shortcuts.png)
 
 While these keyboard shortcuts are very useful, I miss the 
-[multiple cursor functionality from Sublime Text](https://www.sublimetext.com/). This functionality allow you to select (and then edit) multiple instances of a word visually. This in incredibly useful while coding. Renaming a variable via multiple cursors is easy, safe, and very satisfying. See the [Sublime Text
+[multiple cursor functionality from Sublime Text](https://www.sublimetext.com/). This functionality allows you to select (and then edit) multiple instances of a word visually. This is incredibly useful while coding. Renaming a variable via multiple cursors is easy, safe, and very satisfying. See the [Sublime Text
 homepage](https://www.sublimetext.com/) or [see below](#multiple-cursors-demo) for an animated demo. 
 
 A Python expert informed me that this functionality was added to Jupyter Notebooks after switching to [Code Mirror 4](https://codemirror.net/) but it requires setting up a Sublime Text keymap. After searching a bit for instructions to accomplish this task, I found two GitHub issues
 ([this](https://github.com/jupyter/notebook/issues/1006) and 
-[this](https://github.com/ipython/ipython/pull/6221#issuecomment-58936367))  that describe how to do this. After some tinkering, I was able to make this work. I have consolidated some instructions below so it's easier for others trying to do the same thing. 
+[this](https://github.com/ipython/ipython/pull/6221#issuecomment-58936367))  that describe how to do this. After some tinkering, I was able to make this work. I have consolidated these instructions below so it's easier for others.
 
-This task is simple. To set up Sublime Text keymap, you need to add a few lines of Javascript to a `custom.js` file. Setting up a `custom.js` file for Jupyter Notebook is described in detail [here](https://jupyter-notebook.readthedocs.org/en/latest/examples/Notebook/rstversions/JavaScript%20Notebook%20Extensions.html).
+Overall, this task is simple. To set up a Sublime Text keymap, you need to add a few lines of Javascript to a `custom.js` file. Setting up a `custom.js` file for Jupyter Notebook is described in detail [here](https://jupyter-notebook.readthedocs.org/en/latest/examples/Notebook/rstversions/JavaScript%20Notebook%20Extensions.html).
 
 ### Instructions
 
 1. Find the location of `custom.js` file. 
-    On MacOS and Linux, the location is `~/.jupyter/custom/custom.js`. If this is your first time setting up a `custom.js`, this file will probably not exist in that location. Optionally, you can run the following code in a Jupyter Python Notebook to find the location and contents of your `custom.js` file:
+    On MacOS and Linux, the default location is `~/.jupyter/custom/custom.js`. If this is your first time setting up a `custom.js`, this file will probably not exist in that location. Optionally, you can run the following code in a Jupyter Python Notebook to find the location and contents of your `custom.js` file :
 
     ```py
     # Print the location of Jupyter's config directory
@@ -58,10 +59,10 @@ This task is simple. To set up Sublime Text keymap, you need to add a few lines 
     alert("hello world from custom.js")
     ```
 
-    Restart Jupyter Notebook server (by pressing `Control+C` in the terminal, if applicable). If everything is working correctly, you should be greeted by a dialog window in your browser after you restart Jupyter Notebook.
+    Restart Jupyter Notebook server (by pressing `Control+C` in the terminal, if applicable). If everything is working correctly, you should be greeted by a dialog window in your browser after you restart your Jupyter Notebook.
 
 
-3. Comment out the line you added in Step 2. Add the following lines to your `custom.js` (preferably at the top):
+3. You can comment out the line you added in Step 2. Add the following lines to your `custom.js` (preferably at the top of the file):
 
     ```js
     require(["codemirror/keymap/sublime", "notebook/js/cell"], function(sublime_keymap, cell) {
