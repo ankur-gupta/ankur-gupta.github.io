@@ -2,7 +2,7 @@
 layout: post
 title: Sublime Text-style multiple cursors in Jupyter Notebooks
 date: 2016-03-19
-update_date: 2016-03-21
+update_date: 2016-03-22
 summary: Select multiple instances of the current selection using `Control+D` or `Command+D` in a Jupyter Notebook. 
 logo: i-cursor
 ---
@@ -23,7 +23,8 @@ homepage](https://www.sublimetext.com/) or [see below](#multiple-cursors-demo) f
 
 A Python expert informed me that this functionality was added to Jupyter Notebooks after switching to [Code Mirror 4](https://codemirror.net/) but it requires setting up a Sublime Text keymap. After searching a bit for instructions to accomplish this task, I found two GitHub issues
 ([this](https://github.com/jupyter/notebook/issues/1006) and 
-[this](https://github.com/ipython/ipython/pull/6221#issuecomment-58936367))  that describe how to do this. After some tinkering, I was able to make this work. I have consolidated these instructions below so it's easier for others.
+[this](https://github.com/ipython/ipython/pull/6221#issuecomment-58936367))  that describe how to do this. There is also an [attempt](https://github.com/jupyter/notebook/pull/1109) to add vim mode and other improvements to key bindings. 
+After some tinkering, I was able to make this work. I have consolidated these instructions below so it's easier for others.
 
 Overall, this task is simple. To set up a Sublime Text keymap, you need to add a few lines of Javascript to a `custom.js` file. Setting up a `custom.js` file for Jupyter Notebook is described in detail [here](https://jupyter-notebook.readthedocs.org/en/latest/examples/Notebook/rstversions/JavaScript%20Notebook%20Extensions.html).
 
