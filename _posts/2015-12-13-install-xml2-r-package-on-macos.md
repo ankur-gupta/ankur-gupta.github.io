@@ -195,12 +195,13 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     Libs.private: -lpthread -lz  -lm
     Cflags: -I${includedir}/libxml2
     ```
-[^3]: Installing [`git2r`](https://cran.r-project.org/web/packages/git2r/index.html) 
+[^3]: Installing [`git2r`](https://cran.r-project.org/web/packages/git2r/index.html)
   
     A similar error somtimes occurs while installing `git2r`. On my system, the error was due to incorrect location of 
-    `zlib` library. Solution 2 works but the exact command is slightly differen:
+    `zlib` library. Solution 2 works but the exact command is slightly different:
 
-    ```
+    ```bash
+    # Navigate to inside the git2r source folder
     R CMD INSTALL --configure-args='--with-zlib-include=/usr/include --with-zlib-lib=/usr/lib' .
     ```
   
