@@ -205,5 +205,9 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     R CMD INSTALL --configure-args='--with-zlib-include=/usr/include --with-zlib-lib=/usr/lib' .
     ```
   
-  The exact options required by `configure` may be seen by running `./configure` within the source directory of the package.
+  The exact options required by `configure` may be seen by running `./configure --help` within the source directory 
+  of the package. Note that if you have run `configure` within the source folder using the incorect options, then
+  you might see `R CMD INSTALL` fail even with the correct options. This problem can be solved by re-running 
+  `configure` using the correct options or getting a fresh copy of the source.
+  
 
