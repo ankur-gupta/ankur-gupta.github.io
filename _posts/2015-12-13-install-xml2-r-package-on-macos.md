@@ -2,6 +2,7 @@
 layout: post
 title: Install xml2 R package on MacOS
 date: 2015-12-13
+update_date: 2016-04-08
 categories: [R, libxml2, install, mac, xml2]
 logo: exclamation-triangle
 ---
@@ -138,7 +139,7 @@ a custom install of `xml2` package by using the following command
 R CMD INSTALL --configure-vars='INCLUDE_DIR=/usr/include LIB_DIR=/usr/lib' .
 ```
 
-The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default MacOS locations but you may need to modify these. You can find out these locations using the tips provided in footnotes[^2]. This should successfully install `xml2` package.
+The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default MacOS locations but you may need to modify these. You can find out these locations using the tips provided in footnotes[^2]. This should successfully install `xml2` package. This form of solution works correctly for other packages as well, albeit with some modifications[^3].
 
 #### Footnotes
 
@@ -194,5 +195,14 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     Libs.private: -lpthread -lz  -lm
     Cflags: -I${includedir}/libxml2
     ```
+[^3]: Installing [`git2r`](https://cran.r-project.org/web/packages/git2r/index.html) 
+  
+    A similar error somtimes occurs while installing `git2r`. On my system, the error was due to incorrect location of 
+    `zlib` library. Solution 2 works but the exact command is slightly differen:
 
+    ```
+    R CMD INSTALL --configure-args='--with-zlib-include=/usr/include --with-zlib-lib=/usr/lib' .
+    ```
+  
+  The exact options required by `configure` may be seen by running `./configure` within the source directory of the package.
 
