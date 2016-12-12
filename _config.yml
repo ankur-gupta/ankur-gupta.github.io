@@ -31,7 +31,7 @@ disqus_shortname: 'perfectlyrandom'
 
 # Jekyll configuration
 permalink: /:year/:month/:day/:title/
-paginate: 4
+paginate: 8
 
 # Markdown
 markdown: redcarpet
