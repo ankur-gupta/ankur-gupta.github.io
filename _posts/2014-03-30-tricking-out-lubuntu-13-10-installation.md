@@ -5,7 +5,7 @@ author: Ankur Gupta
 date: 2014-03-30 03:15
 comments: true
 categories: [Lubuntu, lubuntu, lxde, openbox, Tech]
-logo: magic
+logo: fas fa-magic
 ---
 Lubuntu is an awesome version of Ubuntu. Lubuntu uses LXDE instead of
 GNOME (which is used by Ubuntu). Lubuntu is lightweight and fast but this speed comes

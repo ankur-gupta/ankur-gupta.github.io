@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Analyze some data using Spark on AWS EMR
+title: Setup Spark cluster on AWS EMR
 date: 2018-08-11
-logo: chart-bar
+logo: far fa-star
 ---
 
 AWS provides

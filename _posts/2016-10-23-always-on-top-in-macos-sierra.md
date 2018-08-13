@@ -2,7 +2,7 @@
 layout: post
 title: Always on top in MacOS Sierra
 date: 2016-10-23
-logo: object-group
+logo: fas fa-object-group
 ---
 
 Afloat is a software that allows some Mac application windows to remain on top of other windows even when they are not in focus. Hence the name _Always on Top_. This is a standard feature for all windows in Ubuntu but in Mac we need to use a third-party software like Afloat to get this functionality. As of writing this post, Afloat is the only software I have seen that can let us do this on a Mac. If you want to learn more about _Always on Top_ or Afloat, I recommend reading my [original post (with pictures)]({% post_url 2015-01-31-always-on-top-in-macos-yosemite%}) on this topic.
@@ -35,7 +35,7 @@ Alternative to downloading mySIMBL zip file from GitHub, you can use [MacUpdate]
 These are multiple methods to obtaining `Afloat.bundle` folder. Once you obtain this folder, I recommend that making a more long-term backup of this folder (Google Drive, for example) for future use.
 
 **Method 1: Search if you already have it.**
-You might have `Afloat.bundle` from previous Afloat installation. That bundle should work nicely. If you have installed Afloat before, don't uninstall or delete it yet. Find the folder `Afloat.bundle` on your computer and copy it somewhere safe. Some places to look for it are `/Library/Application Support/SIMBL/Plugins` and `~/Library/Application Support/SIMBL/Plugins`. 
+You might have `Afloat.bundle` from previous Afloat installation. That bundle should work nicely. If you have installed Afloat before, don't uninstall or delete it yet. Find the folder `Afloat.bundle` on your computer and copy it somewhere safe. Some places to look for it are `/Library/Application Support/SIMBL/Plugins` and `~/Library/Application Support/SIMBL/Plugins`.
 
 OR
 
@@ -66,7 +66,7 @@ Restart any windows on which you want to use Afloat. Click on the `Window` menu 
 
 ![Afloat Window Menu](/assets/afloat-window-menu.png)
 
-Note that not all applications support Afloat. I can confirm that Afloat works on [iTerm2](https://www.iterm2.com/). Press the Afloat key (`Control+Command+A` by default) and test it out to ensure that it works. If you don't see it yet, don't give up yet. There may still be hope. Restart your computer and test again. 
+Note that not all applications support Afloat. I can confirm that Afloat works on [iTerm2](https://www.iterm2.com/). Press the Afloat key (`Control+Command+A` by default) and test it out to ensure that it works. If you don't see it yet, don't give up yet. There may still be hope. Restart your computer and test again.
 
 **b. Restart to re-enable SIP (optional but recommended), test.**
 If you have [SIP disabled](https://apple.stackexchange.com/questions/208478/how-do-i-disable-system-integrity-protection-sip-aka-rootless-on-os-x-10-11), you can re-enable it. You should do this after you have ensured that Afloat is working for you. Re-enabling SIP does not stop Afloat from working. Here are the steps to re-enable it.

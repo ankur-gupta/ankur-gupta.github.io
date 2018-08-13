@@ -50,7 +50,7 @@ redcarpet:
 #   use_coderay: false
 
 # Gems
-gems: ['jekyll-paginate']
+plugins: ['jekyll-paginate']
 
 # Exclude
 exclude: ['README.md']

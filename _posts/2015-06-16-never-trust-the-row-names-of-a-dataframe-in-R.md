@@ -4,7 +4,7 @@ title: Never trust the row names of a dataframe in R
 date: 2015-06-16
 update_date: 2015-08-15
 categories: [R, dataframe, row names]
-logo: list-ol
+logo: fas fa-list-ol
 ---
 
 ### Introduction
@@ -233,7 +233,7 @@ NA    NA   NA
 NA    NA   NA
 ```
 
-Again, using `as.numeric(NA)` to index a dataframe makes no sense. Are we trying to obtain a missing row of the dataframe? R resolves this by returning rows full of `NA`s. No vector recycling is done, which means that we get back one row back for each element in the index. 
+Again, using `as.numeric(NA)` to index a dataframe makes no sense. Are we trying to obtain a missing row of the dataframe? R resolves this by returning rows full of `NA`s. No vector recycling is done, which means that we get back one row back for each element in the index.
 
 ```r
 > df[rep(as.character(NA), 3), ]
@@ -402,7 +402,7 @@ These examples demonstrate the behavior of row names.
 
     **Interesting.**
 
-    So, row names cannot be assigned `NA` (as we saw in the examples earlier), but they seem to be stored as something that contains `NA`. 
+    So, row names cannot be assigned `NA` (as we saw in the examples earlier), but they seem to be stored as something that contains `NA`.
 
     Another function that lets us look at the internals of an R object is `attributes()`.
 
@@ -514,9 +514,9 @@ These examples demonstrate the behavior of row names.
 
 ### Extremely quirky row name behavior
 
-We saw that `rownames<-` does not allow us to specify non-unique row names. 
-Turns out, we can can specify non-unique row names, just not using the 
-`get("rownames<-")` function. 
+We saw that `rownames<-` does not allow us to specify non-unique row names.
+Turns out, we can can specify non-unique row names, just not using the
+`get("rownames<-")` function.
 
 Let's look at a rather common way to create dataframes - using matrices.
 This is a matrix with row names (yes, matrices can have row names too):
@@ -564,9 +564,9 @@ Error in data.frame(V1 = c("1", "2", "1", "2"), V2 = c("4", "5", "4",  :
   duplicate row.names: row1, row2
 ```
 
-**Error!** Turns out, that merely printing the dataframe throws an error. 
+**Error!** Turns out, that merely printing the dataframe throws an error.
 
-Why? 
+Why?
 
 Because the row names of `df` are non-unique:
 
@@ -578,7 +578,7 @@ structure(list(V1 = c(1L, 2L, 1L, 2L), V2 = c(4L, 5L, 4L, 5L),
 ```
 So, we can indeed create a dataframe with non-unique rows. Such a dataframe even works in some cases (we were able to print out its dimensions). But in other cases (wherever row names are required), we encounter an error.
 
-This example demonstrates yet another quirk of dataframe row names. This error can be really surprising and may even go undetected. Ideally, the function `as.data.frame()` should always check for duplicated row names but it doesn't. How can we correct this problem ? 
+This example demonstrates yet another quirk of dataframe row names. This error can be really surprising and may even go undetected. Ideally, the function `as.data.frame()` should always check for duplicated row names but it doesn't. How can we correct this problem ?
 
 One simple solution is to just reset the row names:
 
@@ -612,7 +612,7 @@ Error in data.frame(V1 = c("1", "2", "1", "2"), V2 = c("4", "5", "4",  :
   duplicate row.names: row1, row2
 ```
 
-Instead of assigning `as.data.frame(rbind(mat, mat))` to `df` (which prevents printing), if we simply evaluate the expression on the interpreter, we see the error immediately. This error is not because the evaluation failed. This error is because the printing of the evaluated expression failed. 
+Instead of assigning `as.data.frame(rbind(mat, mat))` to `df` (which prevents printing), if we simply evaluate the expression on the interpreter, we see the error immediately. This error is not because the evaluation failed. This error is because the printing of the evaluated expression failed.
 
 *Note:* It appears that matrices can have non-unique row names, but then, who knows ? May be we just haven't found the case in which R throws an error.
 

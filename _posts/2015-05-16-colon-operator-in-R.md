@@ -1,9 +1,9 @@
 ---
 layout: post
-title: The Colon "Operator" in R 
+title: The Colon "Operator" in R
 date: 2015-05-16
 categories: [R, colon]
-logo: exchange
+logo: fas fa-exclamation-circle
 ---
 
 ### Background
@@ -29,7 +29,7 @@ generate a `vector` of integers from 10 to 1 in decreasing order using the exact
  [1] 10  9  8  7  6  5  4  3  2  1
 ```
 
-Whether the sequence is increasing or decreasing, depends on whether the first argument (the number before the : sign) is smaller or larger than the second 
+Whether the sequence is increasing or decreasing, depends on whether the first argument (the number before the : sign) is smaller or larger than the second
 argument (the number after the : sign). Let's see some more examples to get familiar with this function.
 
 ```r
@@ -41,22 +41,22 @@ argument (the number after the : sign). Let's see some more examples to get fami
 [1]  1  0 -1
 ```
 
-As long as both arguments to the `":"` function are `numeric` (or `integer`), we will always get back a `vector` of a length of at least one. This behavior may sound reasonable when we interact with the R prompt but this behavior may cause problems while writing scripts if we're not careful. 
+As long as both arguments to the `":"` function are `numeric` (or `integer`), we will always get back a `vector` of a length of at least one. This behavior may sound reasonable when we interact with the R prompt but this behavior may cause problems while writing scripts if we're not careful.
 
 <br/>
 ### The Risk
-The use of colon operator is risky only if resulting behavior is unexpected. 
+The use of colon operator is risky only if resulting behavior is unexpected.
 A **common mistake** is to assume that `x:y` will **always return an increasing sequence** from `x` to `y`.
 
-For those switching from Octave/MATLAB to R, this is an especially common mistake. In Octave 3.8.2, `x:y` always returns an increasing 
+For those switching from Octave/MATLAB to R, this is an especially common mistake. In Octave 3.8.2, `x:y` always returns an increasing
 sequence from `x` to `y`. This means, when `x > y`, the returned sequence is an empty vector, as shown in this example
 
 ```octave
 octave:1> 10:1
 ans = [](1x0)
 ```
-Most experienced Octave/MATLAB users tend to transfer their knowledge via a 
-_MATLAB to R conversion guide_ (such as [R for MATLAB users](http://mathesaurus.sourceforge.net/octave-r.html) and [MATLAB/R Reference](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf)). These guides often do not emphasize the subtle difference between the `:` constructs in these languages. 
+Most experienced Octave/MATLAB users tend to transfer their knowledge via a
+_MATLAB to R conversion guide_ (such as [R for MATLAB users](http://mathesaurus.sourceforge.net/octave-r.html) and [MATLAB/R Reference](http://www.math.umaine.edu/~hiebeler/comp/matlabR.pdf)). These guides often do not emphasize the subtle difference between the `:` constructs in these languages.
 
 
 Coming back to R, the colon operator is most often used in two situations.
@@ -64,7 +64,7 @@ Coming back to R, the colon operator is most often used in two situations.
 1. **`for` loops**
 2. **Indexing**
 
-Let us look at both of these cases through examples. 
+Let us look at both of these cases through examples.
 
 ##### `for` loops
 Colon operator is often used with the `length()` function<sup>[3](#forloop)</sup> to execute for loops over the length of a vector. For example, consider the following extremely trivial function that accepts a `list` of plottable objects.
@@ -160,11 +160,11 @@ mysum <- function(x) {
     for(i in 1:length(x)) {
         sumval <- sumval + x[i]
     }
-    return(sumval) 
+    return(sumval)
 }
 ```
 
-We would never really use `mysum()` function. R already has an in-built `sum()`function which is much more efficient. We will use `mysum()` to demonstrate why the use of the `1:length(x)` construct is dangerous. 
+We would never really use `mysum()` function. R already has an in-built `sum()`function which is much more efficient. We will use `mysum()` to demonstrate why the use of the `1:length(x)` construct is dangerous.
 
 Luckily, everything works when the input `vector` to the `mysum()` is not empty
 
@@ -178,7 +178,7 @@ Luckily, everything works when the input `vector` to the `mysum()` is not empty
 [1] TRUE
 ```
 
-But, when the input `vector` is empty, `mysum()` produces unintended effects. 
+But, when the input `vector` is empty, `mysum()` produces unintended effects.
 
 ```r
 > x <- c()
@@ -190,9 +190,9 @@ numeric(0)
 [1] FALSE
 ```
 
-Notice how `mysum()` did not fail this time even when we accessed the first element of an empty vector. Even though `mysum()` does not throw an error, the result may be unexpected. 
+Notice how `mysum()` did not fail this time even when we accessed the first element of an empty vector. Even though `mysum()` does not throw an error, the result may be unexpected.
 
-The question is, how do we define the sum of an empty vector? R defines it as `sum(c()) = 0`, which seems reasonable. The function `mysum()` actually agrees with this definition because it assigns the value `0` to the variable `sumval`before using the input vector `x`. It's the `for` loop in `mysum()` that causes the following incorrect result to be returned. 
+The question is, how do we define the sum of an empty vector? R defines it as `sum(c()) = 0`, which seems reasonable. The function `mysum()` actually agrees with this definition because it assigns the value `0` to the variable `sumval`before using the input vector `x`. It's the `for` loop in `mysum()` that causes the following incorrect result to be returned.
 
 ```r
 > 0 + c()[1] + c()[0]
@@ -211,7 +211,7 @@ for(i in c()) {
 # Prints nothing
 ```
 
-A `for` loop over an empty `vector` is not executed. So, the problem is not with the `for` loop, it is with the colon operator-based construct `1:length(c())`. 
+A `for` loop over an empty `vector` is not executed. So, the problem is not with the `for` loop, it is with the colon operator-based construct `1:length(c())`.
 
 Yet another common source of bugs is the incorrect use of following constructs
 
@@ -229,7 +229,7 @@ x <- c(1, 2, 3, 4)
 # [1] 1 2 3
 ```
 
-Many users confuse `1:length(x) + 1` for `1:(length(x) + 1)` and vice-versa. 
+Many users confuse `1:length(x) + 1` for `1:(length(x) + 1)` and vice-versa.
 
 ##### Indexing
 
@@ -241,7 +241,7 @@ mean.first.n <- function(n, x) {
 }
 ```
 
-Let's look at a few examples. 
+Let's look at a few examples.
 
 ```r
 x <- c(3, 2, 9, 1)
@@ -268,8 +268,8 @@ The construct `mean(x[1:0])` will always return the first element of `x` (assumi
 
 <br/>
 ### Solution
-The above examples demonstrate that the colon (`":"`) operator requires careful thought before use. One obvious solution is to separate the case where the colon operator returns a decreasing sequence of numbers. For example, the 
-`mysum()` function may be re-written as 
+The above examples demonstrate that the colon (`":"`) operator requires careful thought before use. One obvious solution is to separate the case where the colon operator returns a decreasing sequence of numbers. For example, the
+`mysum()` function may be re-written as
 
 ```r
 mysum2 <- function(x) {
@@ -277,9 +277,9 @@ mysum2 <- function(x) {
     if (length(x) > 0) {
         for(i in 1:length(x)) {
             sumval <- sumval + x[i]
-        }    
+        }
     }
-    return(sumval) 
+    return(sumval)
 }
 
 # Output
@@ -290,9 +290,9 @@ mysum2 <- function(x) {
 # [1] 0
 ```
 
-Wrapping the `for` loop within an `if` solves the problem. However, there is a better solution. As we discussed, `for` loop is smart enough to handle empty vectors but the `:` operator does not return an empty vector. 
+Wrapping the `for` loop within an `if` solves the problem. However, there is a better solution. As we discussed, `for` loop is smart enough to handle empty vectors but the `:` operator does not return an empty vector.
 
-There happens to be a function called `seq_along()` that is perfectly suited to this situation. 
+There happens to be a function called `seq_along()` that is perfectly suited to this situation.
 
 ```r
 x <- c(3, 2, 9, 1)
@@ -311,8 +311,8 @@ mysum3 <- function(x) {
     sumval <- 0
     for(i in seq_along(x)) {
         sumval <- sumval + x[i]
-    }    
-    return(sumval) 
+    }
+    return(sumval)
 }
 
 # Output
@@ -323,9 +323,9 @@ mysum3 <- function(x) {
 # [1] 0
 ```
 
-Using `seq_along()` obviates the need for an `if` and generates the correct solution. 
+Using `seq_along()` obviates the need for an `if` and generates the correct solution.
 
-Similarly, when we want to obtain the first `n`-elements of a vector, we can use `seq_len(n)` instead of `1:n`. 
+Similarly, when we want to obtain the first `n`-elements of a vector, we can use `seq_len(n)` instead of `1:n`.
 
 ```r
 > 1:0
@@ -365,11 +365,11 @@ The interactive mode is the use of interpreter (or command line) while the progr
 2. We can redo the computation based on feedback
 3. More use of hardcoded numbers instead of variables
 
-The colon (`:`) operator is more suited to the interactive mode. Because we get instant feedback, it is easy to verify that any R code does exactly what we want it to do. Even if we make a mistake, interactive mode allows us to correct our mistake immediately by re-assigning the variable. Further, we often use a lot more hardcoded numbers (such as `x[1:10]`) instead of variables (such as `x[1:n]`), which reduces the potential for error. 
+The colon (`:`) operator is more suited to the interactive mode. Because we get instant feedback, it is easy to verify that any R code does exactly what we want it to do. Even if we make a mistake, interactive mode allows us to correct our mistake immediately by re-assigning the variable. Further, we often use a lot more hardcoded numbers (such as `x[1:10]`) instead of variables (such as `x[1:n]`), which reduces the potential for error.
 
-Programming mode involves writing scripts and then executing/sourcing scripts as a batch. This is much more formal than the interactive mode. This difference is much like spoken and written modes of English. While speaking to an audience, say in a technical presentation, we get instant feedback (both verbal and non-verbal such as  facial expressions) and we can correct a mistake immediately. In written form of communication, say a research article, we do not get immediate feedback or the ability to correct ourselves. 
+Programming mode involves writing scripts and then executing/sourcing scripts as a batch. This is much more formal than the interactive mode. This difference is much like spoken and written modes of English. While speaking to an audience, say in a technical presentation, we get instant feedback (both verbal and non-verbal such as  facial expressions) and we can correct a mistake immediately. In written form of communication, say a research article, we do not get immediate feedback or the ability to correct ourselves.
 
-The functions `seq_along()` and `seq_len()` are more suited to the programming mode. Obviously, the use of `:` involves fewer keystrokes compared to `seq_len()`, which is one of the reasons people prefer it for interactive use. 
+The functions `seq_along()` and `seq_len()` are more suited to the programming mode. Obviously, the use of `:` involves fewer keystrokes compared to `seq_len()`, which is one of the reasons people prefer it for interactive use.
 
 Even in programming mode, many R users experiment with code snippets in the interactive mode. They try out many different functions, constructs and approaches. Once they are satisfied with their code snippet, they transfer their perfected code snipped to their R script. The problem with this approach is that the code snippet that works correctly in the interactive mode for a particular example may not work in the formal (and more general) setting of the programming mode.
 
@@ -377,9 +377,9 @@ The `:` operator is a perfect example of this. The `:` operator needs to be conv
 
 An obvious solution is to always use the formal, programming mode constructs (such as `seq_along()` and `seq_len()`), even on the R command line. This would be great except that this means typing too many characters on the R command line. The command line is not a text editor. It does not allow us to copy/paste text at will like Emacs, vim, Sublime Text, or even Notepad. Typing long lines at the command line is a tedious process (even with the tab completion).
 
-R users routinely contribute R packages. Even if we abstain from the use of `:` operator in our own code, we will come across a lot of other people's code that uses `:` all the time. Thus, understanding how `:` works is essential to being a better R programmer. 
+R users routinely contribute R packages. Even if we abstain from the use of `:` operator in our own code, we will come across a lot of other people's code that uses `:` all the time. Thus, understanding how `:` works is essential to being a better R programmer.
 
-So, how do we use the `:` operator? Instead of completely forbidding the use of `:` operator, in the next section, we define some rules that will help us avoid all mistakes. 
+So, how do we use the `:` operator? Instead of completely forbidding the use of `:` operator, in the next section, we define some rules that will help us avoid all mistakes.
 
 <br/>
 ### Summary
@@ -392,7 +392,7 @@ As we discussed, a complete understanding of the `:` operator is essential, espe
 </p>
 </blockquote>
 
-The following table is a quick summary of what we discussed. 
+The following table is a quick summary of what we discussed.
 
 | Instead of        |            | Use               |
 |---------------    |  :-----:   |----------------   |
@@ -423,7 +423,7 @@ Since `":"` happens to be a primitive function, there is really no R code of the
 ```c
 {":",       do_colon,   0,  1,  2,  {PP_BINARY2, PREC_COLON,  0}},
 ```
-This shows that we should be looking for the `do_colon` C function in the C source of R. Doing a simple **find/xargs/grep** magic, we can see that `R-3.2.0/src/main/seq.c` contains the definition of the `do_colon` C function. 
+This shows that we should be looking for the `do_colon` C function in the C source of R. Doing a simple **find/xargs/grep** magic, we can see that `R-3.2.0/src/main/seq.c` contains the definition of the `do_colon` C function.
 
 ```
 ankur@hogwarts ~/D/R/s/main> find . -name "*.c" -type f | xargs grep --color=auto "do_colon"
@@ -434,10 +434,10 @@ ankur@hogwarts ~/D/R/s/main> find . -name "*.c" -type f | xargs grep --color=aut
 ./seq.c:SEXP attribute_hidden do_colon(SEXP call, SEXP op, SEXP args, SEXP rho)
 ```
 
-Trudging through the `do_colon` function, we reach the `seq_colon` function, which implements the `":"` functionality for integers and real numbers. 
+Trudging through the `do_colon` function, we reach the `seq_colon` function, which implements the `":"` functionality for integers and real numbers.
 
 <br/>
-<a name="version"><sup>2</sup></a> Version of R used in this post. 
+<a name="version"><sup>2</sup></a> Version of R used in this post.
 
 ```r
 > version

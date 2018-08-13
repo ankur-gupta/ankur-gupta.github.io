@@ -3,7 +3,7 @@ layout: post
 title: Time is TRUE, Female is FALSE
 date: 2015-08-31
 categories: [R, logicals, true, false]
-logo: hand-lizard-o
+logo: fas fa-hand-lizard
 ---
 
 ### Introduction
@@ -64,12 +64,12 @@ After we have reassigned to these variables<sup>[2](#removeTFbase)</sup>, we can
 [1] FALSE
 ```
 
-You can already imagine the ambiguity in using `T` and `F` instead of `TRUE` and `FALSE`. Since, we can easily redefine `T` and `F`, we run the risk of unexpected, silent mistakes in our code<sup>[3](#titleref)</sup>. This problem is further exacerbated by R's lexical scoping rules, which we discuss next. 
+You can already imagine the ambiguity in using `T` and `F` instead of `TRUE` and `FALSE`. Since, we can easily redefine `T` and `F`, we run the risk of unexpected, silent mistakes in our code<sup>[3](#titleref)</sup>. This problem is further exacerbated by R's lexical scoping rules, which we discuss next.
 
 
 ### Lexical scoping rules in R
 
-[Scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)) is a set of rules that allow a programming language to infer the value of a variable from the variable name. There are two main types of scoping - **lexical** and **dynamic**. 
+[Scoping](https://en.wikipedia.org/wiki/Scope_(computer_science)) is a set of rules that allow a programming language to infer the value of a variable from the variable name. There are two main types of scoping - **lexical** and **dynamic**.
 R has support for both these kinds of scoping rules. We will only look at lexical scoping through examples in this post. I recommend reading Hadley Wickham's _Advanced R_ online section on [Functions](http://adv-r.had.co.nz/Functions.html) and [this](https://github.com/jtleek/modules/blob/master/02_RProgramming/Scoping/index.md) github page for details. Interested reader may also want to see [this post](https://xianblog.wordpress.com/2010/09/13/simply-start-over-and-build-something-better/) purportedly by [Ross Ihaka](https://en.wikipedia.org/wiki/Ross_Ihaka), one of the creators of R.
 
 Let's look at a simple example in which we define a function and try to call it:
@@ -83,7 +83,7 @@ function() print(x)
 Error in print(x) : object 'x' not found
 ```
 
-Note that we do not need to define the variable `x` before we define the function `f`. However, we need to define a reachable variable `x` before we call the function `f`. By reachable, I mean, the function `f` should be able to reach the variable `x`. In other words, the variable `x` should be within the scope of the function `f`. 
+Note that we do not need to define the variable `x` before we define the function `f`. However, we need to define a reachable variable `x` before we call the function `f`. By reachable, I mean, the function `f` should be able to reach the variable `x`. In other words, the variable `x` should be within the scope of the function `f`.
 
 Let's first look at the case in which we define a variable `x` in such a way that it is not reachable by `f`.
 
@@ -112,7 +112,7 @@ Now, the variable `x` defined in the global environment is reachable by `f()` an
 [1] 20
 ```
 
-This means that functions in R are not totally isolated from the environment the function is defined in. In fact, the function and the environment the function is defined in are very tightly related (see closures in [Functional Programming](http://adv-r.had.co.nz/Functional-programming.html#functional-programming) if you want to know the details). This kind of scoping rule is not used in other high-level, numeric programming languages such as Octave<sup>[4](#octave-scoping)</sup>. 
+This means that functions in R are not totally isolated from the environment the function is defined in. In fact, the function and the environment the function is defined in are very tightly related (see closures in [Functional Programming](http://adv-r.had.co.nz/Functional-programming.html#functional-programming) if you want to know the details). This kind of scoping rule is not used in other high-level, numeric programming languages such as Octave<sup>[4](#octave-scoping)</sup>.
 
 We can take this experiment further by calling `f()` form inside another function:
 
@@ -167,12 +167,12 @@ Error in print(x) : object 'x' not found
 [1] 10
 ```
 
-This time we did not define `x` inside `hhh()`. Since in a fresh R session, there is no `x` defined, we get an error when we call `hhh()` the first time. 
-Then, we define `x` in the global environment (which is not the environment `f()` was defined in!). Now when we call `hhh()` (and in turn, `f()`), we get no error. 
+This time we did not define `x` inside `hhh()`. Since in a fresh R session, there is no `x` defined, we get an error when we call `hhh()` the first time.
+Then, we define `x` in the global environment (which is not the environment `f()` was defined in!). Now when we call `hhh()` (and in turn, `f()`), we get no error.
 
 _What happened?_
 
-There was no `x` defined inside `hhh()` which is the environment in which `f()` was defined. How then was R able to find the global variable `x` ? This is because, when R does not find the variable `x` inside `hhh()`, it keeps on looking one level up, until it finds a match (or it doesn't, in which case R throws an error). 
+There was no `x` defined inside `hhh()` which is the environment in which `f()` was defined. How then was R able to find the global variable `x` ? This is because, when R does not find the variable `x` inside `hhh()`, it keeps on looking one level up, until it finds a match (or it doesn't, in which case R throws an error).
 
 This _recursive scoping rule_ has a **tremendous effect**. We were able to **modify** the behavior of a function `f()` that was defined within another function `hhh()` without modifying either `f()` or `hhh()`!
 
@@ -182,9 +182,9 @@ Now that we understand the scoping rules in R, let's get back to the problem of 
 
 ### The Problem with `T` and `F`
 
-Thee obvious benefit of using `T` and `F` instead of the full literals `TRUE` and `FALSE` is the reduced number of keystrokes. Admittedly, the reduced number of keystrokes required (with Shift pressed or CapsLock on) becomes very attractive when using the [interactive mode](http://www.perfectlyrandom.org/2015/05/16/colon-operator-in-R/). I am guilty of doing this myself. 
+Thee obvious benefit of using `T` and `F` instead of the full literals `TRUE` and `FALSE` is the reduced number of keystrokes. Admittedly, the reduced number of keystrokes required (with Shift pressed or CapsLock on) becomes very attractive when using the [interactive mode](http://www.perfectlyrandom.org/2015/05/16/colon-operator-in-R/). I am guilty of doing this myself.
 
-Use of `T` and `F` is very dangerous, especially in programming mode. An obviously evil thing to do is to simply bind `T` to `FALSE` and `F` to `TRUE` and see everything fail (see Example 1). The dangers of using `T` and `F` can be far more subtler (see Example 2). 
+Use of `T` and `F` is very dangerous, especially in programming mode. An obviously evil thing to do is to simply bind `T` to `FALSE` and `F` to `TRUE` and see everything fail (see Example 1). The dangers of using `T` and `F` can be far more subtler (see Example 2).
 
 #### Example 1
 
@@ -219,18 +219,18 @@ This simple dummy function works as expected. Using the scoping rules of R, we c
 
 #### Example 2
 
-Let's look at this problem in a more real-life context where we have multiple files being `source`d. 
+Let's look at this problem in a more real-life context where we have multiple files being `source`d.
 
 <script src="https://gist.github.com/ankur-gupta/582bfba52054b9e8d9b3.js"></script>
 
 You can download/clone these [example files as a GitHub Gist here](https://gist.github.com/ankur-gupta/582bfba52054b9e8d9b3) and play around with the code.
 
-I first define a function `oddmean()` in the file `oddmean.R`. This function uses `T` and `F` as non-formal function arguments instead of the corresponding literals. We then source the file `oddmean.R` in various different files and see the effects. When `T` and `F` are bound to `TRUE` and `FALSE` correctly, we get the correct answer as shown in `correctanswer.R`. But, when we redefine `T` or `F`, we get incorrect answers as shown in `wronganswer1.R` and `wronganswer2.R`. 
+I first define a function `oddmean()` in the file `oddmean.R`. This function uses `T` and `F` as non-formal function arguments instead of the corresponding literals. We then source the file `oddmean.R` in various different files and see the effects. When `T` and `F` are bound to `TRUE` and `FALSE` correctly, we get the correct answer as shown in `correctanswer.R`. But, when we redefine `T` or `F`, we get incorrect answers as shown in `wronganswer1.R` and `wronganswer2.R`.
 
-Let's look at the file `wronganswer2.R`. We do not define any variables in this file at all. Instead, we simply source some of the files we already created and know to work correctly. 
+Let's look at the file `wronganswer2.R`. We do not define any variables in this file at all. Instead, we simply source some of the files we already created and know to work correctly.
 
-1. We obviously want to source the function `oddmean()` in `oddmean.R`. 
-2. Then, we source `redefine.R` that redefines `T` and `F`. In real life, this could be accidental or this could be someone else's code that we wish to use. 
+1. We obviously want to source the function `oddmean()` in `oddmean.R`.
+2. Then, we source `redefine.R` that redefines `T` and `F`. In real life, this could be accidental or this could be someone else's code that we wish to use.
 3. Finally, we source the file `correctanswer.R`, which we have tested separately and we know that it gives the correct answer.
 
 Now, even though we only sourced files that we knew to give the correct result in some circumstances, **we still get the wrong result, simply because we sourced some other file!**
@@ -239,7 +239,7 @@ What is even more concerning is that R did not throw an error! Due to the forgiv
 
 ### The Solution
 
-The solution is simple and obvious: use `TRUE` and `FALSE` instead of `T` and `F`. Let's analyze this situation in terms of some common questions. 
+The solution is simple and obvious: use `TRUE` and `FALSE` instead of `T` and `F`. Let's analyze this situation in terms of some common questions.
 
 1. **Why won't we encounter the same problem with `TRUE` and `FALSE`?**
 
@@ -250,16 +250,16 @@ The solution is simple and obvious: use `TRUE` and `FALSE` instead of `T` and `F
 
 2. **Why don't we simply `rm()` the global variables `T` and `F` ?**
 
-    We can't! See footnote<sup>[2](#removeTFbase)</sup>. 
+    We can't! See footnote<sup>[2](#removeTFbase)</sup>.
 
 
 3. **Can I use `T` and `F` as logicals in interactive mode?**
-    
+
     If you are sure that `T` and `F` are correctly defined then yes. This can be easily checked by quickly typing out `T` and `F` and ensuring the output matches `TRUE` and `FALSE`.
 
 
 4. **Are the extra keystrokes worth it?**
-    
+
     **Absolutely!** The extra keystrokes required to fully type out `TRUE` and `FALSE` buy me some peace of mind. Even if I am sure that I did not define `T` and `F` anywhere in my code, it is possible that some other package that I'm using or some one else's code or even my own code from a few years ago could have redefined these variables. The risk of incorrect results is too high to skimp on the keystrokes. And, any code that I write using `T` and `F` will forever be susceptible to this problem. _I'd rather go to bed feeling good about my code then having avoided carpal tunnel._
 
 
@@ -288,7 +288,7 @@ initial values set to these.  All four are ‘logical(1)’ vectors.
 
 <br/>
 
-<a name="removeTFbase"><sup>2</sup></a> We cannot remove the global variables `T` and `F` if we haven't reassigned these variables. 
+<a name="removeTFbase"><sup>2</sup></a> We cannot remove the global variables `T` and `F` if we haven't reassigned these variables.
 
 ```r
 # In a fresh R session
@@ -326,9 +326,9 @@ and base namespace, nor from any environment which is locked (see
 ...
 ```
 
-As a result, we are stuck with `T` and `F` as always being reachable global variables, whether we have defined them explicitly or not. 
+As a result, we are stuck with `T` and `F` as always being reachable global variables, whether we have defined them explicitly or not.
 
-However, once we reassign to `T` or `F`, we essentially create new variables in the `R_GlobalEnv` with these names. 
+However, once we reassign to `T` or `F`, we essentially create new variables in the `R_GlobalEnv` with these names.
 
 ```r
 > T <- 1:10
@@ -388,7 +388,7 @@ octave:6> f(x)
  10
 ```
 
-This means, in Octave, unlike R, a function is completely isolated from the environment it was defined in (for the most part, things do get complicated in some advanced cases). 
+This means, in Octave, unlike R, a function is completely isolated from the environment it was defined in (for the most part, things do get complicated in some advanced cases).
 
 
 <br/>
@@ -411,6 +411,6 @@ This is because in R:
 
 1. Even the basic operators such as ["+" are functions](http://www.perfectlyrandom.org/2015/05/16/colon-operator-in-R/#operator) defined in the base package's environment, and
 
-2. R uses lexical scoping to find these functions as well (just like it does for variables). 
+2. R uses lexical scoping to find these functions as well (just like it does for variables).
 
 

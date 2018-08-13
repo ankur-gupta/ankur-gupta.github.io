@@ -4,14 +4,14 @@ title: Install xml2 R package on MacOS
 date: 2015-12-13
 update_date: 2016-04-08
 categories: [R, libxml2, install, mac, xml2]
-logo: exclamation-triangle
+logo: fas fa-exclamation-triangle
 ---
 
 Installing [`xml2`](https://github.com/hadley/xml2) `R` package often fails due to missing or incompatible library issues. In this post, I describe why this problem occurs and provide two solutions to solve this problem.
 
 ### What goes wrong?
 
-`xml2` `R` package depends on `libxml2`. When you install `xml2` using `install.packages` and default options, `xml2` package queries your system to determine where `libxml2` headers and library files are located (more on this later). 
+`xml2` `R` package depends on `libxml2`. When you install `xml2` using `install.packages` and default options, `xml2` package queries your system to determine where `libxml2` headers and library files are located (more on this later).
 The error occurs when `libxml2` is not found or a wrong version of `libxml2`.
 This is how the error looks.
 
@@ -72,22 +72,22 @@ $ pkg-config --libs libxml-2.0
 -lxml2
 ```
 
-We need to make sure that the `/usr/include/libxml2` location actually exists. 
-If this location does not exist, then first solve this problem as described 
+We need to make sure that the `/usr/include/libxml2` location actually exists.
+If this location does not exist, then first solve this problem as described
 in the footnotes[^1].
 
 Overall, the solution is based on the simple principle
 
 _Use the correct location of `libxml2` headers and libraries._
 
-There are various ways to solve this problem. I describe two ways in this post. 
+There are various ways to solve this problem. I describe two ways in this post.
 
 ### Possible solutions
 
 For both solutions, we will need to download the [source code](https://cran.r-project.org/web/packages/xml2/index.html) of `xml2` package from CRAN and install the package from source. Extract the original source code file and navigate to the extracted `xml2` folder.
 
 #### Solution 1
-We will modify the `configure` script in the source code. The modification will cause `configure` script to use the `libxml2` location 
+We will modify the `configure` script in the source code. The modification will cause `configure` script to use the `libxml2` location
 provided by `pkg-config`. This can be done by commenting out the following relevant lines in the `configure` file
 
 ```bash
@@ -112,7 +112,7 @@ fi
 
 I recommend reading the code and then made the changes if you understand them.
 
-Now that we have modified the source code of the package, we need to re-build a new `.tar.gz` file. 
+Now that we have modified the source code of the package, we need to re-build a new `.tar.gz` file.
 
 ```bash
 # Navigate to inside the xml2 folder
@@ -130,8 +130,8 @@ and then install this package from from source
 If the location of `libxml2` as specified by `pkg-config` is correct, then this solution should correctly install `xml2` package.
 
 ### Solution 2
-If you do not want to modify the `configure` script and you know the correct location of `libxml2` header and libraries, then you can simply perform 
-a custom install of `xml2` package by using the following command 
+If you do not want to modify the `configure` script and you know the correct location of `libxml2` header and libraries, then you can simply perform
+a custom install of `xml2` package by using the following command
 (as specified by the `configure` script)
 
 ```bash
@@ -172,7 +172,7 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     ```bash
     $ man pkg-config
     ...
-    pkg-config retrieves information about packages from special metadata files. 
+    pkg-config retrieves information about packages from special metadata files.
     These files are named after the package, and has a .pc extension.
     ...
     ```
@@ -196,18 +196,18 @@ The above locations for `INCLUDE_DIR` and `LIB_DIR` correspond to the default Ma
     Cflags: -I${includedir}/libxml2
     ```
 [^3]: Installing [`git2r`](https://cran.r-project.org/web/packages/git2r/index.html)
-  
-    A similar error somtimes occurs while installing `git2r`. On my system, the error was due to incorrect location of 
+
+    A similar error somtimes occurs while installing `git2r`. On my system, the error was due to incorrect location of
     `zlib` library. Solution 2 works but the exact command is slightly different:
 
     ```bash
     # Navigate to inside the git2r source folder
     R CMD INSTALL --configure-args='--with-zlib-include=/usr/include --with-zlib-lib=/usr/lib' .
     ```
-  
-  The exact options required by `configure` may be seen by running `./configure --help` within the source directory 
+
+  The exact options required by `configure` may be seen by running `./configure --help` within the source directory
   of the package. Note that if you have run `configure` within the source folder using the incorect options, then
-  you might see `R CMD INSTALL` fail even with the correct options. This problem can be solved by re-running 
+  you might see `R CMD INSTALL` fail even with the correct options. This problem can be solved by re-running
   `configure` using the correct options or getting a fresh copy of the source.
-  
+
 
