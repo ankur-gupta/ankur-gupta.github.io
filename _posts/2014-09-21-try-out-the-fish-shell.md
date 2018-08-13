@@ -5,19 +5,19 @@ date:       2014-09-21
 summary:    Fish is a new shell with tons of cool features.
 update_date: 2014-09-22
 categories: fish shell bash
-logo: terminal
+logo: fas fa-terminal
 ---
 
-[Fish](http://fishshell.com/) is a new shell which makes using the command line much easier. If you've already got a very heavily configured traditional shell (like _bash_) then you probably have replacements for many features of fish. With fish, you get these features out of the box (for the most part). 
+[Fish](http://fishshell.com/) is a new shell which makes using the command line much easier. If you've already got a very heavily configured traditional shell (like _bash_) then you probably have replacements for many features of fish. With fish, you get these features out of the box (for the most part).
 
-There are many excellent posts and documentation on the web about installing, setting up and using the fish shell. On this page, my aim is to give you a quick overview of the most important features of fish so that you can make up your mind. I have also provided links to the most useful posts which might save you some time. 
+There are many excellent posts and documentation on the web about installing, setting up and using the fish shell. On this page, my aim is to give you a quick overview of the most important features of fish so that you can make up your mind. I have also provided links to the most useful posts which might save you some time.
 
 ### Features of fish
 
 1.  **fish is not bash**
 
-    Before we even begin, let's note that fish and bash are different, just like _csh_ and bash are different. 
-    Many commands and constructs in fish work the same way as bash but there some commands that don't work the same way. One such example is setting the value of a variable. These are the ways you can add your personal `bin` folder to path in bash and fish, respectively 
+    Before we even begin, let's note that fish and bash are different, just like _csh_ and bash are different.
+    Many commands and constructs in fish work the same way as bash but there some commands that don't work the same way. One such example is setting the value of a variable. These are the ways you can add your personal `bin` folder to path in bash and fish, respectively
 
     ```bash
     # bash
@@ -33,7 +33,7 @@ There are many excellent posts and documentation on the web about installing, se
 
 2. **Colorful, underlined prompt and smarter completions**
 
-    The most prominent feature of fish is the colorful, underlined prompt which provides more visual feedback than bash. For example, if a folder is present, you see the entire name of the folder even before you press a `Tab` key. The already typed letters appear as underlined, <span style="color:cyan;text-decoration:underline">cyan</span> colored and the rest of the untyped letters appear in <span style="color:grey">grey</span>. 
+    The most prominent feature of fish is the colorful, underlined prompt which provides more visual feedback than bash. For example, if a folder is present, you see the entire name of the folder even before you press a `Tab` key. The already typed letters appear as underlined, <span style="color:cyan;text-decoration:underline">cyan</span> colored and the rest of the untyped letters appear in <span style="color:grey">grey</span>.
 
     ![Fish helps you find existent folders](/assets/fish-underlined-commands.png)
 
@@ -44,9 +44,9 @@ There are many excellent posts and documentation on the web about installing, se
     You can find more examples [here](http://fishshell.com/assets/img/screenshots/autosuggestion.png) and [here](http://fishshell.com/assets/img/screenshots/colors.png).
 
     Another cool feature is _&#8594;-key completion_ in which pressing the &#8594; arrow key completes the current completion. This completion is different than bash's `Tab`-completion, which does not perform completion when the completion is non-unique.
-    Bash's `Tab`-completion instead provides the user with all possible completions. The user, then, has to type enough letters to make the completion unique. Fish's &#8594;-key completion works even when completion is non-unique. I recommend you try it out to see how good it feels. 
+    Bash's `Tab`-completion instead provides the user with all possible completions. The user, then, has to type enough letters to make the completion unique. Fish's &#8594;-key completion works even when completion is non-unique. I recommend you try it out to see how good it feels.
 
-    Further, fish's `Tab`-completion is different than bash's. Fish's `Tab`-completion shows all possible completions like bash, but it goes a step further. Repeatedly pressing the `Tab` key cycles through all the possible completions, thus eliminating the need to type in more characters. 
+    Further, fish's `Tab`-completion is different than bash's. Fish's `Tab`-completion shows all possible completions like bash, but it goes a step further. Repeatedly pressing the `Tab` key cycles through all the possible completions, thus eliminating the need to type in more characters.
 
     Another important completion in fish is the _switch-completion_, which is absent in bash. Fish's auto-completion looks through the switches of a command and completes them for you. For example, in bash, typing `tree --` and pressing `Tab` will not yield any results.
 
@@ -60,14 +60,14 @@ There are many excellent posts and documentation on the web about installing, se
     ![Fish switch completion](/assets/fish-switch-completion.png)
 
 3. **Integration with git**
-  
+
     You may already know how to [change your bash command prompt](http://blog.taylormcgann.com/tag/prompt-color/) to show your _git branch_ and _git status_. With fish, you can get this functionality and many other features by installing [tacklebox](https://github.com/justinmayer/tacklebox).[^1]
 
     Tacklebox allows you to easily install community-scrutinized themes, plugins and modules which usually work out-of-the-box. I used the `urdh` theme, which shows git information in the following manner:
 
     ![Fish theme showing git information](/assets/fish-git-status-indicator.png)
 
-    Note how the <span style="color:green">_green check mark_</span> changes into <span style="color:orange">_orange solid dot_</span> when the git repository status changes from _clean_ to _unstaged_. 
+    Note how the <span style="color:green">_green check mark_</span> changes into <span style="color:orange">_orange solid dot_</span> when the git repository status changes from _clean_ to _unstaged_.
 
     See another example [here](http://fishshell.com/assets/img/screenshots/works_out_of_the_box.png).
 
@@ -85,25 +85,25 @@ There are many excellent posts and documentation on the web about installing, se
 
     ![Fish config web interface](/assets/fish-config-web-interface.png)
 
-    Another example [here](http://fishshell.com/assets/img/screenshots/web_config.png). 
+    Another example [here](http://fishshell.com/assets/img/screenshots/web_config.png).
 
 
-I am sure there are many more features of fish which I have not yet discovered yet. 
+I am sure there are many more features of fish which I have not yet discovered yet.
 
 ### Installing fish
 
 1. Make sure you get fish v2.1.0 or later. Fish v2.0.0 does not have the
-    latest `Tab`-completion tricks that I described. 
-    
-    For Mac OSX, the post on [Hacker Codex](http://hackercodex.com/guide/install-fish-shell-mac-ubuntu/) is the best page I found for installing and setting up fish. 
+    latest `Tab`-completion tricks that I described.
+
+    For Mac OSX, the post on [Hacker Codex](http://hackercodex.com/guide/install-fish-shell-mac-ubuntu/) is the best page I found for installing and setting up fish.
 
     For Ubuntu, you can dowload the `.deb` [here](http://fishshell.com/) and then use the following command
 
       ```bash
       sudo dpkg -i <fish-deb-file>
       ```
- 
-2. The [fish official tutorial](http://fishshell.com/docs/current/tutorial.html) is a good reference for customizing fish to your taste. The documentation is [here](http://fishshell.com/docs/current/index.html). 
+
+2. The [fish official tutorial](http://fishshell.com/docs/current/tutorial.html) is a good reference for customizing fish to your taste. The documentation is [here](http://fishshell.com/docs/current/index.html).
 3. You probably would want to install [Tacklebox](https://github.com/justinmayer/tacklebox) which automatically installs [Tackle](https://github.com/justinmayer/tackle).
 4. Install [fishmarks](https://github.com/techwizrd/fishmarks).
 
@@ -111,7 +111,7 @@ I am sure there are many more features of fish which I have not yet discovered y
 ### Some tips and tricks and snippets
 
 1.  Some plugins of fish may have dependencies that you may need to install.
-    For example, if you find your fish prompt complaining about something called `vcprompt`, you need to install it. 
+    For example, if you find your fish prompt complaining about something called `vcprompt`, you need to install it.
 
     Funnily enough, it's easier to install `vcprompt` on Mac OSX then on ubuntu.
 
@@ -166,7 +166,7 @@ I am sure there are many more features of fish which I have not yet discovered y
     end
     ```
 
-4. Redefining a command. 
+4. Redefining a command.
    Fish doesn't have your traditional bash `alias` command. Instead you need to define a function. The following fish function, however, has infinite recursion which will give you an error
 
      ```bash

@@ -6,7 +6,7 @@ date: 2014-03-30 09:01
 author: Ankur Gupta
 update_date: 2014-09-19
 categories: [autostart, Lubuntu, lubuntu 13.10, startup, Tech]
-logo: magic
+logo: fas fa-magic
 ---
 
 There are two ways to do this.

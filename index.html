@@ -7,9 +7,9 @@ layout: default
     <div class="post-image">
         <a href="{{ site.url }}{{ post.url }}">
             {% if post.logo %}
-              <i class="fa fa-{{ post.logo }} fa-fw"></i>
+              <i class="{{ post.logo }} fa-fw"></i>
             {% else %}
-              <i class="fa fa-question-circle fa-fw"></i>
+              <i class="fas fa-question-circle"></i>
             {% endif %}
         </a>
     </div>

@@ -4,7 +4,7 @@ title: Aero snap using keyboard
 author: Ankur Gupta
 date: 2014-03-30 03:32
 categories: [aero snap, Lubuntu, lubuntu, openbox, Tech]
-logo: magnet
+logo: fas fa-magnet
 ---
 
 If you're using Lubuntu 13.10, then chances are that you can snap a window to
