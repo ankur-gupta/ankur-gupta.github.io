@@ -50,7 +50,7 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 
     <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="{{ site.url }}/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for {{ site.title }}" href="/feed.xml" />
 
     <!-- Icons -->
     <!-- The ?v=8jjamLzmpR simply forces the browser to reload the favicon. Remove after a long time. -->
@@ -77,7 +77,7 @@
 <body>
 <div class="wrapper-for-content-outside-of-footer">
     <div class="site-title">
-        <a href="{{ site.url }}">{{ site.title }}</a>
+        <a href="/">{{ site.title }}</a>
     </div>
     <div class = "container">
         {{ content }}
@@ -94,23 +94,23 @@
 <!-- Footer: begin -->
 <footer class="stickyfooter" role="contentinfo">
   <div class="footer-logo">
-    <a href="{{ site.url }}"><i class="fa fa-{{ site.fort_awesome_icon }}"></i></a>
+    <a href="/"><i class="fa fa-{{ site.fort_awesome_icon }}"></i></a>
   </div>
     <ul>
-      <li><a href="{{ site.url }}/about/">About</a></li>
-      <li><a href="{{ site.url }}/contact/">Contact</a></li>
-      <li><a href="{{ site.url }}/search/">Search</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+      <li><a href="/search/">Search</a></li>
     </ul>
 
     <div class="footer-secondary-links">
       <ul>
         <li>Powered by <a href="http://jekyllrb.com/">Jekyll</a>
-        using the <a href="{{ site.url }}">Trio</a> theme
+        using the <a href="https://www.perfectlyrandom.org/trio">Trio</a> theme
         </li>
       </ul>
 
       <ul class="footer-social">
-        <li><a href="{{ site.url }}/feed.xml">
+        <li><a href="/feed.xml">
                 <i class="fa fa-rss-square"></i>
         </a></li>
         {% if site.owner.github %}
