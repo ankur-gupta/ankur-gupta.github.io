@@ -15,14 +15,14 @@ permalink: /search/
 <script src="{{ site.url }}/js/jekyll-search.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-  SimpleJekyllSearch({
-    searchInput: document.getElementById('search-input'),
-    resultsContainer: document.getElementById('results-container'),
-    json: '{{ site.url }}/search.json',
-    searchResultTemplate: '<div class="single-search-result"><h2><a href="{url}" title="{desc}">{title}</a></h2><p>{snippet}</p><p class="date">{date}</p></div>',
-    noResultsText: 'No results found',
-    limit: 20,
-    fuzzy: false
-    // exclude: ['search']
-})
+window.simpleJekyllSearch = new SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json',
+        searchResultTemplate: '<div class="single-search-result"><h2><a href="{url}" title="{desc}">{title}</a></h2><p>{snippet}</p><p class="date">{date}</p></div>',
+        noResultsText: 'No results found',
+        limit: 20,
+        fuzzy: false
+        // exclude: ['Welcome']
+      })
 </script>
