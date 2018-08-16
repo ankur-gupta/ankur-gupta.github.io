@@ -40,11 +40,11 @@ We will use Python, [Jupyter notebook](http://jupyter.org/), and
 AWS provides an already configured
 [JupyterHub installation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-jupyterhub.html)
 but we will **not** use the AWS-provided installation. Instead, we will install our own
-jupyter package on the cluster and use that instead.
+jupyter package on the cluster and use that.
 This is because the AWS-provided JupyterHub installation runs within
 a docker container and deprives the end user (which is you and me) of many python and
 jupyter benefits. It also adds another layer of complexity to an already complicated
-Spark cluster setup. The AWS-provided JupytrHub installation does provide us
+Spark cluster setup. The AWS-provided JupyterHub installation does provide us
 with some features that we don't really need at this time.
 The increased complexity in the AWS-provided installation makes it
 difficult to install and use python packages (such as pandas and numpy).
