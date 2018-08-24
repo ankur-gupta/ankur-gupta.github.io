@@ -2,6 +2,7 @@
 layout: post
 title: Setup Spark cluster on AWS EMR
 date: 2018-08-11
+update_date: 2018-08-23
 logo: far fa-star
 ---
 
@@ -418,8 +419,10 @@ because we can easily delete user-site files and folders.
 ```bash
 # On EMR master node
 pip install --user jupyter
+pip install --user ipython
 pip install --user pandas
 pip install --user matplotlib
+pip install --user seaborn
 ```
 
 Note that in some cases you'll want to install a python package (typically, as a dependency)
@@ -437,50 +440,106 @@ pip install --user -I --upgrade python-dateutil
 
 
 ### Launch Jupyter Notebook
-#### Setup port forwarding
-To setup port forwarding, we need to make a (new) ssh connection with the port forwarding
-information specified. If you still have the ssh connection that we made in the previous steps,
-you can keep that running or exit that;
-you'll still need to setup port forwarding using another ssh connection.
+#### Setup `ssh` or `mosh`
+In order to launch the jupyter notebook, we will need to ssh into the master node of the
+Spark cluster. As mentioned previously, you can use regular `ssh` to do this
+but you may encounter timeout issues when running code that takes a lot of time. Since Spark
+code typically does take some time to run, timing out is a frequent problem.
+We can alleviate (but not eliminate) some of these timeout problems with a few nifty tricks.
+
+The *first trick* prevents ssh timeouts resulting from inactivity (`broken pipe` problems).
+We will periodically send a null packet to the server (master node of the Spark cluster)
+to keep the connection alive.
+[This StackExchange post](https://unix.stackexchange.com/questions/3026/what-options-serveraliveinterval-and-clientaliveinterval-in-sshd-config-exac)
+and [this blog post](https://bjornjohansen.no/ssh-timeout)
+provide some more details.
+
+In order to accomplish this, we will add the following entry to our
+`~/.ssh/config` file. If you don't have `~/.ssh/config` file, you can create it; it's a plain
+text file. Please remember to change the `HostName` and the location of the `IdentityFile`
+to your specific values.
+
+
+```
+# In your ~/.ssh/config file
+Host emr
+    HostName ec2-xxx-xxx-xxx-xxx.compute-y.amazonaws.com
+    User hadoop
+    IdentityFile ~/my-ec2-key-pair.pem
+    IdentitiesOnly yes
+    ServerAliveInterval 119
+    ServerAliveCountMax 10
+```
+
+We are essentially asking our ssh client (local machine) to send a null packet
+every `119` seconds and expect a response from the server. If the client doesn't receive a
+response from the server, it tries again up to a maximum of `10` times before giving up.
+
+The *second trick* involves the use of [mosh](https://mosh.org/) which is
+specifically designed to deal with this situation. You will need to install `mosh` on both
+client (local machine) and the server (master node of the EMR cluster) as well as
+allow UDP traffic on ports 60000–61000. You can edit the
+security group `allow-ping-ssh`, which we setup previously, to do this. If you're doing this
+at work, please make sure that opening up these UDP ports is allowed at your employer's.
+
+Once `mosh` is ready for use, you can simply use `mosh` instead of `ssh`.
+You can use both of these tricks simultaneously -- keep the configuration we setup in
+`~/.ssh/config` and still use `mosh`. I recommend that you use both tricks because
+`mosh` cannot be used to do port forwarding and we will have to use plain old `ssh` as well.
 
 ```bash
 # On local machine
-ssh -L 8889:localhost:8889 -i ~/my-ec2-key-pair.pem hadoop@ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+
+# If you setup the entry in ~/.ssh/config, then you can simply type
+mosh emr
+
+# If you didn't setup the entry in ~/.ssh/config, use the full command
+mosh -i ~/my-ec2-key-pair.pem hadoop@ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
 ```
 
-This sets up your local machine's port `8889` to listen to the master node's
-port `8889`. The port `8889` is the default port at which jupyter notebook serves. You should
-confirm that `8889` is indeed the port on which jupyter notebook is served (keep on reading).
-If not, you can simply replace `8889` with the port that jupyter notebook serves on.
-Typically, the port `8889` does not conflict with the other default
-[EMR ports](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html).
-The AWS-provided JupyterHub notebook is
-[served](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-jupyterhub-connect.html)
-on port `9443`.
+#### Launch using `pyspark`
+We will launch jupyter notebook via `pyspark`. The following bash script can easily
+launch it for you. Alternatively, if you prefer, you can type out these commands in the
+terminal.
 
-Note that if you don't need to use jupyter notebook and want to use ipython or
-python terminal instead, then you don't need to setup port forwarding.
+```bash
+# Create a script titled "launch-jupyter.sh" with the following contents on EMR master node.
 
-#### Setup environment variables
-We will use the provided `pyspark` script -- it comes with support for jupyter notebook and
-even `ipython` terminal.
+#! /usr/bin/env bash
+export PYTHONPATH="/home/hadoop/.local/lib/python2.7/site-packages:$PYTHONPATH"
+export PYSPARK_DRIVER_PYTHON=/home/hadoop/.local/bin/jupyter
+export PYSPARK_DRIVER_PYTHON_OPTS='notebook --no-browser'
+echo $PYTHONPATH
+echo $PYSPARK_DRIVER_PYTHON
+echo $PYSPARK_DRIVER_PYTHON_OPTS
+pyspark
+```
 
 ```bash
 # On EMR master node
-export PYTHONPATH="/home/hadoop/.local/lib/python2.7/site-packages:$PYTHONPATH"
-export PYSPARK_DRIVER_PYTHON=/home/hadoop/.local/bin/jupyter
-export PYSPARK_DRIVER_PYTHON_OPTS='notebook'
-
-# Check
-[hadoop@ip-xxx-xxx-xxx-xxx ~]$ echo $PYSPARK_DRIVER_PYTHON
-/home/hadoop/.local/bin/jupyter
-
-[hadoop@ip-xxx-xxx-xxx-xxx ~]$ echo $PYSPARK_DRIVER_PYTHON_OPTS
-notebook
-
-[hadoop@ip-xxx-xxx-xxx-xxx ~]$ echo $PYTHONPATH
-/home/hadoop/.local/lib/python2.7/site-packages:
+[hadoop@ip-xxx-xxx-xxx-xxx ~]$ chmod u+x launch-jupyter.sh
+[hadoop@ip-xxx-xxx-xxx-xxx ~]$ ./launch-jupyter.sh
 ```
+
+You should see a message like the one below printed in your terminal.
+The ssh terminal will continue to be responsive and will print useful messages.
+You must keep it open as long as you want to use Jupyter notebook.
+See the "Exiting properly" section below for instructions on how to properly exit without losing
+data or accidentally killing the Spark cluster.
+
+```bash
+# Output of pyspark (on EMR master node)
+...
+Copy/paste this URL into your browser when you connect for the first time,
+to login with a token:
+    http://localhost:8888/?token=s0m3l0ngalphanumer1cstr1ng
+...
+```
+
+We need to setup port forwarding before we can access the URL above. Make note of the
+port number (`8888` in this example) printed in the URL. This is the port at which
+the jupyter notebook is served. We will need to use this port number to setup port forwarding.
+
 
 <br/>
 **Aside: ipython terminal instead of jupyter notebook**
@@ -497,54 +556,55 @@ pip install --user ipython
 ```
 
 ```bash
-# On EMR master node
+# Create a script titled "launch-ipython.sh" with the following contents on EMR master node.
+
+#! /usr/bin/env bash
 export PYTHONPATH="/home/hadoop/.local/lib/python2.7/site-packages:$PYTHONPATH"
 export PYSPARK_DRIVER_PYTHON=/home/hadoop/.local/bin/ipython
-
-# Check
-[hadoop@ip-xxx-xxx-xxx-xxx ~]$ echo $PYSPARK_DRIVER_PYTHON
-/home/hadoop/.local/bin/ipython
-
-[hadoop@ip-xxx-xxx-xxx-xxx ~]$ echo $PYTHONPATH
-/home/hadoop/.local/lib/python2.7/site-packages:
-```
-
-
-
-#### Launch `pyspark`
-We launch `pyspark` which will, in turn, launch the pyspark driver that we setup as the
-environmental variable.
-
-```bash
-# On EMR master node
-# Launch pyspark. This will use the environmental variables we setup.
+echo $PYTHONPATH
+echo $PYSPARK_DRIVER_PYTHON
 pyspark
 ```
 
-If you setup jupyter notebook as the driver, then you may see an interactive question in your
-terminal asking you to trust the notebook. Select the "A" (Always) option -- this lasts only as
-long as the jupyter notebook is running. You will have to make this selection every time you
-quit and re-launch `pyspark`. Press "Q" to exit the text-view of the jupyter notebook; your
-notebook will still be running after. Jupyter should now tell you which port it's serving on.
-This is where you ensure that the port is `8889`. If it's not, you should setup another ssh
-port forwarding connection in a separate terminal window with the correct port number.
-You must leave the port forwarding ssh session running.
-
-### Open jupyter notebook in a browser
-Go to URL printed on the terminal screen; it should look something like this.
-You should see a jupyter notebook homepage. The ssh terminal will print useful
-messages and you must keep it open.
-
 ```bash
-# Output of pyspark (on EMR master node)
-...
-Copy/paste this URL into your browser when you connect for the first time,
-to login with a token:
-    http://localhost:8889/?token=s0m3l0ngalphanumer1cstr1ng
-...
+# On EMR master node
+[hadoop@ip-xxx-xxx-xxx-xxx ~]$ chmod u+x launch-ipython.sh
+[hadoop@ip-xxx-xxx-xxx-xxx ~]$ ./launch-ipython.sh
 ```
 
+#### Setup port forwarding
+Remember that `mosh` cannot be used to setup port forwarding; we will have to use `ssh` to do that.
+The following command will setup port forwarding as a background process.
+See [this blog post](https://coderwall.com/p/ohk6cg/remote-access-to-ipython-notebooks-via-ssh)
+for more details.
 
+```bash
+# On local machine
+
+# If you setup the entry in ~/.ssh/config, then you can simply type
+ssh -N -f -L 8888:localhost:8888 emr
+
+# If you didn't setup the entry in ~/.ssh/config, use the full command
+ssh -N -f -L 8888:localhost:8888 -i ~/my-ec2-key-pair.pem hadoop@ec2-xxx-xxx-xxx-xxx.compute-1.amazonaws.com
+```
+
+This sets up your local machine's port `8888` to listen to the master node's
+port `8888`. From the previous step, we know that the jupyter notebook is being served on port
+`8888` on the master node. Typically, the port `8888` is open on local machine but if it's not
+open, try another port. As a side note, the port `8888` does not conflict with the other default
+[EMR ports](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html).
+The AWS-provided JupyterHub notebook is
+[served](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-jupyterhub-connect.html)
+on port `9443`.
+
+If you don't need to use jupyter notebook and want to use ipython or
+python terminal instead, then you don't need to setup port forwarding.
+
+
+### Open jupyter notebook in a browser
+Go to URL printed on the terminal screen previously.
+You should see a jupyter notebook homepage. The ssh terminal will print useful
+messages and you must keep it open.
 
 #### Find your bearings
 From the jupyter notebook homepage, click on "New" and open a terminal.
@@ -586,6 +646,69 @@ is available.
 ![Jupyter notebook: bells and whistles](/assets/aws-jupyter-notebook-bells-whistles.png)
 
 
+### Exiting properly
+Proper shutdown is important with an AWS EMR cluster.
+
+#### Shutting down notebooks in browser
+1. Save your notebook
+2. Click on `File > Close and halt`. This closes your spark session and
+releases resources (memory and disk space) back.
+3. Once you have *closed and halted* all notebooks, click on `Quit` on the main page of the
+jupyter notebook. This should gracefully exit the `jupyter` processes running on the master
+node of the EMR cluster. You should see the `jupyter` process end in your `ssh`/`mosh` terminal.
+
+
+If you lose a connection to your jupyter notebook, it does not automatically close out the
+`jupyter` processes. Those processes might still be running and consuming resources.
+To close them out, search for the appropriate processes like this.
+
+```bash
+# On EMR master node
+ps aux | grep "jupyter"
+```
+
+If you see `jupyter` processes running, you can kill them using `kill <pid>`. You usually
+only have to kill one parent process which kills the child processes as well.
+
+
+**CAUTION:** Be careful when killing processes. Make sure you don't accidentally kill someone
+else's jupyter session (which may have the same username `hadoop`). *If you kill someone
+else's `jupyter` process, they may lose all their work.*
+
+#### Shutting down port forwarding
+After you've shutdown the jupyter notebook on the master node,
+we can shutdown the port forwarding on the local machine. Simply `grep` and `kill` the process.
+
+```bash
+# On local machine
+
+# Find the appropriate process id. You should see your username and the exact string you typed in.
+ps aux | grep "ssh"
+
+# Kill
+kill <pid>
+```
+
+#### Downloading jupyter notebooks and data
+This step is very important and often overlooked. The notebooks reside on the master node
+of the EMR cluster. Any data that you saved to disk using the jupyter notebook is also
+saved on the master node unless you explicitly saved the data somewhere else.
+
+The entire EMR cluster, including the master node, is ephemeral. Leaving the notebook
+and data on the master node is *extremely* risky. It's possible that you or someone else
+accidentally terminates the EMR cluster. Another common scenario is when someone runs a spark
+job on the same EMR cluster which results in a failure which, in turn, causes the cluster
+to terminate. An even more common scenario is when someone (which could be you) forgets about
+a running spark job (perhaps via a zombie `jupyter` process). While this spark job is running,
+various nodes are still holding data (in memory or on disk). If someone decides to downsize
+the EMR cluster at this point, EMR tries to put all the data on to the surviving nodes which
+can very easily kill the entire cluster if the data is too large.
+
+I highly recommend that you download your notebooks and data or upload them to S3 as soon
+as you're done with your work.
+
+
+**To be continued ...**
+
 This is enough for one post. Stay tuned for another post in which we will actually
 analyze the data using our newly created Spark cluster.
-_To be continued ..._
