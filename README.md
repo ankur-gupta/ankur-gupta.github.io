@@ -14,6 +14,7 @@ everyone. Here is a list of modifications, all of which are taken from the
 7. Google Analytics support and search engine optimization has been removed
 8. Other minor modifications including code reorganization
 
+See [live demo](https://www.perfectlyrandom.org/laplacian/) here.
 
 ## Images
 Royalty-free Images are taken from [Pexels](https://www.pexels.com). Thanks to Pexels!
