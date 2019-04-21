@@ -1,7 +1,7 @@
 # Site wide configuration
-title: Laplacian
-description: 'a minimalist Jekyll theme'
-url: http://www.perfectlyrandom.org/laplacian
+title: Perfectly Random
+description: 'statistics, machine learning, and programming'
+url: https://www.perfectlyrandom.org
 author: Ankur Gupta
 
 # Owner configuration
@@ -17,11 +17,11 @@ attribution:
 
 
 # Disqus comments configuration (leave blank to disable comments)
-disqus_shortname: 'laplacian'
+disqus_shortname: 'perfectlyrandom'
 
 # Jekyll configuration
 permalink: /:year/:month/:day/:title/
-paginate: 2
+paginate: 4
 
 # Markdown
 markdown: kramdown
