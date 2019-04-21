@@ -3,7 +3,6 @@ layout: post
 title: Always on top in MacOS Yosemite
 date: 2015-12-24
 comments: true
-image: "always-on-top-in-macos-yosemite/header.png"
 ---
 _**Update:** This works on El Capitan as well._
 
