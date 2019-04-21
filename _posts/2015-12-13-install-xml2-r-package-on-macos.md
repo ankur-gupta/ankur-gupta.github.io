@@ -3,6 +3,7 @@ layout: post
 title: "Install xml2 R package on MacOS"
 date: 2016-04-08
 categories: [R, libxml2, install, mac, xml2]
+comments: true
 ---
 
 Installing [`xml2`](https://github.com/hadley/xml2) `R` package often fails due to missing or incompatible library issues. In this post, I describe why this problem occurs and provide two solutions to solve this problem.
