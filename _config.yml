@@ -1,0 +1,34 @@
+# Site wide configuration
+title: Laplacian
+description: 'a minimalist Jekyll theme'
+url: http://www.perfectlyrandom.org/laplacian
+author: Ankur Gupta
+
+# Owner configuration
+# (leave blank to disable the corresponding sharing button)
+owner:
+  github: ankur-gupta
+  twitter: ankurIO
+  linkedin: ankurguptawisc
+
+attribution:
+  theme_name: Lagrange
+  theme_url: https://lenpaul.github.io/Lagrange/
+
+
+# Disqus comments configuration (leave blank to disable comments)
+disqus_shortname: 'laplacian'
+
+# Jekyll configuration
+permalink: /:year/:month/:day/:title/
+paginate: 4
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Gems
+plugins: ['jekyll-paginate']
+
+# Exclude
+exclude: ['README.md']

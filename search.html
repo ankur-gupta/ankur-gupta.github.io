@@ -1,0 +1,27 @@
+---
+layout: page
+title: Search
+permalink: /search/
+---
+
+<div class="search-query">
+    <input type="text" class="search-input" id="search-input" placeholder="Search entire site" />
+</div>
+
+<div class="search-results" id="results-container"></div>
+
+<!-- Script pointing to jekyll-search.js -->
+<script src="{{ site.url }}/js/jekyll-search.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  SimpleJekyllSearch({
+    searchInput: document.getElementById('search-input'),
+    resultsContainer: document.getElementById('results-container'),
+    json: '{{ site.url }}/search.json',
+    searchResultTemplate: '<div class="single-search-result"><h4><a href="{url}" title="{desc}">{title}</a></h4><p>{snippet}</p><p class="post-date">{date}</p></div>',
+    noResultsText: 'No results found',
+    limit: 20,
+    fuzzy: false
+    // exclude: ['search']
+})
+</script>

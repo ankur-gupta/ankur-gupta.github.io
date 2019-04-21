@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+
+{% for post in paginator.posts %}
+    <div class="posts">
+        <h1>
+            <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+        </h1>
+
+        {% if post.image %}
+            <div class="thumbnail-container">
+                <a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/assets/img/{{ post.image }}"></a>
+            </div>
+        {% endif %}
+
+        <p>
+            {{ post.content | strip_html | truncate: 350 }} <a href="{{ site.url }}{{ post.url }}">Read more</a>
+
+        <span class="post-date">
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            {{ post.date | date_to_string }} -
+            <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
+            {% if site.disqus_shortname %}
+                {% if post.comments %}
+                    - <i class="far fa-comments" aria-hidden="true"></i>
+                    <a href="{{ site.url }}{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+                {% endif %}
+            {% endif %}
+        </span>
+        </p>
+    </div>
+{% endfor %}
+
+
+<!-- Pagination links -->
+<div class="pagination">
+    {% if paginator.previous_page %}
+        <a class="pagination-button pagination-active" href="{{ site.url }}{{ paginator.previous_page_path }}">Prev</a>
+    {% else %}
+        <span class="pagination-button">Prev</span>
+    {% endif %}
+
+    <span class="pagination-button">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+        <a class="pagination-button pagination-active" href="{{ site.url }}{{ paginator.next_page_path }}">Next</a>
+    {% else %}
+        <span class="pagination-button">Next</span>
+    {% endif %}
+</div>
+
+
+<!-- Add Disqus comment count (not the comments) -->
+<script id="dsq-count-scr" src="//{{ site.disqus_shortname }}.disqus.com/count.js" async></script>

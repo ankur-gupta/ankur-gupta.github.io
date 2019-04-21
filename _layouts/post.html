@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<h1 class="post-title">
+    {{ page.title }}
+</h1>
+
+{% if page.image %}
+    <img class="post-image" src="{{ site.url }}/assets/img/{{ page.image }}">
+{% endif %}
+
+<span class="post-byline">
+    {% assign d = page.date | date: "%-d"  %}
+    {{ page.date | date: "%B" }}
+    {% case d %}
+        {% when '1' or '21' or '31' %}{{ d }}st
+        {% when '2' or '22' %}{{ d }}nd
+        {% when '3' or '23' %}{{ d }}rd
+        {% else %}{{ d }}th{% endcase %},
+    {{ page.date | date: "%Y" }}
+    by
+    {% if page.author %}
+        {{ page.author }}
+    {% else %}
+        {{ site.author }}
+    {% endif %}
+    {% if site.disqus_shortname %}
+        {% if page.comments %}
+            | <i class="far fa-comments" aria-hidden="true"></i>
+            <a href="{{ site.url }}{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>
+        {% endif %}
+    {% endif %}
+</span>
+
+{{ content }}
+
+{% include social-sharing.html %}
+
+{% if site.disqus_shortname %}
+    {% if page.comments %}
+        {% include disqus.html %}
+    {% endif %}
+{% endif %}
