@@ -1,6 +1,14 @@
-# Laplacian
+---
+layout: post
+title: "Welcome to Laplacian!"
+author: "Ankur Gupta"
+categories: journal
+comments: true
+tags: [documentation,sample]
+image: beautiful-city-daylight-210243.jpg
+---
 
-This theme is made by modifying the beautiful [Lagrange](https://github.com/LeNPaul/Lagrange) theme
+This theme is based on the beautiful [Lagrange](https://github.com/LeNPaul/Lagrange) theme
 by Paul Le. The modifications add some features that I like personally but may not be liked by
 everyone. Here is a list of modifications, all of which are taken from the
 [Trio](https://github.com/ankur-gupta/trio) theme.
@@ -23,6 +31,7 @@ Royalty-free Images are taken from [Pexels](https://www.pexels.com). Thanks to P
 * [Warm Coffee Drink](https://www.pexels.com/photo/warm-coffee-drink-1684151/)
 
 
-
 ## License
 Open sourced under MIT License.
+
+
