@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Always on top in MacOS Yosemite
-date: 2015-12-24
+date: 2015-01-31
+update_date: 2015-12-24
 comments: true
 ---
 _**Update:** This works on El Capitan as well._
