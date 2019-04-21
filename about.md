@@ -30,5 +30,3 @@ Going forward, you should see more of the same as well as articles about machine
 and statistics.
 
 Feel free to reach out to me!
-
-
