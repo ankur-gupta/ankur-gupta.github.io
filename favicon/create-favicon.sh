@@ -32,7 +32,7 @@ function saveimage() {
 
 #----------------------------------------------------------------------
 # Text/label
-label="∆"
+label="P"
 
 font="Serif"
 
