@@ -1,17 +1,26 @@
 ---
 layout: post
-title: "Code blocks, Math, Tables and GitHub gists"
-date: 2015-09-06
+title: "Code blocks, Math, Tables, and GitHub gists"
+date: 2019-04-20
 comments: false
 ---
 
 This post is copied from [Trio](https://www.perfectlyrandom.org/trio/2015/09/06/code-blocks-tables-and-github-gists/)
 and then modified with the aim to demonstrate some of the features.
 
-Examples to show how these basic components look in Laplacian.
 
-<br/>
-### Code blocks
+## Headings
+This is how the headings look like.
+
+# Heading Level One (h1)
+## Heading Level Two (h2)
+### Heading Level Three (h3)
+#### Heading Level Four (h4)
+##### Heading Level Five (h5)
+###### Heading Level Six (h6)
+
+
+## Code blocks
 
 Since Laplacian uses `redcarpet` instead of `kramdown`, we can use the triple backticks
 to define fenced code blocks.
@@ -64,8 +73,7 @@ def what?
 end
 ~~~
 
-### MathJax Example
-
+## MathJax Example
 The [Einstein field equations](https://en.wikipedia.org/wiki/Einstein_field_equations) can be
 displayed nicely as follows.
 
@@ -79,14 +87,13 @@ $$
 i\hbar\frac{\partial}{\partial t} \Psi(\mathbf{r},t) = \left [ \frac{-\hbar^2}{2\mu}\nabla^2 + V(\mathbf{r},t)\right ] \Psi(\mathbf{r},t)
 $$
 
-### Footnotes
+## Footnotes
 Markdown footnotes[^1] work nicely in Laplacian. You need to make sure proper extensions are
 enabled in either `redcarpet` or `kramdown` parsers.
 
 [^1]: <http://en.wikipedia.org/wiki/Syntax_highlighting>
 
-<br/>
-### Tables
+## Tables
 This is how tables look. An excellent source to create tables in many formats (including Markdown)
 is [Tables Generator](http://www.tablesgenerator.com/).
 
@@ -96,14 +103,13 @@ is [Tables Generator](http://www.tablesgenerator.com/).
 | col 2 is      | centered        |   $12 |
 | zebra stripes | are neat        |    $1 |
 
-<br/>
-### Github Gists
-This is how GitHub Gists look in Laplacian.
 
+## Github Gists
+This is how GitHub Gists look in Laplacian.
 <script src="https://gist.github.com/ankur-gupta/582bfba52054b9e8d9b3.js"></script>
 
 
-### Blockquotes
+## Blockquotes
 Laplacian supports lists, `<hr>`s, `<table>`s  and
 
 > blockquotes
