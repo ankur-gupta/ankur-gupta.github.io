@@ -2,6 +2,8 @@
 layout: post
 title: "Setup a Spark cluster on AWS EMR"
 date: 2018-08-23
+comments: true
+image: "setup-spark-cluster-on-aws-emr/aws-ssh-into-master-node.jpg"
 ---
 
 AWS provides
