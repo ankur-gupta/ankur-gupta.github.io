@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Try out the fish shell"
-date: 2014-09-22
+date: 2014-09-21
+update_date: 2014-09-22
 categories: fish shell bash
 comments: true
 image: "try-out-fish-shell/header.png"

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Sublime-style multiple cursors in Jupyter"
-date: "2016-03-23"
+date: 2016-03-19
+update_date: 2016-03-23
 comments: true
 image: "sublime-style-multiple-cursors-in-jupyter/jupyter-notebook-multiple-cursors-demo.gif"
 ---
