@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Adding Disqus to your Jekyll"
-date: 2015-12-24
+date: 2014-06-29
+update_date: 2015-12-24
 comments: true
 ---
 
