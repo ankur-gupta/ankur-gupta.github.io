@@ -21,7 +21,7 @@ disqus_shortname: 'laplacian'
 
 # Jekyll configuration
 permalink: /:year/:month/:day/:title/
-paginate: 4
+paginate: 2
 
 # Markdown
 markdown: kramdown
