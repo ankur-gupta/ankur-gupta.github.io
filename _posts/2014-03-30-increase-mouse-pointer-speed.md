@@ -2,7 +2,8 @@
 layout: post
 title: "Increase mouse pointer speed in Ubuntu"
 author: "Ankur Gupta"
-date: 2014-09-19
+date: 2014-03-30
+update_date: 2014-09-19
 categories: [Lubuntu, lubuntu, mouse pointer speed, openbox, Tech]
 comments: true
 ---

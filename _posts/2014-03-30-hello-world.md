@@ -2,7 +2,8 @@
 layout: post
 title: "Hello World"
 author: "Ankur Gupta"
-date: "2014-03-30"
+date: 2014-03-30
+update_date: 2014-09-19
 categories: [C, clojure, Octave/MATLAB, programming language, shell, Tech]
 comments: true
 ---
