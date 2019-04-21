@@ -7,9 +7,9 @@
 
     <title>
         {% if page.title %}
-            {{ page.title }} &#8211;
+            {{ page.title | strip_html }} &#8211;
         {% endif %}
-        {{% site.title %}}
+        {{ site.title | strip_html }}
     </title>
 
     <!-- Custom CSS -->
