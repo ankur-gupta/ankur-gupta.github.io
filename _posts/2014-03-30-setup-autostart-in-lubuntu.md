@@ -2,6 +2,7 @@
 layout: post
 title: "Setup autostart in Lubuntu"
 author: "Ankur Gupta"
+date: 2014-09-19
 update_date: 2014-09-19
 categories: [autostart, Lubuntu, lubuntu 13.10, startup, Tech]
 comments: true

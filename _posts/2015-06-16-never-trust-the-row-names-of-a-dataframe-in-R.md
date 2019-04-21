@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Never trust rownames of a dataframe"
-date: 2015-08-15
+date: 2015-06-16
+update_date: 2015-08-15
 categories: [R, dataframe, row names]
 comments: true
 ---
