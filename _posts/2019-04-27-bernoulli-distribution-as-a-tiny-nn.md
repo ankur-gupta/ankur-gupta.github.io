@@ -5,12 +5,8 @@ title: Bernoulli Distribution as a tiny Neural Network
 author: Ankur Gupta
 date: 2019-04-27
 comments: false
-image: "bernoulli-distribution-as-tiny-nn/bernoulli-model-standalone.svg"
+image: "bernoulli-distribution-as-tiny-nn/header.png"
 ---
-
-## Introduction {#sec:intro}
-_(This document is available as a [PDF](/assets/bernoulli-distribution-as-tiny-nn/notes.pdf))_
-
 
 Logistic regression is often considered the smallest neural network for
 binary classification. We can think of Bernoulli distribution as an even
@@ -25,6 +21,8 @@ network, we can easily demonstrate how the famous cross-entropy loss
 comes into being. We can even extend this Bernoulli distribution model
 framework to recreate the familiar logistic regression model by simply
 replacing a constant parameter by a sigmoid-affine function.
+
+_(This document is available as a [PDF](/assets/bernoulli-distribution-as-tiny-nn/notes.pdf))_
 
 ## Bernoulli distribution {#section-bernoulli-dist}
 Bernoulli distribution, owing to its simplicity, is used more often than
