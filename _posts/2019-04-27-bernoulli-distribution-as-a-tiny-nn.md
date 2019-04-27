@@ -4,7 +4,7 @@ identifier: bernoulli-distribution-as-a-tiny-nn
 title: Bernoulli Distribution as a tiny Neural Network
 author: Ankur Gupta
 date: 2019-04-27
-comments: false
+comments: true
 image: "bernoulli-distribution-as-tiny-nn/header.png"
 ---
 
