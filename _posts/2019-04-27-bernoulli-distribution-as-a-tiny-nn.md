@@ -86,7 +86,7 @@ versus a *dog* image:
         <p style="font-size: 0.8em; font-style: italic; margin-top:0; margin-bottom:0;">Dog</p>
     </div>
     <div>
-        <p style="margin-top:0; margin-bottom: 0; font-size: 0.8em; font-style: italic;">Images by Pexels</p>
+        <p style="margin-top:0; margin-bottom: 0; font-size: 0.8em; font-style: italic;">Images by <a href="https://www.pexels.com" target="_blank">Pexels</a></p>
     </div>
 </div>
 
