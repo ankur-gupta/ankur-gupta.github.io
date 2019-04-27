@@ -25,7 +25,7 @@ layout: default
             {% if site.disqus_shortname %}
                 {% if post.comments %}
                     - <i class="far fa-comments" aria-hidden="true"></i>
-                    <a href="{{ site.url }}{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{{ post.url }}"></a>
+                    <a href="{{ site.url }}{{ post.url }}index.html#disqus_thread" data-disqus-identifier="{% if post.identifier %}{{post.identifier}}{% else %}{{post.url}}{% endif %}"></a>
                 {% endif %}
             {% endif %}
         </span>

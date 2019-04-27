@@ -9,7 +9,10 @@
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 var disqus_config = function () {
     this.page.url = '{{ site.url }}{{ page.url }}';  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = '{{ page.url }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+
+    // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    // Note the lack of spaces is important because spaces count within the string.
+    this.page.identifier = '{% if page.identifier %}{{page.identifier}}{% else %}{{page.url}}{% endif %}';
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
