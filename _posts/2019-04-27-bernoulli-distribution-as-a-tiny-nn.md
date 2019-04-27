@@ -73,18 +73,19 @@ Let's consider a familiar application of supervised binary
 classification in computer vision -- image classification. We would like
 to classify a given image into one of two classes -- a *cat* image
 versus a *dog* image:
-
-<div style="display: flex; margin: 1em">
-<div style="flex: 50%; float: left;">
-<img src="/assets/bernoulli-distribution-as-tiny-nn/cat.jpg" alt="Cat Image" width="200" height="200" />
-<p style="font-size: 0.8em; padding: 0; font-style: italic;">Cat</p>
+<div style="text-align: center; margin-bottom: 2em;">
+    <div style="display: inline-block; text-align: center; padding-right: 3rem; margin-bottom: 0;">
+        <img src="/assets/bernoulli-distribution-as-tiny-nn/cat.jpg" width="190"/>
+        <p style="font-size: 0.8em; font-style: italic; margin-top:0;  margin-bottom:0;">Cat</p>
+    </div>
+    <div style="display: inline-block; text-align: center; padding-left: 3rem; margin-bottom: 0;">
+        <img src="/assets/bernoulli-distribution-as-tiny-nn/dog.jpg" width="190"/>
+        <p style="font-size: 0.8em; font-style: italic; margin-top:0; margin-bottom:0;">Dog</p>
+    </div>
+    <div>
+        <p style="margin-top:0; margin-bottom: 0; font-size: 0.8em; font-style: italic;">Images by Pexels</p>
+    </div>
 </div>
-<div style="flex: 50%; float: right;">
-<img src="/assets/bernoulli-distribution-as-tiny-nn/dog.jpg" alt="Dog Image" width="200" height="200" />
-<p style="font-size: 0.8em; font-style: italic;">Dog</p>
-</div>
-</div>
-<p style="font-size: 0.8em; font-style: italic;">Images by Pexels</p>
 
 In a supervised setting, we usually have training data available, which
 is represented as:
