@@ -9,6 +9,9 @@ image: "bernoulli-distribution-as-tiny-nn/bernoulli-model-standalone.svg"
 ---
 
 ## Introduction {#sec:intro}
+_(This document is available as a [PDF](/assets/bernoulli-distribution-as-tiny-nn/notes.pdf))_
+
+
 Logistic regression is often considered the smallest neural network for
 binary classification. We can think of Bernoulli distribution as an even
 smaller neural network -- one that doesn't even depend on the input
