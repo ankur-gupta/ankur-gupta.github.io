@@ -319,7 +319,7 @@ framework.
 
 ## Footnotes
 
-[^2]: Note that we interpret $$0^0$$ as $$1$$ and $$\log 0^0 = 0\log0 = 1$$.
+[^2]: Note that we interpret $$0^0$$ as $$1$$ and $$\log 0^0 = 0\log0 = 0$$.
 
 [^3]: For certain choices of $$f(x, \theta)$$ and $$\Phi(\theta)$$, the
     estimated model parameters may equal the estimated model parameters
