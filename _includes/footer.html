@@ -1,7 +1,12 @@
 <footer class="footer">
-    {% include social-icons.html %}
+    <nav class="footer-menu-social">
+        {% include menu-social.html %}
+    </nav>
     <div class="footer-text">
-        <a href="{{ site.url }}/about/">{{ site.title }}</a> | {{ site.description }} |
-        based on <a href="{{ site.attribution.theme_url }}">{{ site.attribution.theme_name }}</a> theme
+        <a href="{{ site.url }}/about/">{{ site.title }}</a> |
+        {{ site.description }} |
+        based on <a href="{{ site.attribution.theme_url }}">
+            {{ site.attribution.theme_name }}
+        </a> theme
     </div>
 </footer>

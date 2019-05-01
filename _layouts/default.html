@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-{% include header.html %}
-<body>
-    <div class="container">
-        <header class="masthead">
-            <h3 class="masthead-title">
-                <a href="{{ site.url }}">{{ site.title }}</a>
-                <small class="masthead-subtitle">{{ site.description }}</small>
+    {% include header.html %}
+    <body>
+        <div class="overall-container">
+            <header class="masthead">
+                <h1 class="masthead-title">
+                    <a href="{{ site.url }}">{{ site.title }}</a>
+                </h1>
+                <span class="masthead-subtitle">{{ site.description }}</span>
                 {% include menu.html %}
-            </h3>
-        </header>
-        <div class="post-container">
-            {{ content }}
+            </header>
+            <div class="post-container">
+                {{ content }}
+            </div>
+            {% include footer.html %}
         </div>
-        {% include footer.html %}
-    </div>
-</body>
+    </body>
 </html>

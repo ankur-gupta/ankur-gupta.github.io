@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+    border: 1px solid $table-border;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+
+th, td {
+    padding: .25rem .5rem;
+    border: 1px solid $table-border;
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+    background-color: $table-alt-row-color;
+}

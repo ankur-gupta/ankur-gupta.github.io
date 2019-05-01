@@ -6,7 +6,7 @@ layout: default
     {{ page.title }}
 </h1>
 
-<span class="post-byline">
+<span class="dateline post-byline">
     {% assign d = page.date | date: "%-d"  %}
     {{ page.date | date: "%B" }}
     {% case d %}
@@ -24,14 +24,14 @@ layout: default
     {% if site.disqus_shortname %}
         {% if page.comments %}
             | <i class="far fa-comments" aria-hidden="true"></i>
-            <a href="{{ site.url }}{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{ page.url }}"></a>
+            <a href="{{ site.url }}{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{% if post.identifier %}{{post.identifier}}{% else %}{{post.url}}{% endif %}"></a>
         {% endif %}
     {% endif %}
 </span>
 
 {{ content }}
 
-{% include social-sharing.html %}
+{% include sharing-social.html %}
 
 {% if site.disqus_shortname %}
     {% if page.comments %}

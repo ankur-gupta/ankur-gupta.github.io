@@ -1,0 +1,17 @@
+.search-input {
+    width: 75%;
+    font-size: 1.25em;
+    padding: 0.5em;
+}
+
+.single-search-result {
+    border-bottom: 1px solid lighten($black, 90%);
+}
+
+.single-search-result > h4 {
+    margin-bottom: 0;
+}
+
+.single-search-result > h4 > a {
+    text-decoration: none;
+}

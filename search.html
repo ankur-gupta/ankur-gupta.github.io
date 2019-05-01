@@ -4,20 +4,20 @@ title: Search
 permalink: /search/
 ---
 
-<div class="search-query">
+<div>
     <input type="text" class="search-input" id="search-input" placeholder="Search entire site" />
 </div>
 
-<div class="search-results" id="results-container"></div>
+<div id="results-container"></div>
 
 <!-- SimpleJekyllSearch https://christianfei.com/posts/Use-Simple-Jekyll-Search-on-your-blog-in-these-easy-steps/ -->
-<script src="https://unpkg.com/simple-jekyll-search@1.5.0/dest/simple-jekyll-search.min.js"></script>
+<script src="{{ site.url }}/js/simple-jekyll-search.min.js"></script>
 
 <script>
 SimpleJekyllSearch({
   'searchInput': document.getElementById('search-input'),
   'resultsContainer': document.getElementById('results-container'),
   'json': '{{ site.url }}/search.json',
-  'searchResultTemplate': '<div class="single-search-result"><h4><a href="{url}">{title}</a></h4><p class="post-date">{date}</p></div>'
+  'searchResultTemplate': '<div class="single-search-result"><h4><a href="{url}">{title}</a></h4><p class="dateline">{date}</p></div>'
 })
 </script>

@@ -1,0 +1,244 @@
+/* Overall */
+html {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: $black
+}
+
+@media (max-width: 30rem) {
+    html {
+        font-size: 16px;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    text-align: left;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+a {
+    color: $black;
+}
+
+a:hover, a:focus {
+    color: lighten($black, 50%);
+}
+
+
+/* Accessories */
+blockquote {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-left: 0.25rem solid lighten($black, 50%);
+    color: lighten($black, 50%);
+}
+
+/* Container */
+.overall-container {
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .overall-container {
+    width: 90vw;
+  }
+}
+
+.post-container {
+    margin-bottom: 4rem;
+    text-align: justify;
+}
+
+/* Masthead */
+.masthead {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 4rem;
+}
+
+.masthead-title {
+    display: inline;
+    font-size: 2.5rem;
+}
+
+.masthead-title a {
+    text-decoration: none;
+}
+
+.masthead-title a:hover, .masthead-title a:focus {
+    color: lighten($black, 25%);
+}
+
+.masthead-subtitle {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 0.65rem;
+    color: lighten($black, 50%);
+}
+
+@media (max-width: 30rem) {
+    .masthead-subtitle {
+        display: none;
+    }
+}
+
+
+/* Thumbnail images */
+.thumbnail-container {
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.thumbnail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.thumbnail-container img {
+    margin-top: -11.5%;
+    margin-bottom: -11.5%;
+}
+
+
+/* Menu */
+.masthead-menu {
+    display: block;
+    padding-top: 0.25rem;
+}
+
+.masthead-menu a {
+    text-decoration: none;
+    padding-right: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.masthead-menu-list {
+    float: left;
+}
+
+.masthead-menu-social {
+    float: right;
+}
+
+@media (max-width: 30rem) {
+    .masthead-menu-social {
+        display: none;
+    }
+    .masthead-menu-list {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Footer */
+.footer {
+    font-family: 'Quattrocento Sans', sans-serif;
+    text-align: center;
+    margin: 2rem;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer-menu-social {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-menu-social a {
+    padding-right: 0.75rem;
+    font-size: 0.9rem;
+}
+
+.footer-text {
+    font-size: 0.65rem;
+    color: lighten($black, 50%);
+}
+
+.footer-text a {
+    color: lighten($black, 50%);
+}
+
+.footer-text a:hover, .footer-text a:focus {
+    color: $black
+}
+
+/* List of posts */
+.list-of-posts {
+    margin-bottom: 5rem;
+    padding: 0;
+    list-style: none;
+}
+
+.list-of-posts > h2 > a {
+    text-decoration: none;
+}
+
+.dateline {
+    display: block;
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 0.65rem;
+    color: lighten($black, 60%);
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.dateline a {
+    text-decoration: none;
+    color: lighten($black, 60%);
+}
+
+.dateline a:hover, .list-of-posts-date a:focus {
+    text-decoration: none;
+    color: $black;
+}
+
+
+/* Posts */
+.post-title {
+    margin-bottom: 0;
+}
+
+.post-image {
+    margin-top: 1em;
+}
+
+.post-byline {
+    margin-left: 0.3rem;
+}
+
+.sharing-social {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.sharing-social span {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 0.8rem;
+    color: lighten($black, 50%);
+    vertical-align: middle;
+}
+
+.sharing-social-icon {
+     font-size: 0.8rem;
+     margin-left: 0.5rem;
+     vertical-align: middle;
+}

@@ -1,0 +1,21 @@
+{% if site.owner.github %}
+    <a href="https://www.github.com/{{ site.owner.github }}" target="_blank">
+        <i class="social-icon transition fab fa-github"></i>
+    </a>
+{% endif %}
+
+{% if site.owner.linkedin %}
+    <a href="https://www.linkedin.com/in/{{ site.owner.linkedin }}" target="_blank">
+        <i class="social-icon transition fab fa-linkedin"></i>
+    </a>
+{% endif %}
+
+{% if site.owner.twitter %}
+    <a href="https://twitter.com/{{ site.owner.twitter }}" target="_blank">
+        <i class="social-icon transition fab fa-twitter"></i>
+    </a>
+{% endif %}
+
+<a href="{{ site.url }}/feed.xml" target="_blank">
+    <i class="social-icon transition fas fa-rss-square"></i>
+</a>

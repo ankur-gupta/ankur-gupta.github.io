@@ -1,4 +1,4 @@
-# Site wide configuration
+# Site wide configuration (available as site.variable_name)
 title: Perfectly Random
 description: 'machine learning and stuff'
 url: https://www.perfectlyrandom.org

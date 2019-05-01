@@ -2,23 +2,22 @@
 layout: default
 ---
 
-
 {% for post in paginator.posts %}
-    <div class="posts">
-        <h1>
+    <div class="list-of-posts">
+        <h2>
             <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
-        </h1>
+        </h2>
 
         {% if post.image %}
             <div class="thumbnail-container">
-                <a href="{{ site.url }}{{ post.url }}"><img src="{{ site.url }}/assets/{{ post.image }}"></a>
+                <a href="{{ site.url }}{{ post.url }}"><img class="thumbnail-image" src="{{ site.url }}/assets/{{ post.image }}"></a>
             </div>
         {% endif %}
 
         <p>
-            {{ post.content | strip_html | truncate: 250 }} <a href="{{ site.url }}{{ post.url }}">Read more</a>
-
-        <span class="post-date">
+            {{ post.content | strip_html | truncate: 250 }}
+            <a href="{{ site.url }}{{ post.url }}">Read more</a>
+        <span class="dateline">
             <i class="far fa-calendar-alt" aria-hidden="true"></i>
             {{ post.date | date_to_string }} -
             <i class="far fa-clock" aria-hidden="true"></i> {% include read-time.html %}
@@ -32,7 +31,6 @@ layout: default
         </p>
     </div>
 {% endfor %}
-
 
 <!-- Pagination links -->
 <div class="pagination">
@@ -50,7 +48,6 @@ layout: default
         <span class="pagination-button">Next</span>
     {% endif %}
 </div>
-
 
 <!-- Add Disqus comment count (not the comments) -->
 <script id="dsq-count-scr" src="//{{ site.disqus_shortname }}.disqus.com/count.js" async></script>
