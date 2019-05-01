@@ -74,22 +74,19 @@ Let's consider a familiar application of supervised binary
 classification in computer vision -- image classification. We would like
 to classify a given image into one of two classes -- a *cat* image
 versus a *dog* image:
-<div style="text-align: center; margin-bottom: 2em;">
-    <div style="display: inline-block; text-align: center; padding-right: 3rem; margin-bottom: 0;">
-        <img src="/assets/bernoulli-distribution-as-tiny-nn/cat.jpg" width="190"/>
-        <p style="font-size: 0.8em; font-style: italic; margin-top:0;  margin-bottom:0;">Cat</p>
+<div style="display: flex; flex-wrap: wrap; margin-bottom: 0; padding-bottom: 0;">
+    <div style="float: left; flex: 25%; max-width: 25%; margin-left: 20%; margin-right: 5%; margin-bottom: 0; padding-bottom: 0;">
+        <img style="" src="/assets/bernoulli-distribution-as-tiny-nn/cat.jpg"/>
+        <p style="text-align: center; font-style: italic; font-size: 0.8rem; margin-bottom: 0; padding-bottom: 0;">Cat</p>
     </div>
-    <div style="display: inline-block; text-align: center; padding-left: 3rem; margin-bottom: 0;">
-        <img src="/assets/bernoulli-distribution-as-tiny-nn/dog.jpg" width="190"/>
-        <p style="font-size: 0.8em; font-style: italic; margin-top:0; margin-bottom:0;">Dog</p>
-    </div>
-    <div>
-        <p style="margin-top:0; margin-bottom: 0; font-size: 0.8em; font-style: italic;">Images by <a href="https://www.pexels.com" target="_blank">Pexels</a></p>
+    <div style="float: right; flex: 25%; max-width: 25%; margin-left: 5%; margin-right: 20%; margin-bottom: 0; padding-bottom: 0;">
+        <img style="" src="/assets/bernoulli-distribution-as-tiny-nn/dog.jpg"/>
+        <p style="text-align: center; font-style: italic; font-size: 0.8rem; margin-bottom: 0; padding-bottom: 0;">Dog</p>
     </div>
 </div>
+<p style="margin-bottom: 2rem; margin-top: 0; padding-top:0; text-align: center; font-style: italic; font-size: 0.8rem;">Image by <a href="https://www.pexels.com" target="_blank">Pexels</a></p>
 
-In a supervised setting, we usually have training data available, which
-is represented as:
+In a supervised setting, we usually have training data available, which is represented as:
 
 $$
 \{
