@@ -119,7 +119,7 @@ Y\sim\text{SomeDistribution}(x, \theta) \label{eqn:some-distribution}
 $$
 
 in which, $$\theta \in \mathbb{R}^{n_t}$$ is the set of model parameters.
-The training data in is interpreted as a list of $$m$$ statistical samples of $$Y$$ generated along
+The training data (shown above) is interpreted as a list of $$m$$ statistical samples of $$Y$$ generated along
 with the corresponding values of $$x$$.[^5] When we choose to model the output label as random
 variable, we have a well-established approach to minimize the
 discrepancy between the predicted and true labels -- maximum likelihood
@@ -219,7 +219,7 @@ version for the same result obtained using the additive form.
 In the previous subsection, we didn't even consider the input $$x$$ in our
 model. If we want to include the input $$x$$, we could replace the
 previously constant $$p$$ with a function of $$x$$. A simple way to include
-$x$ is to model $$p$$ as an *affine*[^7] function of $$x$$ instead of a constant
+$$x$$ is to model $$p$$ as an *affine*[^7] function of $$x$$ instead of a constant
 
 $$
 p = w^{T} x + b \label{eqn:affine}
