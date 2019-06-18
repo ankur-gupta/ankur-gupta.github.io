@@ -9,15 +9,15 @@ I have a PhD in numerical optimization, statistics, & modeling.
 I am passionate about ML/statistics but also about software engineering.
 My current interests include:
 * fundamental improvements in computer vision methods,
-* advanced feature engineering,
+* advanced feature engineering including embeddings,
 * machine learning at a terabyte+ scale,
-* fundamentally new distributed,
-* scalable ML systems,
+* fundamentally new distributed, scalable ML systems,
 * use of graph algorithms for machine learning
 
 I mostly program in Python nowadays but I have used R extensively in the past. I also write
 production code in Scala using the Spark framework. I also dabble with HTML/CSS/JS to make websites
 (this blog, [Trio](https://github.com/ankur-gupta/trio),
+ Laplacian[https://www.perfectlyrandom.org/laplacian/],
 [former research group](https://jbrwww.che.wisc.edu/)).
 
 Most of my published research involves the combination of chemical engineering with statistics,
