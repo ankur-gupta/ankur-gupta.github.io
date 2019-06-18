@@ -15,7 +15,8 @@ My current interests include:
 * use of graph algorithms for machine learning
 
 I mostly program in Python nowadays but I have used R extensively in the past. I also write
-production code in Scala using the Spark framework. Here are some of my projects:
+production code in Scala using the Spark framework. Here are some of my projects (_sans_ the
+machine learning projects I do for work):
 
 * Websites (HTML/CSS/JS)
     - [Laplacian](https://www.perfectlyrandom.org/laplacian/), a jekyll theme
