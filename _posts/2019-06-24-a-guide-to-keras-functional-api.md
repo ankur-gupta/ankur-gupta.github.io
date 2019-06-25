@@ -5,7 +5,7 @@ title: A Guide to Keras Functional API
 author: Ankur Gupta
 date: 2019-06-24
 comments: true
-image: "a-guide-to-keras-functional-api/layer-transformation.svg"
+image: "a-guide-to-keras-functional-api/tensorflow-graph.png"
 ---
 
 ## What is Keras?
