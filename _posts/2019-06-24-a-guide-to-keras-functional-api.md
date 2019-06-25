@@ -365,6 +365,8 @@ needed only when we _fit_ the model to the training data. Typically, we store th
 output training data as numpy arrays. These numpy arrays must conform to the shapes of the
 `input_tensor` and `output_tensor` respectively.
 ```python
+import numpy as np
+
 input_numpy = np.random.rand(1000, 10)
 output_numpy = np.random.choice(2, 1000)
 ```
@@ -485,7 +487,7 @@ The `image_data_format` is typically found in `~/.keras/keras.json`.
 As an example, for RGB images of 64x64 pixels, we can expect to see something like this:
 
 ```python
-from keras.layers import Conv2D
+from keras.layers import Input, Conv2D
 input_tensor = Input((64, 64, 3))  # 64x64 pixels, 3 channels
 conv_layer = Conv2D(filters=17, kernel_size=(3, 3))
 output_tensor = conv_layer(input_tensor)
@@ -517,9 +519,7 @@ is a one-hot vector of length 4. Thus, one input example is of size
 `(input_sequence_length, vocab_size) = (5, 4)` and there can be many input examples in a batch.
 The following code represents how to build an `LSTM` model to accept this input.
 ```python
-import numpy as np
 from keras.layers import Input, LSTM, Dense
-from keras.models import Model
 
 input_sequence_length = 4
 vocab_size = 5
@@ -554,6 +554,8 @@ stock price to be a vector of one dimension. The following code snippet shows th
 incorrect way of specifying tensor shapes.
 
 ```python
+from keras.layers import Input, LSTM, Dense
+
 # Correct
 input_sequence_length = 5
 input_dimension = 1
