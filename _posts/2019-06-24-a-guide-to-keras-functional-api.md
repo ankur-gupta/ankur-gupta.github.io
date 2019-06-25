@@ -303,8 +303,8 @@ output_tensor = sigmoid_layer(dense_layer_2(dense_layer_1(input_tensor)))
 
 This one line of code connects all the previously unconnected nodes in the order specified.
 This results in the following (weakly) connected directed graph.
-The `InputLayer` node is present because a directed edge must have
-two nodes (_from_ node and _to_ node) but `InputLayer` is typically not important for the end user.
+The `InputLayer` node is present because of technical reasons and
+is typically not important for the end user.
 
 <div style="margin-top: 2em; margin-bottom: 2em;">
 <img src="/assets/a-guide-to-keras-functional-api/connected-graph.svg"
