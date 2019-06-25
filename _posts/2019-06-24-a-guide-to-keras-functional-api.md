@@ -434,6 +434,8 @@ def check_batch_size(input_numpy, output_numpy):
 
 Let's call the `check_batch_size` function with both the correct and incorrect input shape.
 ```python
+import numpy as np
+
 n_features = 10
 batch_size = 1
 
