@@ -9,7 +9,7 @@ image: "a-guide-to-keras-functional-api/tensorflow-graph.png"
 ---
 
 ## What is Keras?
-Keras means many different things. As the time of writing this article,
+Keras means many different things. At the time of writing this article,
 Keras can refer to one of three things:
 
 1. Keras, the [API specification](https://keras.io)
@@ -36,7 +36,7 @@ used by `keras`. In that sense, `keras`, the reference implementation may be con
 wrapper over TensorFlow.
 
 TensorFlow 2.0 adopted Keras API specification as their default, high-level API for building
-and deep learning models. TensorFlow comes with another, self-contained implementation
+and training deep learning models. TensorFlow comes with another, self-contained implementation
 of the Keras API specification. This implementation is called `tf.keras`. `tf.keras` exists
 within the `tensorflow` package and does not require the user to install `keras`, the reference
 implementation. Since `tf.keras` and `keras` are both implementations of the same Keras API
@@ -52,7 +52,7 @@ Most of this article should also apply to `tf.keras`.
 This article aims to provide a deeper understanding of Keras's inner workings.
 The article is intended towards audiences who have previously used or attempted to
 use a Keras implementation. This article is _not_ an introductory, step-by-step tutorial on how to
-user a specific Keras implementation.
+use a specific Keras implementation.
 
 ## Sequential and Functional API
 Keras API specification provides two APIs for the end user -- Sequential API and the
