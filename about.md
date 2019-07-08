@@ -4,8 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-Hi! I am an experienced machine learning/data scientist who can write production code.
-I have a PhD in numerical optimization, statistics, & modeling.
+Hi! My name is _Ankur Gupta_. I am an experienced machine learning/data scientist who can
+write production code. I have a PhD in numerical optimization, statistics, & modeling.
 I am passionate about ML/statistics but also about software engineering.
 My current interests include:
 * fundamental improvements in computer vision methods,
@@ -47,4 +47,8 @@ In the past, I have mostly blogged about productivity improvement techniques, R,
 Going forward, you should see more of the same as well as articles about machine learning
 and statistics.
 
-Feel free to reach out to me!
+Feel free to reach out to me! My Twitter handle is [ankurIO](https://twitter.com/ankurIO) which
+may be the best way to reach out to me. For questions on specific posts, please feel free to drop a
+comment in the posts. Or, you can reach out to me via
+[LinkedIn](https://www.linkedin.com/in/ankurguptawisc) or
+[GitHub](https://www.github.com/ankur-gupta).
