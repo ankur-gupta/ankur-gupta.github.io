@@ -32,3 +32,8 @@ plugins: ['jekyll-paginate']
 
 # Exclude
 exclude: ['README.md']
+
+# Collections (https://jekyllrb.com/docs/collections/) for Bites
+collections:
+  bites:
+    output: true

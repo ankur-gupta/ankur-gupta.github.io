@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% assign sorted = site.bites | sort: 'date' | reverse %}
+{% for bite in sorted %}
+    <div class="list-of-posts">
+        <h2 class="bite-header-in-list">
+            <a href="{{ site.url }}{{ bite.url }}">{{ bite.title }}</a>
+        </h2>
+
+        <span class="dateline">
+            <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            {{ bite.date | date_to_string }}
+            {% if site.disqus_shortname %}
+                {% if bite.comments %}
+                    - <i class="far fa-comments" aria-hidden="true"></i>
+                    <a href="{{ site.url }}{{ bite.url }}index.html#disqus_thread" data-disqus-identifier="{% if bite.identifier %}{{bite.identifier}}{% else %}{{bite.url}}{% endif %}"></a>
+                {% endif %}
+            {% endif %}
+        </span>
+        <p>{{ bite.content }}</p>
+    </div>
+{% endfor %}
+
+<!-- Add Disqus comment count (not the comments) -->
+<script id="dsq-count-scr" src="//{{ site.disqus_shortname }}.disqus.com/count.js" async></script>
