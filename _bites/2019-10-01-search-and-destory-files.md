@@ -1,6 +1,6 @@
 ---
 layout: post
-identifier: search-and-destory-files.md
+identifier: search-and-destory-files
 title: "Search & destroy files"
 date: 2019-10-01
 comments: true
