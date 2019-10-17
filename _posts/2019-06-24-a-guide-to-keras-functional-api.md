@@ -43,14 +43,14 @@ implementation. Since `tf.keras` and `keras` are both implementations of the sam
 specification, there are lots of similarities between `tf.keras` and `keras`. But, `tf.keras`
 contains Tensorflow-specific enhancements and may not be exactly the same as `keras`.
 
-#### What this article covers?
+#### What does this article cover?
 In this article, we use the reference implementation,
 [`keras 2.2.4`](https://github.com/keras-team/keras/tree/2.2.4)
-with TensorFlow backed, to describe the Keras API
+with TensorFlow backend, to describe the Keras API
 specification, specifically, the Functional API.
 Most of this article should also apply to `tf.keras`.
 This article aims to provide a deeper understanding of Keras's inner workings.
-The article is intended towards audiences who have previously used or attempted to
+The article is intended for audiences who have previously used or attempted to
 use a Keras implementation. This article is _not_ an introductory, step-by-step tutorial on how to
 use a specific Keras implementation.
 
@@ -353,7 +353,7 @@ model = Model(inputs=[input_tensor], outputs=[output_tensor])
 ```
 
 Once we have a `Model` object, we can specify the optimizer, loss functions, and metrics to track
-in the _compile_ step. `Model.compile` is a method of the class and we don't need to store it's return
+in the _compile_ step. `Model.compile` is a method of the class and we don't need to store its return
 value (which is `None` anyways).
 
 ```python
@@ -450,7 +450,7 @@ check_batch_size(input_numpy, output_numpy)  # fails because of missing batch di
 ```
 
 Keras is more forgiving when it comes to the shape of the `output_numpy` array. But it's still
-a good practice to have output numpy arrays have first dimension be the batch size.
+a good practice to have batch size be the first dimension in output numpy arrays.
 
 Batch size is not important for neural network specification. This is expected because
 typically we would like to run the trained model for one test example at a time; fixing the
@@ -642,7 +642,7 @@ Thus, there is no way for us (or for Keras) to check if we have used the correct
 and not features. Therefore, Example 1 is the more typical usage (by far) and represents the correct
 way to perform the commonly understood implementation of batch normalization.
 
-The problem becomes worse when we more than one feature dimension, as shown below.
+The problem becomes worse when we have more than one feature dimension, as shown below.
 
 ```python
 from keras.layers import Input, BatchNormalization
