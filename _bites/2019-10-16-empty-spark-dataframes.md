@@ -1,7 +1,7 @@
 ---
 layout: post
 identifier: empty-spark-dataframes
-title: "Empty Spark dataframes"
+title: "Empty spark dataframes"
 date: 2019-10-16
 comments: true
 ---
