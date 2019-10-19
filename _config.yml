@@ -37,3 +37,4 @@ exclude: ['README.md']
 collections:
   bites:
     output: true
+    permalink: /:collection/:year/:month/:day/:title
