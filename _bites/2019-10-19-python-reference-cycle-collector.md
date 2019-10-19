@@ -24,7 +24,6 @@ for our investigation.
 import sys, os, gc, psutil  # ignore E401
 import numpy as np
 
-# Create a process to measure memory usage
 process = psutil.Process(os.getpid())
 
 def print_memory():
