@@ -5,13 +5,13 @@ title: "Empty spark dataframes"
 date: 2019-10-16
 comments: true
 ---
-Creating an empty spark dataframe is a bit tricky. Let's see this with some examples.
+Creating an empty spark dataframe is a bit tricky. Let's see some examples.
 First, let's create a `SparkSession` object to use.
 ```python
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName('my_app').getOrCreate()
 ```
-The following fails because the schema cannot be inferred.
+The following command fails because the schema cannot be inferred.
 We can make it work by specifying the schema as a string.
 ```python
 spark.createDataFrame([])  # fails!

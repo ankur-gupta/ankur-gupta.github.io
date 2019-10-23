@@ -16,7 +16,7 @@ spark.catalog.listFunctions()
 # Function(name='my_square', description=None, className=None, isTemporary=True),
 # ...
 ```
-You can see list tables and see if they are cached.
+You can see a list of tables and see which ones are cached.
 ```python
 df = spark.createDataFrame([(x, x) for x in range(10000)], 'a INT, b INT')
 df.is_cached
