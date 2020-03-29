@@ -377,7 +377,7 @@ step-by-step.
 
 ### Confusing official guide
 The [official Spark documentation on Avro](https://spark.apache.org/docs/latest/sql-data-sources-avro.html)
-contains two _seemingly_ contradictory claims. One the one hand, the official documentation says
+contains two _seemingly_ contradictory claims. On one hand, the official documentation says
 
 > Since Spark 2.4 release, Spark SQL provides built-in support for reading and writing Apache Avro data.
 
