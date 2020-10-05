@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/ankurgupta
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.perfectlyrandom.org
+  * I am ankurgupta (https://keybase.io/ankurgupta) on keybase.
+  * I have a public key ASBAt37WOcyDY-KQNj2AOgjhL-ZVkspmqHa8aIOwUrfnUQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120c6b18fd7e1cbc059c7c1bf36e46edb7cd5235178661261e939cf2a71b3ad2a310a",
+      "host": "keybase.io",
+      "kid": "012040b77ed639cc8363e290363d803a08e12fe65592ca66a876bc6883b052b7e7510a",
+      "uid": "a93111d0f15d812c62080386d0e57319",
+      "username": "ankurgupta"
+    },
+    "merkle_root": {
+      "ctime": 1601872819,
+      "hash": "9a943fc8c3359a24b3a09263ebb93bd1e96c706912d6e9d2dc4635e1aad30a4205d7f3607b03d83cf5187f35a0b6cc1fe695394bac1409e886cb19b3729b81b1",
+      "hash_meta": "3331ab4812c7bf61b37f893c17a35ef9a2e12aa9d72fc4cdcb2ef95b4b24b428",
+      "seqno": 17746770
+    },
+    "service": {
+      "entropy": "2WJzi4IoBFqZnZBCz8pF24zb",
+      "hostname": "www.perfectlyrandom.org",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.0"
+  },
+  "ctime": 1601872833,
+  "expire_in": 504576000,
+  "prev": "7525ffdb11012ab08e8dbe4ed2e5873401fcc72c2038b6486e73a1b0bfb19f5f",
+  "seqno": 14,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgQLd+1jnMg2PikDY9gDoI4S/mVZLKZqh2vGiDsFK351EKp3BheWxvYWTESpcCDsQgdSX/2xEBKrCOjb5O0uWHNAH8xywgOLZIbnOhsL+xn1/EIOYg2eDvfA6wuBqnQ8yFYucpJyZwsl09FNdscPSGF1DmAgHCo3NpZ8RAwCPpUeBWohg4mFD1304XnZDg6m7hflEYebEmtIQzFnuVUHOTlMlKUzxUdjuyRMkjWZ+/Knw8Y2U34vSGkJnPCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIOp6Q5v4EYA2OhF5QG+CfJuHCDbcMwW3Qw3G19i/jJTIo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ankurgupta
+
+==================================================================
