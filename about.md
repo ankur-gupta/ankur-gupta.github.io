@@ -4,43 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
-Hi! My name is _Ankur Gupta_. I am an experienced machine learning/data scientist who can
-write production code. I have a PhD in numerical optimization, statistics, & modeling.
-I am passionate about ML/statistics but also about software engineering.
-My current interests include:
-* fundamental improvements in computer vision methods,
-* advanced feature engineering including embeddings,
-* machine learning at a terabyte+ scale,
-* fundamentally new distributed, scalable ML systems,
-* use of graph algorithms for machine learning
-
-I mostly program in Python nowadays but I have used R extensively in the past. I also write
-production code in Scala using the Spark framework. Here are some of my projects (_sans_ the
-machine learning projects I do for work):
-
-* **Websites (HTML/CSS/JS)**
-    - [Laplacian](https://www.perfectlyrandom.org/laplacian/), a jekyll theme
-    - [Trio](https://github.com/ankur-gupta/trio), a jekyll theme
-    - this blog
-    - website for my [former research group](https://jbrwww.che.wisc.edu/)
-* **LaTeX themes and templates**
-    - [uwcbethesis](https://github.com/ankur-gupta/uwcbethesis), a UW-CBE compliant thesis theme
-    - [quicknotes](https://github.com/ankur-gupta/quicknotes), a theme for writing notes
-* **Python**
-    - [rain](https://github.com/ankur-gupta/rain), a template python package
-    - [Unbracket](https://github.com/ankur-gupta/Unbracket), a plugin for Sublime Text 3
-    - [dframe](https://github.com/ankur-gupta/dframe), an abandoned python package that implements indexless dataframes
-    - [arboreal](https://github.com/ankur-gupta/arboreal), an abandoned python package for decision trees
-* **Assorted**
-    - [r-plumber](https://github.com/ankur-gupta/r-plumber), a docker image for writing APIs in R using [plumber](https://www.rplumber.io/)
-    - [keyboard](https://github.com/ankur-gupta/keyboard), a set of scripts to make (K)Ubuntu work like a Mac
-    - [examples](https://github.com/ankur-gupta/examples), a collection of handy snippets for Python and R
-    - [numerical-software-examples](https://github.com/ankur-gupta/numerical-software-examples), a collection of examples and install scripts for numerical software such as NLOPT, SUNDIALS, and CasADi
-
-
-Most of my published research involves the combination of chemical engineering with statistics,
-machine learning, or differential equations. You can find more information on my
-[Google Scholar profile](https://scholar.google.com/citations?user=pdA2f7oAAAAJ&hl=en).
+Hi! My name is _Ankur Gupta_. I am a machine learning scientist in the Bay Area.
+I have a PhD in numerical optimization, statistics, & modeling.
+I am write about machine learning, statistics, programming, and software. In the past,
+I used to write code in R, Octave/MATLAB, and a little bit in C, C++.
+Nowadays, I program mostly in Python and ocassionally in Scala.
 
 On this blog, I publish articles that I believe would save someone else a lot time and effort.
 In the past, I have mostly blogged about productivity improvement techniques, R, Spark, and Ubuntu.
@@ -52,3 +20,103 @@ may be the best way to reach out to me. For questions on specific posts, please 
 comment in the posts. Or, you can reach out to me via
 [LinkedIn](https://www.linkedin.com/in/ankurguptawisc) or
 [GitHub](https://www.github.com/ankur-gupta).
+
+
+### Open Sourced Projects
+<!-- Widgets thanks to https://ghbtns.com/ -->
+<table style="width:100%">
+<tbody>
+  <tr>
+    <td>Python</td>
+    <td><a href="https://github.com/ankur-gupta/rain">rain</a></td>
+    <td>🌧️ A live example to illustrate python packaging, testing, building, & deploying</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=rain&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=rain&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=rain&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="https://github.com/ankur-gupta/flicker">flicker</a></td>
+    <td>🔥 Wrapper over Pyspark DataFrame to provide a pandas-like API</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=flicker&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=flicker&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=flicker&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="https://github.com/ankur-gupta/pyspark-playground">pyspark-playground</a></td>
+    <td>🤾‍♂️ Full-fledged Docker image and cluster to run pyspark</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=pyspark-playground&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=pyspark-playground&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=pyspark-playground&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="https://github.com/ankur-gupta/Unbracket">Unbracket</a></td>
+    <td>Sublime Text 3 Plugin that allows you to remove curly brackets, square brackets, or parentheses</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=Unbracket&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=Unbracket&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=Unbracket&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td>Web</td>
+    <td><a href="https://github.com/ankur-gupta/trio">trio</a></td>
+    <td>A simple content-focused Jekyll theme</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=trio&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=trio&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=trio&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="https://github.com/ankur-gupta/laplacian">laplacian</a></td>
+    <td>Jekyll theme based on Lagrange</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=laplacian&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=laplacian&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=laplacian&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td>Latex</td>
+    <td><a href="https://github.com/ankur-gupta/uwcbethesis">uwcbethesis</a></td>
+    <td>UW CBE Compliant LaTeX Thesis Style</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=uwcbethesis&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=uwcbethesis&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=uwcbethesis&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><a href="https://github.com/ankur-gupta/quicknotes">quicknotes</a></td>
+    <td>📕 Latex theme for writing notes</td>
+    <td>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=quicknotes&type=star&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=quicknotes&type=fork&count=true" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe><br/>
+    <iframe src="https://ghbtns.com/github-btn.html?user=ankur-gupta&repo=quicknotes&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="150" height="20" title="GitHub"></iframe>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+### Research
+Most of my published research until now has been focused on chemical engineering, statistics,
+machine learning, and differential equations. You can find more information on my
+[Google Scholar profile](https://scholar.google.com/citations?user=pdA2f7oAAAAJ&hl=en).
+
+<br/>
+
+### Teaching
+[Asynchronous Programming in Python](https://async.perfectlyrandom.org/) is a soon-to-be-completed
+self-study course that teaches asynchronous python programming in a more straightforward way by
+removing the unnecessary historical cruft.
