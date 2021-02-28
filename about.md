@@ -24,7 +24,7 @@ comment in the posts. Or, you can reach out to me via
 
 ### Open Sourced Projects
 <!-- Widgets thanks to https://ghbtns.com/ -->
-<table style="width:100%">
+<table>
 <tbody>
   <tr>
     <td>Python</td>
