@@ -117,7 +117,7 @@ machine learning, and differential equations. You can find more information on m
 <br/>
 
 ### Teaching
-#### <a href="https://async.perfectlyrandom.org/"><i class="fas fa-random"></i></a> Asynchronous Programming in Python
+#### <a href="https://async.perfectlyrandom.org/" style="color:#2094F3"><i class="fas fa-random"></i></a> Asynchronous Programming in Python
 [Asynchronous Programming in Python](https://async.perfectlyrandom.org/)
 is a soon-to-be-completed self-study course that teaches asynchronous python programming in a
 more straightforward way by removing the unnecessary historical cruft.
