@@ -121,3 +121,9 @@ machine learning, and differential equations. You can find more information on m
 [Asynchronous Programming in Python](https://async.perfectlyrandom.org/)
 is a soon-to-be-completed self-study course that teaches asynchronous python programming in a
 more straightforward way by removing the unnecessary historical cruft.
+<br/><br/><br/>
+
+#### <a href="https://interviews.perfectlyrandom.org/" style="color:#8BC34B"><i class="fas fa-infinity"></i></a> Selected Topics in CS & Math
+[Selected Topics in CS & Math](https://interviews.perfectlyrandom.org/)
+is a to-be-completed self-study course that discusses selected topics in computer science
+and mathematics, often useful for interview preparation.
