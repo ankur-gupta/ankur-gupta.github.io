@@ -16,7 +16,7 @@ which in turn, is based on the Lagrange theme (https://lenpaul.github.io/Lagrang
 ### GitHub Actions
 
 - Uses the official [`actions/jekyll-build-pages`](https://github.com/actions/jekyll-build-pages) action.
-- **No `Gemfile` needed** — GitHub Actions uses a preconfigured Jekyll environment with supported plugins built-in.
+- **No `Gemfile` needed** — GitHub Actions uses a preconfigured Jekyll environment with supported plugins built-in (you do get a build warning which you can ignore for now).
 - The workflow builds and deploys your site automatically on push.
 
 ### Local Development
