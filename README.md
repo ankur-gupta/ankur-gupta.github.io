@@ -1,4 +1,9 @@
-# ankur-gupta.github.io
+# ankur-gupta.github.io [DEPRECATED]
+
+**See https://github.com/ankur-gupta/perfectlyrandom.org instead.**
+
+
+
 
 [http://ankur-gupta.github.io](http://ankur-gupta.github.io) or
 [https://www.perfectlyrandom.org](https://www.perfectlyrandom.org).
